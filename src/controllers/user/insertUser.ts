@@ -11,7 +11,7 @@ const insertUser = async (req: Request, res: Response) => {
 
     const user = await insertUserAndReturn(params);
 
-    return res.json(user);
+    return res.status(201).json(user);
   } catch (error: any) {
     handleError(res, error, 400);
   }
