@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { handleError } from "../../utils";
-import { LoginParams } from "../../models";
+import { LoginUserParams } from "../../models";
 import { loginUserAndReturn } from "../../services";
 
 const loginUser = async (req: Request, res: Response) => {
   try {
-    const { email, password } = req.body as LoginParams;
+    const { email, password } = req.body as LoginUserParams;
 
     const response = await loginUserAndReturn(email, password);
 
