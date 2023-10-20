@@ -1,3 +1,3 @@
-import { UserParams } from "./user";
+import { UserParams, LoginUserParams, DatabaseParams } from "./user";
 
-export { UserParams };
+export { UserParams, LoginUserParams, DatabaseParams };

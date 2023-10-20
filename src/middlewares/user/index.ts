@@ -1,3 +1,4 @@
 import verifyUserBody from "./verifyUserBody";
+import verifyLoginUserBody from "./verifyLoginUserBody";
 
-export { verifyUserBody };
+export { verifyUserBody, verifyLoginUserBody };

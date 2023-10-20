@@ -1,3 +1,3 @@
-import { verifyUserBody } from "./user";
+import { verifyUserBody, verifyLoginUserBody } from "./user";
 
-export { verifyUserBody };
+export { verifyUserBody, verifyLoginUserBody };

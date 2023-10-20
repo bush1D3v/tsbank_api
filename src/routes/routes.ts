@@ -1,11 +1,11 @@
 import express from "express";
-import { helloWorld, insertUser } from "../controllers";
-import { verifyUserBody } from "../middlewares";
-
+import { helloWorld, insertUser, loginUser } from "../controllers";
+import { verifyUserBody, verifyLoginUserBody } from "../middlewares";
 
 const routes = express();
 
 routes.get("/", helloWorld);
-routes.post("/usuario", verifyUserBody, insertUser);
+routes.post("/user", verifyUserBody, insertUser);
+routes.post("/login", verifyLoginUserBody, loginUser);
 
 export default routes;

@@ -1,3 +1,3 @@
-import { createNewUser } from "./user";
+import { createNewUser, validatePassword, validateEmail } from "./user";
 
-export { createNewUser };
+export { createNewUser, validatePassword, validateEmail };

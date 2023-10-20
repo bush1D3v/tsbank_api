@@ -19,3 +19,24 @@ create table
     user_id integer references users (id),
     type text not null
   );
+
+insert into
+  categories (description)
+values
+  ('Food'),
+  ('Subscriptions and Services'),
+  ('House'),
+  ('Market'),
+  ('Personal Cares'),
+  ('Education'),
+  ('Family'),
+  ('Entertainment'),
+  ('Pets'),
+  ('Gifts'),
+  ('Clothing'),
+  ('Health'),
+  ('Transport'),
+  ('Salary'),
+  ('Sales'),
+  ('Other Recipes'),
+  ('Other Expenses');
