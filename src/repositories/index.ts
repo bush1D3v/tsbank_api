@@ -1,3 +1,13 @@
-import { createNewUser, validatePassword, validateEmail } from "./user";
+import {
+  createNewUser,
+  validatePassword,
+  validateEmail,
+  getUserPerId
+} from "./user";
 
-export { createNewUser, validatePassword, validateEmail };
+export {
+  createNewUser,
+  validatePassword,
+  validateEmail,
+  getUserPerId
+};
