@@ -1,4 +1,4 @@
 import helloWorld from "./helloWorld";
-import { insertUser, loginUser } from "./user";
+import { insertUser, loginUser, detailUser } from "./user";
 
-export { insertUser, helloWorld, loginUser };
+export { helloWorld, insertUser, loginUser, detailUser };
