@@ -1,3 +1,3 @@
-import { insertUserAndReturn } from "./user";
+import { insertUserAndReturn, loginUserAndReturn } from "./user";
 
-export { insertUserAndReturn };
+export { insertUserAndReturn, loginUserAndReturn };
