@@ -2,12 +2,14 @@ import {
   createNewUser,
   validatePassword,
   validateEmail,
-  getUserPerId
+  getUserPerId,
+  updateUser
 } from "./user";
 
 export {
   createNewUser,
   validatePassword,
   validateEmail,
-  getUserPerId
+  getUserPerId,
+  updateUser
 };
