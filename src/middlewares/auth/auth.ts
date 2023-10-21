@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { handleError } from "../../utils";
-import getToken from "../../utils/getToken";
+import { getToken } from "../../utils";
 
 const auth = (req: Request, res: Response, next: NextFunction) => {
   try {

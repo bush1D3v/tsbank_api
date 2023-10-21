@@ -15,6 +15,8 @@ const getToken = (req: Request) => {
 
   if (typeof userToken !== "string") {
     return userToken.id;
+  } else {
+    throw new Error("Unauthorized");
   }
 };
 
