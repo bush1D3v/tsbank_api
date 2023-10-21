@@ -1,15 +1,16 @@
 import db from "../../data/connection";
+import { UserParams } from "../../models";
 
-const createNewUser = async (params: string[]) => {
+const createNewUser = async (params: UserParams) => {
   const user = await db("users")
     .insert({
-      name: params[ 0 ],
-      email: params[ 1 ],
-      password: params[ 2 ]
+      name: params[ "name" ],
+      email: params[ "email" ],
+      password: params[ "password" ]
     })
-    .returning([ "id", "name", "email" ]);
+    .returning([ "id", "name", "email" ]).first();
 
-  return user[ 0 ];
+  return user;
 };
 
 export default createNewUser;
