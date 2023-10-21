@@ -1,11 +1,13 @@
 import {
   insertUserAndReturn,
   loginUserAndReturn,
-  getUserDetailsAndReturn
+  getUserDetailsAndReturn,
+  updateUserAndReturn
 } from "./user";
 
 export {
   insertUserAndReturn,
   loginUserAndReturn,
-  getUserDetailsAndReturn
+  getUserDetailsAndReturn,
+  updateUserAndReturn
 };
