@@ -20,7 +20,7 @@
 </div> <br>
 
 ## 📄 Sobre o Projeto
-<strong>RESTFUL API</strong> de um banco com integração a <strong>banco de dados</strong>, <strong>autenticação</strong> de usuário e <strong>criptografia</strong> de senha. <br> Projeto realizado levando em consideração o princípio de responsabilidade única, <strong>SOLID</strong>. 
+<strong>RESTFUL API</strong> de um banco com integração a <strong>banco de dados</strong>, <strong>autenticação</strong> de usuário e <strong>criptografia</strong> de senha. <br> Projeto realizado utilizando o princípio de responsabilidade única, <strong>SOLID</strong>. 
 
 # 💻 Como executar esse projeto?
 
