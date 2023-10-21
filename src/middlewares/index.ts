@@ -1,4 +1,14 @@
-import { verifyUserBody, verifyLoginUserBody } from "./user";
 import auth from "./auth";
 
-export { verifyUserBody, verifyLoginUserBody, auth };
+import {
+  verifyUserBody,
+  verifyLoginUserBody,
+  verifyEmailExists
+} from "./user";
+
+export {
+  verifyUserBody,
+  verifyLoginUserBody,
+  auth,
+  verifyEmailExists
+};
