@@ -206,7 +206,6 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
       "date": "2022-03-24T15:30:00.000Z",
       "user_id": 5,
       "categorie_id": 6,
-      "categorie_name": "Salary",
   }
   ```
 
@@ -231,7 +230,6 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
           "date": "2022-03-23T15:35:00.000Z",
           "user_id": 5,
           "categorie_id": 4,
-          "categorie_name": "Clothing",
       },
       {
           "id": 3,
@@ -241,7 +239,6 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
           "date": "2022-03-24T15:30:00.000Z",
           "user_id": 5,
           "categorie_id": 6,
-          "categorie_name": "Salary",
       }
   ]
     ```
@@ -260,8 +257,7 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
           "value": 15800,                    
           "date": "2022-03-23T15:35:00.000Z",
           "user_id": 5,                   
-          "categorie_id": 4,                 
-          "categorie_name": "Clothing",        
+          "categorie_id": 4,                  
       },                                    
       {                                    
           "id": 3,                        
@@ -271,7 +267,6 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
           "date": "2022-03-24T15:30:00.000Z",
           "user_id": 5,                
           "categorie_id": 6,                
-          "categorie_name": "Salary",   
       }
     ]
   ```
@@ -295,7 +290,6 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
         "date": "2022-03-24T15:30:00.000Z",
         "user_id": 5,
         "categorie_id": 6,
-        "categorie_name": "Salary",
     }
     ```
     
