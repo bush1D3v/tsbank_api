@@ -13,7 +13,7 @@ create table
   transactions (
     id serial primary key,
     description text,
-    value numeric not null,
+    value integer not null,
     date date default current_date,
     categorie_id integer references categories (id),
     user_id integer references users (id),
