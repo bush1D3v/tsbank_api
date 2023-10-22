@@ -8,9 +8,9 @@ const createNewUser = async (params: UserParams) => {
       email: params[ "email" ],
       password: params[ "password" ]
     })
-    .returning([ "id", "name", "email" ]).first();
+    .returning([ "id", "name", "email" ]);
 
-  return user;
+  return user[ 0 ];
 };
 
 export default createNewUser;
