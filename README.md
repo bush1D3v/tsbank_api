@@ -9,14 +9,14 @@
     <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg' />
     <img align='center' height='54' width='68' title='Node.js' alt='nodejs' src='https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg' />
     <img align='center' height='55' width='70' title='PostgreSQL' alt='postgresql' src='https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original.svg' />
-    <img align='center' height='54' width='68' title='Jest' alt='jest' src='https://github.com/devicons/devicon/blob/master/icons/jest/jest-plain.svg' />
-    <img align='center' height='49' width='49' title='Express' alt='express' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/ba645c20-1f19-4914-8ad0-de6c7f83ba2e' /> &nbsp;
-    <img align='center' height='53' width='49' title='Nodemon' alt='nodemon' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/fd586348-7781-4e02-a4f0-fe7410ef43fb' /> &nbsp;
-    <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/432ec521-c94a-4f24-964e-f62658d04581' /> &nbsp;
-    <img align='center' height='53' width='55' title='JsonWebToken' alt='jsonwebtoken' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/d23ffb9d-aedc-4d68-9209-7268d7f41ce6' /> &nbsp;
-    <img align='center' height='48' width='48' title='Bcrypt' alt='bcrypt' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/5863bac1-a591-4776-82a4-f427681934be' /> &nbsp;
-    <img align='center' height='48' width='48' title='Insomnia' alt='insomnia' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/75a3fffd-792e-4250-8ef5-2abb615e38a0' /> &nbsp;
-    <img align='center' height='53' width='49' title='Beekeeper' alt='beekeeper' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/0d5b4b55-546c-4bc0-a25c-dfc9116fe993' /> &nbsp;
+    <img align='center' height='54' width='68' title='Jest' alt='jest' src='https://github.com/devicons/devicon/blob/master/icons/jest/jest-plain.svg' /> &nbsp;
+    <img align='center' height='49' width='49' title='Express' alt='express' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/ba645c20-1f19-4914-8ad0-de6c7f83ba2e' /> &nbsp; &nbsp;
+    <img align='center' height='53' width='49' title='Nodemon' alt='nodemon' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/fd586348-7781-4e02-a4f0-fe7410ef43fb' /> &nbsp; &nbsp;
+    <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/432ec521-c94a-4f24-964e-f62658d04581' /> &nbsp; &nbsp;
+    <img align='center' height='53' width='55' title='JsonWebToken' alt='jsonwebtoken' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/d23ffb9d-aedc-4d68-9209-7268d7f41ce6' /> &nbsp; &nbsp;
+    <img align='center' height='48' width='48' title='Bcrypt' alt='bcrypt' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/5863bac1-a591-4776-82a4-f427681934be' /> &nbsp; &nbsp;
+    <img align='center' height='48' width='48' title='Insomnia' alt='insomnia' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/75a3fffd-792e-4250-8ef5-2abb615e38a0' /> &nbsp; &nbsp;
+    <img align='center' height='53' width='49' title='Beekeeper' alt='beekeeper' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/0d5b4b55-546c-4bc0-a25c-dfc9116fe993' /> &nbsp; &nbsp;
     <img align='center' height='50' width='50' title='Knex' alt='knex' src='https://github.com/bush1D3v/bank_restful_api/assets/133554156/428d135b-9aeb-46e2-b6f6-94791326ff2f' /> 
 </div> <br>
 
@@ -136,6 +136,10 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjIzMjQ5NjIxLCJleHAiOjE2MjMyNzg0MjF9.KLR9t7m_JQJfpuRv9_8H2-XJ92TSjKhGPxJXVfX6wBI"
   }
   ```
+
+# 🚧 ATENÇÃO 
+
+> Após a rota de login, as rotas terão que receber o **token de autenticação** no **Headers** da requisição.
   
 ## Detalhar Perfil do Usuário Logado
 
@@ -173,28 +177,39 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
 
   🚨 SEM RESPOSTA DE REQUISIÇÃO
 
-## Listar Categorias
+## Cadastrar Transação do Usuário Logado
 
-- **GET** `/categorie`
+- **POST** `/transaction`
 
-  **Lista todas as categorias cadastradas no sistema.**
-
-  🚨 SEM CORPO DE REQUISIÇÃO
+  **Permite que o usuário logado cadastre uma nova transação.**
+  
+  Exemplo de requisição:
+  
+    ```json
+  {
+        "type": "input",
+        "description": "Salary",
+        "value": 300000,
+        "date": "2022-03-24T15:30:00.000Z",
+        "categorie_id": 6
+  }
+  ```
 
   Exemplo de Resposta:
 
-    ```json
-  [
-      {
-          "id": 1,
-          "description": "Clothing"
-      },
-      {
-          "id": 2,
-          "description": "Market"
-      }
-  ]
-    ```
+  ```json
+  {
+      "id": 3,
+      "type": "input",
+      "description": "Passive income",
+      "value": 300000,
+      "date": "2022-03-24T15:30:00.000Z",
+      "user_id": 5,
+      "categorie_id": 6,
+      "categorie_name": "Salary",
+  }
+  ```
+
 
 ## Listar Transações do Usuário Logado
 
@@ -283,40 +298,7 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
         "categorie_name": "Salary",
     }
     ```
-
-## Cadastrar Transação do Usuário Logado
-
-- **POST** `/transaction`
-
-  **Permite que o usuário logado cadastre uma nova transação.**
-  
-  Exemplo de requisição:
-  
-    ```json
-  {
-        "type": "input",
-        "description": "Salary",
-        "value": 300000,
-        "date": "2022-03-24T15:30:00.000Z",
-        "categorie_id": 6
-  }
-  ```
-
-  Exemplo de Resposta:
-
-  ```json
-  {
-      "id": 3,
-      "type": "input",
-      "description": "Passive income",
-      "value": 300000,
-      "date": "2022-03-24T15:30:00.000Z",
-      "user_id": 5,
-      "categorie_id": 6,
-      "categorie_name": "Salary",
-  }
-  ```
-
+    
 ## Atualizar Transação do Usuário Logado
 
 - **PUT** `/transaction/:id`
