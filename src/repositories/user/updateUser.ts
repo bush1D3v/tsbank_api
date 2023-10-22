@@ -6,7 +6,7 @@ const updateUser = async (params: UserParams, id: number) => {
     name: params.name,
     email: params.email,
     password: params.password
-  }).where({ id }).returning([ "name", "email" ]);
+  }).where({ id }).returning([ "id", "name", "email" ]);
 
   return newUser[ 0 ];
 };
