@@ -1,10 +1,9 @@
 import express from "express";
 
-import { insertTransaction } from "../controllers";
+import { insertTransaction, listTransactions } from "../controllers";
 
 import {
   verifyTransactionBody,
-  verifyCategorieId,
   verifyType
 } from "../middlewares";
 
@@ -14,8 +13,12 @@ transactionRoutes.post(
   "/transaction",
   verifyType,
   verifyTransactionBody,
-  verifyCategorieId,
   insertTransaction
+);
+
+transactionRoutes.get(
+  "/transaction",
+  listTransactions
 );
 
 export default transactionRoutes;
