@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { handleError } from "../../utils";
+import { handleError } from "../../error";
 import { loginUserSchema } from "../../schemas";
 
 const verifyLoginUserBody = async (req: Request, res: Response, next: NextFunction) => {
