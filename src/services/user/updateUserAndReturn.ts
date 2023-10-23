@@ -3,8 +3,11 @@ import { updateUser } from "../../repositories";
 import { encryptPassword } from "../../utils";
 import { Request } from "express";
 import getToken from "../../utils/getToken";
+import { verifyEmailExists } from "../../providers";
 
-const updateUserAndReturn = async (params: UserParams, req: Request) => {
+const updateUserAndReturn = async (req: Request, params: UserParams) => {
+  await verifyEmailExists(req);
+
   const cryptPassword = await encryptPassword(params.password);
 
   const id = getToken(req);
