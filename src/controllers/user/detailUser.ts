@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { handleError } from "../../utils";
+import { handleError } from "../../error";
 import { getUserDetailsAndReturn } from "../../services";
 
 const detailUser = async (req: Request, res: Response) => {
