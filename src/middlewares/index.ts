@@ -6,9 +6,18 @@ import {
   verifyEmailExists
 } from "./user";
 
+import {
+  verifyTransactionBody,
+  verifyCategorieId,
+  verifyType
+} from "./transaction";
+
 export {
   verifyUserBody,
   verifyLoginUserBody,
   auth,
-  verifyEmailExists
+  verifyEmailExists,
+  verifyTransactionBody,
+  verifyCategorieId,
+  verifyType
 };

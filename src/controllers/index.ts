@@ -7,10 +7,13 @@ import {
   updateUser
 } from "./user";
 
+import { insertTransaction } from "./transaction";
+
 export {
   helloWorld,
   insertUser,
   loginUser,
   detailUser,
-  updateUser
+  updateUser,
+  insertTransaction
 };
