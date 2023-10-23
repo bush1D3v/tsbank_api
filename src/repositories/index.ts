@@ -6,10 +6,14 @@ import {
   updateUser
 } from "./user";
 
+import { getCategoriePerId, createNewTransaction } from "./transaction";
+
 export {
   createNewUser,
   validatePassword,
   validateEmail,
   getUserPerId,
-  updateUser
+  updateUser,
+  getCategoriePerId,
+  createNewTransaction
 };

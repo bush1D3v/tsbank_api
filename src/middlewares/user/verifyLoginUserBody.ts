@@ -8,7 +8,7 @@ const verifyLoginUserBody = async (req: Request, res: Response, next: NextFuncti
 
     next();
   } catch (error: any) {
-    handleError(res, error, 401);
+    handleError(res, error, 400);
   }
 };
 
