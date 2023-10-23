@@ -4,7 +4,8 @@
   "description": "API RESTful de simulações bancárias.",
   "main": "index.ts",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "test": "npx jest --detectOpenHandles"
   },
   "keywords": [
     "npm",
