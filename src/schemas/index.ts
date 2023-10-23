@@ -1,3 +1,4 @@
 import { userSchema, loginUserSchema } from "./user";
+import transactionSchema from "./transaction/transactionSchema";
 
-export { userSchema, loginUserSchema };
+export { userSchema, loginUserSchema, transactionSchema };
