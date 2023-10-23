@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { handleError } from "../../utils";
+import { handleError } from "../../error";
 import { TransactionParams } from "../../models";
 import { insertTransactionAndReturn } from "../../services/transaction";
 
