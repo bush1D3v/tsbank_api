@@ -9,8 +9,8 @@
     <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg' />
     <img align='center' height='54' width='68' title='Node.js' alt='nodejs' src='https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg' />
     <img align='center' height='55' width='70' title='PostgreSQL' alt='postgresql' src='https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original.svg' />
-    <img align='center' height='54' width='68' title='Jest' alt='jest' src='https://github.com/devicons/devicon/blob/master/icons/jest/jest-plain.svg' />
-    <img align='center' height='49' width='49' title='Express' alt='express' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/ba645c20-1f19-4914-8ad0-de6c7f83ba2e' /> &nbsp;
+    <img align='center' height='54' width='68' title='Jest' alt='jest' src='https://github.com/devicons/devicon/blob/master/icons/jest/jest-plain.svg' /> &nbsp;
+    <img align='center' height='49' width='49' title='Express' alt='express' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/ba645c20-1f19-4914-8ad0-de6c7f83ba2e' /> &nbsp; 
     <img align='center' height='53' width='49' title='Nodemon' alt='nodemon' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/fd586348-7781-4e02-a4f0-fe7410ef43fb' /> &nbsp;
     <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/432ec521-c94a-4f24-964e-f62658d04581' /> &nbsp;
     <img align='center' height='53' width='55' title='JsonWebToken' alt='jsonwebtoken' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/d23ffb9d-aedc-4d68-9209-7268d7f41ce6' /> &nbsp;
@@ -136,6 +136,10 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjIzMjQ5NjIxLCJleHAiOjE2MjMyNzg0MjF9.KLR9t7m_JQJfpuRv9_8H2-XJ92TSjKhGPxJXVfX6wBI"
   }
   ```
+
+# 🚧 ATENÇÃO 
+
+> Após a rota de login, as rotas terão que receber o **token de autenticação** no **Headers** da requisição.
   
 ## Detalhar Perfil do Usuário Logado
 
@@ -173,117 +177,6 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
 
   🚨 SEM RESPOSTA DE REQUISIÇÃO
 
-## Listar Categorias
-
-- **GET** `/categorie`
-
-  **Lista todas as categorias cadastradas no sistema.**
-
-  🚨 SEM CORPO DE REQUISIÇÃO
-
-  Exemplo de Resposta:
-
-    ```json
-  [
-      {
-          "id": 1,
-          "description": "Clothing"
-      },
-      {
-          "id": 2,
-          "description": "Market"
-      }
-  ]
-    ```
-
-## Listar Transações do Usuário Logado
-
-- **GET** `/transaction`
-
-  **Lista todas as transações associadas ao usuário logado.**
-
-  🚨 SEM CORPO DE REQUISIÇÃO
-
-  Exemplo de Resposta:
-
-    ```json
-  [
-      {
-          "id": 1,
-          "type": "output",
-          "description": "Yellow shoe",
-          "value": 15800,
-          "date": "2022-03-23T15:35:00.000Z",
-          "user_id": 5,
-          "categorie_id": 4,
-          "categorie_name": "Clothing",
-      },
-      {
-          "id": 3,
-          "type": "input",
-          "description": "Passive income",
-          "value": 300000,
-          "date": "2022-03-24T15:30:00.000Z",
-          "user_id": 5,
-          "categorie_id": 6,
-          "categorie_name": "Salary",
-      }
-  ]
-    ```
-  
-  **⭐EXTRA⭐**
-  - **Nesta rota, podemos filtrar os tipos de transações de retorno através da URL, desta forma:** <br>
-    **GET** /transaction`?filter[]=clothing&filter[]=salary`
-
-  🎯 Exemplo de resposta:
-    ```json
-    [                                          
-      {                                      
-          "id": 1,                           
-          "type": "output",                   
-          "description": "Yellow shoe",     
-          "value": 15800,                    
-          "date": "2022-03-23T15:35:00.000Z",
-          "user_id": 5,                   
-          "categorie_id": 4,                 
-          "categorie_name": "Clothing",        
-      },                                    
-      {                                    
-          "id": 3,                        
-          "type": "input",              
-          "descriction": "Passive income",         
-          "value": 300000,               
-          "date": "2022-03-24T15:30:00.000Z",
-          "user_id": 5,                
-          "categorie_id": 6,                
-          "categorie_name": "Salary",   
-      }
-    ]
-  ```
-
-## Detalhar Transação do Usuário Logado
-
-- **GET** `/transaction/:id`
-
-  **Obtém detalhes de uma transação específica associada ao usuário logado.**
-
-  🚨 SEM CORPO DE REQUISIÇÃO
-
-  Exemplo de Resposta:
-
-    ```json
-    {
-        "id": 3,
-        "type": "input",
-        "description": "Passive income",
-        "value": 300000,
-        "date": "2022-03-24T15:30:00.000Z",
-        "user_id": 5,
-        "categorie_id": 6,
-        "categorie_name": "Salary",
-    }
-    ```
-
 ## Cadastrar Transação do Usuário Logado
 
 - **POST** `/transaction`
@@ -313,10 +206,93 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
       "date": "2022-03-24T15:30:00.000Z",
       "user_id": 5,
       "categorie_id": 6,
-      "categorie_name": "Salary",
   }
   ```
 
+
+## Listar Transações do Usuário Logado
+
+- **GET** `/transaction`
+
+  **Lista todas as transações associadas ao usuário logado.**
+
+  🚨 SEM CORPO DE REQUISIÇÃO
+
+  Exemplo de Resposta:
+
+    ```json
+  [
+      {
+          "id": 1,
+          "type": "output",
+          "description": "Yellow shoe",
+          "value": 15800,
+          "date": "2022-03-23T15:35:00.000Z",
+          "user_id": 5,
+          "categorie_id": 4,
+      },
+      {
+          "id": 3,
+          "type": "input",
+          "description": "Passive income",
+          "value": 300000,
+          "date": "2022-03-24T15:30:00.000Z",
+          "user_id": 5,
+          "categorie_id": 6,
+      }
+  ]
+    ```
+  
+  **⭐EXTRA⭐**
+  - **Nesta rota, podemos filtrar os tipos de transações de retorno através da URL, desta forma:** <br>
+    **GET** /transaction`?filter[]=clothing&filter[]=salary`
+
+  🎯 Exemplo de resposta:
+    ```json
+    [                                          
+      {                                      
+          "id": 1,                           
+          "type": "output",                   
+          "description": "Yellow shoe",     
+          "value": 15800,                    
+          "date": "2022-03-23T15:35:00.000Z",
+          "user_id": 5,                   
+          "categorie_id": 4,                  
+      },                                    
+      {                                    
+          "id": 3,                        
+          "type": "input",              
+          "descriction": "Passive income",         
+          "value": 300000,               
+          "date": "2022-03-24T15:30:00.000Z",
+          "user_id": 5,                
+          "categorie_id": 6,                
+      }
+    ]
+  ```
+
+## Detalhar Transação do Usuário Logado
+
+- **GET** `/transaction/:id`
+
+  **Obtém detalhes de uma transação específica associada ao usuário logado.**
+
+  🚨 SEM CORPO DE REQUISIÇÃO
+
+  Exemplo de Resposta:
+
+    ```json
+    {
+        "id": 3,
+        "type": "input",
+        "description": "Passive income",
+        "value": 300000,
+        "date": "2022-03-24T15:30:00.000Z",
+        "user_id": 5,
+        "categorie_id": 6,
+    }
+    ```
+    
 ## Atualizar Transação do Usuário Logado
 
 - **PUT** `/transaction/:id`
