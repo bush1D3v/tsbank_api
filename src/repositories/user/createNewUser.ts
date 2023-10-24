@@ -1,8 +1,8 @@
 import db from "../../data/connection";
-import { UserParams } from "../../models";
+import { ReturnedDatabaseUserParams, UserParams } from "../../models";
 
 const createNewUser = async (params: UserParams) => {
-  const user = await db("users")
+  const user: ReturnedDatabaseUserParams[] = await db("users")
     .insert({
       name: params[ "name" ],
       email: params[ "email" ],
