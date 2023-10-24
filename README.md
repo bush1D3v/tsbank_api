@@ -21,8 +21,7 @@
 </div> <br>
 
 ## 📄 Sobre o Projeto
-<strong>RESTFUL API</strong> de um banco com integração a <strong>banco de dados</strong>, <strong>autenticação</strong> de usuário e <strong>criptografia</strong> de senha. <br> Projeto realizado utilizando o princípio de responsabilidade única, <strong>SOLID</strong>. 
-
+<strong>RESTFUL API</strong> de um banco com integração a <strong>banco de dados</strong>, <strong>autenticação</strong> de usuário e <strong>criptografia</strong> de senha. <br> Projeto realizado seguindo o acrônimo <strong>CRUD</strong>, o princípio <strong>SRP</strong> do <strong>SOLID</strong> e <strong>Clean Architecture</strong>.
 # 💻 Como executar esse projeto?
 
 Para executar esse projeto localmente, você vai precisar:
