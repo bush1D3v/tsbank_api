@@ -1,6 +1,10 @@
 import express from "express";
 
-import { insertTransaction, listTransactions } from "../controllers";
+import {
+  insertTransaction,
+  listTransactions,
+  detailTransaction
+} from "../controllers";
 
 import {
   verifyTransactionBody,
@@ -19,6 +23,11 @@ transactionRoutes.post(
 transactionRoutes.get(
   "/transaction",
   listTransactions
+);
+
+transactionRoutes.get(
+  "/transaction/:id",
+  detailTransaction
 );
 
 export default transactionRoutes;

@@ -9,7 +9,7 @@ const insertUser = async (req: Request, res: Response) => {
 
     const params = { name, email, password };
 
-    const user = await insertUserAndReturn(req, params);
+    const user = await insertUserAndReturn(params);
 
     return res.status(201).json(user);
   } catch (error: any) {

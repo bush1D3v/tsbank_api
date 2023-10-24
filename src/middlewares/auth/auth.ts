@@ -4,7 +4,7 @@ import { getToken } from "../../utils";
 
 const auth = (req: Request, res: Response, next: NextFunction) => {
   try {
-    const verifyer = getToken(req);
+    getToken(req);
 
     next();
   } catch (error: any) {

@@ -1,6 +1,6 @@
-import getTransactionsAndReturn from "../../services/transaction/getTransactionsAndReturn";
-import { handleError } from "../../error";
 import { Request, Response } from "express";
+import { getTransactionsAndReturn } from "../../services";
+import { handleError } from "../../error";
 
 const listTransactions = async (req: Request, res: Response) => {
   try {

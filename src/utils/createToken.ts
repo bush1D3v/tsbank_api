@@ -1,8 +1,8 @@
 import { sign } from "jsonwebtoken";
 import jwtPassword from "../jwt/jwtPassword";
-import { DatabaseParams } from "../models/user/DatabaseParams";
+import { DatabaseUserParams } from "../models";
 
-const createToken = (user: DatabaseParams) => {
+const createToken = (user: DatabaseUserParams) => {
   const token = sign({ id: user.id }, jwtPassword, { expiresIn: process.env.JWT_EXPIRES });
 
   const { password: _, ...logedUser } = user;

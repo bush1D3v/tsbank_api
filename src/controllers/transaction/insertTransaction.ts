@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
 import { TransactionParams } from "../../models";
-import { insertTransactionAndReturn } from "../../services/transaction";
+import { insertTransactionAndReturn } from "../../services";
 
 const insertTransaction = async (req: Request, res: Response) => {
   try {

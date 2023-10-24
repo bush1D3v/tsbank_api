@@ -6,7 +6,7 @@ const detailUser = async (req: Request, res: Response) => {
   try {
     const user = await getUserDetailsAndReturn(req);
 
-    res.json(user);
+    return res.json(user);
   } catch (error: any) {
     handleError(res, error, 401);
   }

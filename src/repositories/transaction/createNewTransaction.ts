@@ -1,8 +1,8 @@
 import db from "../../data/connection";
-import { TransactionParams } from "../../models";
+import { DatabaseTransactionParams, TransactionParams } from "../../models";
 
 const createNewTransaction = async (params: TransactionParams, id: number) => {
-  const newTransaction = await db("transactions").insert({
+  const newTransaction: DatabaseTransactionParams[] = await db("transactions").insert({
     type: params.type,
     description: params.description,
     value: params.value,

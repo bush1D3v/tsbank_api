@@ -1,5 +1,11 @@
 import { UserParams } from "./UserParams";
 import { LoginUserParams } from "./LoginUserParams";
-import { DatabaseParams } from "./DatabaseParams";
+import { DatabaseUserParams } from "./DatabaseUserParams";
+import { ReturnedDatabaseUserParams } from "./ReturnedDatabaseUserParams";
 
-export { UserParams, LoginUserParams, DatabaseParams };
+export {
+  UserParams,
+  LoginUserParams,
+  DatabaseUserParams,
+  ReturnedDatabaseUserParams
+};

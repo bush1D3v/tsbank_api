@@ -1,8 +1,8 @@
 import db from "../../data/connection";
-import { UserParams } from "../../models";
+import { UserParams, ReturnedDatabaseUserParams } from "../../models";
 
 const updateUser = async (params: UserParams, id: number) => {
-  const newUser = await db("users").update({
+  const newUser: ReturnedDatabaseUserParams[] = await db("users").update({
     name: params.name,
     email: params.email,
     password: params.password

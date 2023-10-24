@@ -1,4 +1,4 @@
-import getToken from "../../utils/getToken";
+import { getToken } from "../../utils";
 import { Request } from "express";
 import { getUserPerId } from "../../repositories";
 

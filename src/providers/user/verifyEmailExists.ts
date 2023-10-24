@@ -1,9 +1,7 @@
-import { Request } from "express";
 import { HttpStatusError } from "../../error";
 import { validateEmail } from "../../repositories";
 
-const verifyEmailExists = async (req: Request) => {
-  const { email } = req.body;
+const verifyEmailExists = async (email: string) => {
   const emailExists = await validateEmail(email);
 
   if (emailExists) {

@@ -1,4 +1,4 @@
-
+import { DatabaseTransactionParams } from "./DatabaseTransactionParams";
 import { TransactionParams } from "./TransactionParams";
 
-export { TransactionParams };
+export { TransactionParams, DatabaseTransactionParams };

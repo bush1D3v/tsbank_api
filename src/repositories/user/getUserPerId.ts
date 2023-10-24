@@ -1,8 +1,8 @@
 import db from "../../data/connection";
-import { DatabaseParams } from "../../models";
+import { DatabaseUserParams } from "../../models";
 
 const getUserPerId = async (id: number) => {
-  const user: DatabaseParams = await db("users").where({ id }).first();
+  const user: DatabaseUserParams = await db("users").where({ id }).first();
 
   const { password: _, ...userResponse } = user;
 

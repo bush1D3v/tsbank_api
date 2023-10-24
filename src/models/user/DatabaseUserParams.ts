@@ -1,5 +1,5 @@
 import { UserParams } from "./UserParams";
 
-export interface DatabaseParams extends UserParams {
+export interface DatabaseUserParams extends UserParams {
   id: number;
 }

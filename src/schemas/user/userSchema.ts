@@ -1,9 +1,9 @@
-import loginUserSchema from "./loginUserSchema";
+import * as yup from "yup";
 
-const userSchema = loginUserSchema.shape({
-  name: loginUserSchema.fields.password,
-  email: loginUserSchema.fields.email,
-  password: loginUserSchema.fields.password
+const userSchema = yup.object({
+  name: yup.string().required(),
+  email: yup.string().email().required(),
+  password: yup.string().required()
 });
 
 export default userSchema;
