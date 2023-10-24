@@ -7,7 +7,11 @@ import {
   updateUser
 } from "./user";
 
-import { insertTransaction, listTransactions } from "./transaction";
+import {
+  insertTransaction,
+  listTransactions,
+  detailTransaction
+} from "./transaction";
 
 export {
   helloWorld,
@@ -16,5 +20,6 @@ export {
   detailUser,
   updateUser,
   insertTransaction,
-  listTransactions
+  listTransactions,
+  detailTransaction
 };
