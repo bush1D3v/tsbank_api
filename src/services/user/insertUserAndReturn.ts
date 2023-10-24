@@ -1,11 +1,10 @@
-import { Request } from "express";
 import { UserParams } from "../../models";
 import { verifyEmailExists } from "../../providers";
 import { createNewUser } from "../../repositories";
 import { encryptPassword } from "../../utils";
 
-const insertUserAndReturn = async (req: Request, params: UserParams) => {
-  await verifyEmailExists(req);
+const insertUserAndReturn = async (params: UserParams) => {
+  await verifyEmailExists(params.email);
 
   const cryptPassword = await encryptPassword(params.password);
 
