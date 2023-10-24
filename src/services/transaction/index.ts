@@ -1,4 +1,9 @@
-
+import getTransactionsAndReturn from "./getTransactionsAndReturn";
 import insertTransactionAndReturn from "./insertTransactionAndReturn";
+import getTransactionAndReturn from "./getTransactionAndReturn";
 
-export { insertTransactionAndReturn };
+export {
+  insertTransactionAndReturn,
+  getTransactionsAndReturn,
+  getTransactionAndReturn
+};
