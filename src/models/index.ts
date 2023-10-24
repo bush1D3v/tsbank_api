@@ -1,7 +1,8 @@
 import {
   UserParams,
   LoginUserParams,
-  DatabaseUserParams
+  DatabaseUserParams,
+  ReturnedDatabaseUserParams,
 } from "./user";
 
 import {
@@ -13,6 +14,7 @@ export {
   UserParams,
   LoginUserParams,
   DatabaseUserParams,
+  ReturnedDatabaseUserParams,
   TransactionParams,
   DatabaseTransactionParams
 };
