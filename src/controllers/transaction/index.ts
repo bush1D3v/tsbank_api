@@ -1,5 +1,9 @@
-
 import insertTransaction from "./insertTransaction";
 import listTransactions from "./listTransactions";
+import detailTransaction from "./detailTransaction";
 
-export { insertTransaction, listTransactions };
+export {
+  insertTransaction,
+  listTransactions,
+  detailTransaction
+};
