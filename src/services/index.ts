@@ -5,9 +5,18 @@ import {
   updateUserAndReturn
 } from "./user";
 
+import {
+  insertTransactionAndReturn,
+  getTransactionsAndReturn,
+  getTransactionAndReturn
+} from "./transaction";
+
 export {
   insertUserAndReturn,
   loginUserAndReturn,
   getUserDetailsAndReturn,
-  updateUserAndReturn
+  updateUserAndReturn,
+  insertTransactionAndReturn,
+  getTransactionsAndReturn,
+  getTransactionAndReturn
 };
