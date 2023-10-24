@@ -1,4 +1,14 @@
-import verifyCategorieId from "./transaction/verifyCategorieId";
-import verifyEmailExists from "./user/verifyEmailExists";
+import {
+  verifyCategorieId,
+  validateTransaction,
+  verifyTransactionId
+} from "./transaction";
 
-export { verifyCategorieId, verifyEmailExists };
+import { verifyEmailExists } from "./user";
+
+export {
+  verifyCategorieId,
+  verifyEmailExists,
+  validateTransaction,
+  verifyTransactionId
+};
