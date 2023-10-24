@@ -7,7 +7,7 @@ import {
   updateUser
 } from "./user";
 
-import { insertTransaction } from "./transaction";
+import { insertTransaction, listTransactions } from "./transaction";
 
 export {
   helloWorld,
@@ -15,5 +15,6 @@ export {
   loginUser,
   detailUser,
   updateUser,
-  insertTransaction
+  insertTransaction,
+  listTransactions
 };

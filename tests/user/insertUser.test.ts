@@ -1,5 +1,5 @@
 import request from "supertest";
-import server from "../../../src/server";
+import server from "../../src/server";
 
 describe("User Insertion Controller Tests", () => {
   it("Must create a new user successfully", async () => {

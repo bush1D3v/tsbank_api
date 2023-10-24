@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { handleError } from "../../utils";
+import { handleError } from "../../error";
 import { transactionSchema } from "../../schemas";
 
 const verifyTransactionBody = async (req: Request, res: Response, next: NextFunction) => {

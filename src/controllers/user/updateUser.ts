@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { handleError } from "../../utils";
+import { handleError } from "../../error";
 import { updateUserAndReturn } from "../../services";
 
 const updateUser = async (req: Request, res: Response) => {
   try {
-    const newUser = await updateUserAndReturn(req.body, req);
+    const newUser = await updateUserAndReturn(req, req.body);
 
     return res.status(201).json(newUser);
   } catch (error: any) {

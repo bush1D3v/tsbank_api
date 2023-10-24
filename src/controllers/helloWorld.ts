@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { handleError } from "../utils";
+import { handleError } from "../error";
 
 const helloWorld = (req: Request, res: Response) => {
   try {

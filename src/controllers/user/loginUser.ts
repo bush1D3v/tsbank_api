@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { handleError } from "../../utils";
+import { handleError } from "../../error";
 import { LoginUserParams } from "../../models";
 import { loginUserAndReturn } from "../../services";
 

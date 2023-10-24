@@ -10,8 +10,7 @@ import {
 import {
   verifyUserBody,
   verifyLoginUserBody,
-  auth,
-  verifyEmailExists
+  auth
 } from "../middlewares";
 
 const UserRoutes = express();
@@ -19,7 +18,6 @@ const UserRoutes = express();
 UserRoutes.post(
   "/user",
   verifyUserBody,
-  verifyEmailExists,
   insertUser
 );
 UserRoutes.post(
@@ -37,7 +35,6 @@ UserRoutes.get(
 UserRoutes.put(
   "/user",
   verifyUserBody,
-  verifyEmailExists,
   updateUser
 );
 

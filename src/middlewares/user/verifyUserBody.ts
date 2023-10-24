@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { userSchema } from "../../schemas";
-import { handleError } from "../../utils";
+import { handleError } from "../../error";
 
 const verifyUserBody = async (req: Request, res: Response, next: NextFunction) => {
   try {
