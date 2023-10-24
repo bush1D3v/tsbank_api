@@ -1,9 +1,18 @@
-import { UserParams, LoginUserParams, DatabaseParams } from "./user";
-import { TransactionParams } from "./transaction/";
+import {
+  UserParams,
+  LoginUserParams,
+  DatabaseUserParams
+} from "./user";
+
+import {
+  TransactionParams,
+  DatabaseTransactionParams
+} from "./transaction";
 
 export {
   UserParams,
   LoginUserParams,
-  DatabaseParams,
-  TransactionParams
+  DatabaseUserParams,
+  TransactionParams,
+  DatabaseTransactionParams
 };
