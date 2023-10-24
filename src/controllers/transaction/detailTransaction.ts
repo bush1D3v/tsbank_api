@@ -9,7 +9,7 @@ const detailTransaction = async (req: Request, res: Response) => {
     const transaction = await getTransactionAndReturn(req, parseInt(id));
 
     return res.json(transaction);
-  } catch (error) {
+  } catch (error: any) {
     handleError(res, error, 400);
   }
 };
