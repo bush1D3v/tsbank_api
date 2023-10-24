@@ -9,7 +9,8 @@ import {
 import {
   getCategoriePerId,
   createNewTransaction,
-  getTransactions
+  getTransactions,
+  getTransaction
 } from "./transaction";
 
 export {
@@ -20,5 +21,6 @@ export {
   updateUser,
   getCategoriePerId,
   createNewTransaction,
-  getTransactions
+  getTransactions,
+  getTransaction
 };
