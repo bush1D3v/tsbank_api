@@ -118,8 +118,8 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
 
   ```json    
   {
-        "email": "jose@email.com",
-        "password": "123456"
+      "email": "jose@email.com",
+      "password": "123456"
   }
   ```
 
