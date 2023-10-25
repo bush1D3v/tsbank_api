@@ -4,6 +4,9 @@
 ![Repository size](https://img.shields.io/github/repo-size/bush1D3v/tsbank_api?color=green) &nbsp;
 ![Pull request](https://img.shields.io/static/v1?label=PR&message=welcome&color=blue)
 
+## 🔍 Sobre o Projeto
+A **API TSBank** é uma aplicação **RESTful** que oferece suporte a operações **CRUD** simples, **gerenciamento** e **controle** de transações, geração de **extratos**, além de ter a capacidade de **atualizar informações**, tanto do **usuário** quanto das suas **transações**.
+
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
 <div>
     <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg' />
@@ -18,65 +21,14 @@
     <img align='center' height='48' width='48' title='Insomnia' alt='insomnia' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/75a3fffd-792e-4250-8ef5-2abb615e38a0' /> &nbsp;
     <img align='center' height='53' width='49' title='Beekeeper' alt='beekeeper' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/0d5b4b55-546c-4bc0-a25c-dfc9116fe993' /> &nbsp;
     <img align='center' height='50' width='50' title='Knex' alt='knex' src='https://github.com/bush1D3v/bank_restful_api/assets/133554156/428d135b-9aeb-46e2-b6f6-94791326ff2f' /> 
-</div> <br>
+</div>
 
-## 📄 Sobre o Projeto
-<strong>RESTFUL API</strong> de um banco com integração a <strong>banco de dados</strong>, <strong>autenticação</strong> de usuário e <strong>criptografia</strong> de senha. <br> Projeto realizado seguindo o acrônimo <strong>CRUD</strong>, o princípio <strong>SRP</strong> do <strong>SOLID</strong>, <strong>Clean Architecture</strong> e <strong>TDD</strong>.
-# 💻 Como executar esse projeto?
+## 🏗 Estrutura e Arquitetura
 
-Para executar esse projeto localmente, você vai precisar:
+O projeto segue os princípios da **arquitetura limpa** e leva em consideração os princípios do **SOLID**. O código foi organizado de acordo com os princípios de **modularidade**, **reutilização** e **responsabilidade única**.
 
-- Clonar Esse Repositório
-
-```zsh
-git clone https://github.com/bush1D3v/tsbank_api
-```
-
-- Instalar dependências
-
-```zsh
-npm install
-```
-
-- Executar projeto com
-
-```zsh
-npm run dev
-```
-
-# ⚠️ Não se Esqueça
-
-Para que o projeto funcione corretamente, você precisa configurar o arquivo `.env.example`, para que ele aponte para as informações do banco de dados PostgreSQL instalado em sua máquina. Siga os passos abaixo para fazer essa configuração:
-
-1. **Configure o arquivo `.env.example`:** Para que seja possível a conexão com o seu banco de dados, forneça as informações necessárias para criar a conexão através do dotenv.
-
-   ```javascript
-   DB_HOST=your_host
-   DB_PORT=your_port
-   DB_USER=your_user
-   DB_PASS=your_password
-   DB_DATA=your_database
-
-   PORT=your_port
-      
-   JWT_PASS=your_key
-   JWT_EXPIRES=your_expires
-   ```
-
-2. **Execute o Dump SQL:** Após configurar o arquivo `.env.example`, certifique-se de ter executado o script SQL fornecido (`dump.sql`) no seu banco de dados PostgreSQL. Isso criará as tabelas necessárias.
-
-   ```sql
-   create table users (
-     id serial primary key,
-     name text not null,
-     email text not null unique,
-     password text not null
-   ); ...
-   ```
- 
-Certifique-se de fornecer as informações corretas de acordo com o seu ambiente local. Após essas configurações, o projeto estará pronto para se conectar ao seu banco de dados PostgreSQL local, e sua execução se tornará possível.
-
-**Lembre-se de que as informações do banco de dados são sensíveis, portanto, mantenha-as seguras e não compartilhe com terceiros.**
+## 🔏	Autenticação
+Para usar a API, é **necessário** autenticar-se. Você deve obter um **token JWT válido** através do **endpoint de login** antes de acessar outros recursos. O token JWT deve ser incluído no **cabeçalho de autorização** de **todas** as solicitações subsequentes.
 
 # 🗺️ Rotas
 
@@ -138,7 +90,7 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
 
 # 🚧 ATENÇÃO 
 
-> Após a rota de login, as rotas terão que receber o **token de autenticação** no **Headers** da requisição.
+> Após a rota de login, as **subsequentes** terão que receber o **token JWT** através do **cabeçalho de autorização** da requisição.
   
 ## Detalhar Perfil do Usuário Logado
 
@@ -338,3 +290,92 @@ Certifique-se de fornecer as informações corretas de acordo com o seu ambiente
       "output": 15800
   }
   ```
+
+<br>
+
+# 📃 Documentação no Swaggger
+A seguir, temos o link da documentação oficial da nossa aplicação no app Swagger.
+
+
+# 🖋️ Contribuindo para a TSBank API
+
+Agradecemos pelo seu interesse em contribuir para a **TSBank API**. Sua ajuda é **valiosa** para melhorar e **expandir** nossa aplicação. Abaixo estão as **diretrizes** e os **passos** para contribuir com nosso projeto.
+
+## 💻 Como Contribuir
+
+### 🌳 Forkando o Repositório
+Antes de começar, você **deverá** forkar o repositório do projeto para **seu perfil**.
+
+### 🖨 Clonando seu Repositório
+Após o Fork, você **precisará** clonar o repositório forkado para seu **ambiente de desenvolvimento local**:
+
+```
+git clone https://github.com/{seu-usuario}/tsbank_api.git
+cd tsbank_api
+```
+
+### ⏬ Instalando Dependências
+Certifique-se de ter Node.js instalado no seu sistema. Em seguida, instale as dependências necessárias:
+
+```
+npm install
+```
+ou
+```
+yarn install
+```
+
+### 🆕 Criando uma Branch
+Antes de iniciar qualquer trabalho, crie uma branch separada para a sua contribuição. Use um nome descritivo para a sua branch:
+
+```
+git checkout -b feature/nova-funcionalidade
+```
+
+### 🔨 Fazendo Alterações
+Faça as alterações necessárias no código, adicione novos recursos ou correções de bugs.
+
+### 🧪 Testando
+Garanta que suas alterações não quebraram nenhum recurso existente. Execute os testes e certifique-se de que todos passam:
+
+```
+npm test
+```
+ou
+```
+yarn test
+```
+
+### 📝 Documentando
+Mantenha a documentação atualizada. Se você adicionou novos recursos, verifique se eles estão devidamente documentados no README.
+
+### 📊 Compromissos e Push
+Após concluir suas alterações e testá-las, faça um commit das alterações:
+```
+git add .
+git commit -m feat(nomeDoArquivo): Nova funcionalidade
+```
+
+Em seguida, envie suas alterações para o repositório:
+
+```
+git push origin feature/nova-funcionalidade
+```
+
+### 📨 Solicitando um Pull Request (PR)
+
+Vá para o repositório no GitHub e crie um Pull Request para que sua contribuição seja revisada. Certifique-se de descrever suas alterações e fornecer informações contextuais.
+
+### 👁 Revisão e Fusão
+Após criar um Pull Request, nossa equipe revisará suas alterações e fornecerá feedback. Uma vez aprovado, suas alterações serão mescladas no projeto principal.
+
+## 💼 Diretrizes Gerais
+
+- Mantenha o código limpo e legível.
+- Siga as boas práticas de desenvolvimento.
+- Respeite as convenções de nomenclatura existentes.
+- Documente adequadamente as alterações, recursos ou correções.
+
+#
+
+***Agradecemos pela sua contribuição e esperamos trabalhar juntos para tornar a TSBank ainda melhor. Se você tiver alguma dúvida ou precisar de ajuda, não hesite em entrar em contato conosco. Juntos, podemos criar uma aplicação mais robusta e eficiente.***
