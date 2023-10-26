@@ -30,6 +30,10 @@ O projeto segue os princípios da **arquitetura limpa** e leva em consideração
 ## 🔏	Autenticação
 Para usar a API, é **necessário** autenticar-se. Você deve obter um **token JWT válido** através do **endpoint de login** antes de acessar outros recursos. O token JWT deve ser incluído no **cabeçalho de autorização** de **todas** as solicitações subsequentes.
 
+## 📃 Documentação no Swagger
+A seguir, temos o link da **documentação oficial** da nossa aplicação no **Swagger**: <br>
+https://tsbank-api.onrender.com/
+
 # 🗺️ Rotas
 
 **A seguir, temos uma lista contendo todas as rotas desta API:**
@@ -292,10 +296,6 @@ Para usar a API, é **necessário** autenticar-se. Você deve obter um **token J
   ```
 
 <br>
-
-# 📃 Documentação no Swaggger
-A seguir, temos o link da documentação oficial da nossa aplicação no app Swagger.
-
 
 # 🖋️ Contribuindo para a TSBank API
 
