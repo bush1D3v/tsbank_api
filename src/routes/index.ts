@@ -1,5 +1,5 @@
 import userRoutes from "./userRoutes";
 import transactionRoutes from "./transactionRoutes";
-import swaggerRouter from "./swaggerRoute";
+import swaggerRoutes from "./swaggerRoutes";
 
-export { userRoutes, transactionRoutes, swaggerRouter };
+export { userRoutes, transactionRoutes, swaggerRoutes };
