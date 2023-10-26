@@ -1,13 +1,14 @@
+import { verifyEmailExists, undefinedUser } from "./user";
+
 import {
   verifyCategorieId,
   validateTransaction,
   verifyTransactionId
 } from "./transaction";
 
-import { verifyEmailExists } from "./user";
-
 export {
   verifyCategorieId,
+  undefinedUser,
   verifyEmailExists,
   validateTransaction,
   verifyTransactionId
