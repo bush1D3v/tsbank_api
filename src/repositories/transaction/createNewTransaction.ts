@@ -6,7 +6,6 @@ const createNewTransaction = async (params: TransactionParams, id: number) => {
     type: params.type,
     description: params.description,
     value: params.value,
-    date: params.date,
     categorie_id: params.categorie_id,
     user_id: id
   }).returning("*");
