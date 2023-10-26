@@ -114,7 +114,7 @@ https://tsbank-api.onrender.com/
   }
   ```
 
-## Editar Perfil do Usuário Logado
+## Editar Todo o Perfil do Usuário Logado
 
 - **PUT** `/user`
 
@@ -130,7 +130,86 @@ https://tsbank-api.onrender.com/
   }
     ```
 
-  🚨 SEM RESPOSTA DE REQUISIÇÃO
+  Exemplo de Resposta:
+  
+    ```json
+  {
+        "id": 4,
+        "name": "José de Abreu",
+        "email": "jose_abreu@email.com",
+  }
+    ```
+
+## Editar E-mail do Usuário Logado
+
+- **PATCH** `/email`
+
+  **Permite que o usuário logado edite seu próprio e-mail.**
+  
+  Exemplo de requisição:
+  
+    ```json
+  {
+        "email": "jose_abreu@email.com",
+        "password": "j4321"
+  }
+    ```
+  
+  Exemplo de Resposta:
+  
+    ```json
+  {
+        "message": "Your email has been changed successfully"
+  }
+    ```
+
+## Editar Senha do Usuário Logado
+
+- **PATCH** `/password`
+
+  **Permite que o usuário logado edite sua própria senha.**
+
+  Exemplo de requisição:
+  
+    ```json
+  {
+        "email": "jose_abreu@email.com",
+        "password": "j4321"
+  }
+    ```
+
+  Exemplo de Resposta:
+  
+    ```json
+  {
+        "message": "Your password has been changed successfully"
+  }
+    ```
+
+
+## Excluir Usuário
+
+- **DELETE** `/user`
+
+  **Permite que o usuário exclua sua conta**
+
+  Exemplo de requisição:
+
+    ```json
+  {
+        "name": "José de Abreu",
+        "email": "jose_abreu@email.com",
+        "password": "j4321"
+  }
+    ```
+
+  Exemplo de Resposta:
+  
+    ```json
+  {
+        "message": "Your account has been deleted successfully"
+  }
+    ```
 
 ## Cadastrar Transação do Usuário Logado
 
@@ -145,7 +224,6 @@ https://tsbank-api.onrender.com/
         "type": "input",
         "description": "Salary",
         "value": 300000,
-        "date": "2022-03-24T15:30:00.000Z",
         "categorie_id": 6
   }
   ```
@@ -260,13 +338,24 @@ https://tsbank-api.onrender.com/
   {
         "description": "Yellow shoe",
         "value": 15800,
-        "date": "2022-03-23 12:35:00",
         "categorie_id": 4,
         "type": "output"
   }
     ```
 
-  🚨 SEM RESPOSTA DE REQUISIÇÃO
+   Exemplo de Resposta:
+
+    ```json
+    {
+        "id": 3,
+        "type": "input",
+        "description": "Yellow shoe",
+        "value": 15800,
+        "date": "2022-03-24T15:30:00.000Z",
+        "user_id": 5,
+        "categorie_id": 4,
+    }
+    ```
 
 ## Excluir Transação do Usuário Logado
 
