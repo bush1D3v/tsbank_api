@@ -5,13 +5,9 @@ import { createToken } from "../../utils";
 const loginUserAndReturn = async (email: string, password: string) => {
   const user = await validateEmail(email);
 
-  if (typeof user === "undefined") {
-    throw new HttpStatusError("Invalid email and/or password", 401);
-  }
-
   const validPassword = await validatePassword(password, user.password);
 
-  if (!validPassword) {
+  if (typeof user === "undefined" || !validPassword) {
     throw new HttpStatusError("Invalid email and/or password", 401);
   }
 
