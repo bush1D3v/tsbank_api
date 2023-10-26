@@ -1,0 +1,702 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TSBank API Documentation",
+    "description": "Welcome to the TSBank API Documentation! Here, you will find comprehensive information about the API's endpoints and how to utilize them. Explore the available routes and test their functionality. Don't forget to register and complete the authorization process to unlock the full potential of the API.",
+    "contact": {
+      "email": "victor.jose.lopes.navarro@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://tsbank-api.onrender.com",
+      "description": "Web Server"
+    },
+    {
+      "url": "http://localhost:3001",
+      "description": "Local Server"
+    }
+  ],
+  "paths": {
+    "/user": {
+      "post": {
+        "summary": "Create a new user",
+        "description": "Route responsible for creating a new user",
+        "tags": ["User"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "Users": {
+                  "value": {
+                    "name": "Victor Navarro",
+                    "email": "victorjln@gmail.com",
+                    "password": "vtjln123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "409": {
+            "description": "Email already exists",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Email already exists"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing a field or the type is incorrect",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "password is a required field"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/ReturnedUser"
+                },
+                "examples": {
+                  "ReturnedUsers": {
+                    "value": {
+                      "id": 1,
+                      "name": "Victor Navarro",
+                      "email": "victorjln@gmail.com"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Details a User",
+        "description": "Route responsible for detailing user information",
+        "tags": ["User"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "jwt must be provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Login"
+                },
+                "examples": {
+                  "Logins": {
+                    "value": {
+                      "user": {
+                        "id": 1,
+                        "name": "Victor Navarro",
+                        "email": "victorjln@gmail.com"
+                      },
+                      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTMsImlhdCI6MTY5ODI3Mzk5NCwiZXhwIjoxNjk4MzYwMzk0fQ.QwMyh8lNdX05Oxbin_wksnAH_ncmRqBaTQJJUKk_kEg"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a User",
+        "description": "Route responsible for update user informations",
+        "tags": ["User"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "Users": {
+                  "value": {
+                    "name": "Victor Navarro 2",
+                    "email": "victorjln2@gmail.com",
+                    "password": "vtjln2123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Email already exists"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "jwt must be provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Login"
+                },
+                "examples": {
+                  "Logins": {
+                    "value": {
+                      "user": {
+                        "id": 1,
+                        "name": "Victor Navarro",
+                        "email": "victorjln@gmail.com"
+                      },
+                      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTMsImlhdCI6MTY5ODI3Mzk5NCwiZXhwIjoxNjk4MzYwMzk0fQ.QwMyh8lNdX05Oxbin_wksnAH_ncmRqBaTQJJUKk_kEg"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Login a user",
+        "description": "Route responsible for login a user",
+        "tags": ["User"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/LoginUser"
+              },
+              "examples": {
+                "LoginUsers": {
+                  "value": {
+                    "email": "victorjln@gmail.com",
+                    "password": "vtjln123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "schemas": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid email and/or password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "data and hash must be strings"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "User Loged Successfully",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Login"
+                },
+                "examples": {
+                  "Logins": {
+                    "value": {
+                      "user": {
+                        "id": 1,
+                        "name": "Victor Navarro",
+                        "email": "victorjln@gmail.com"
+                      },
+                      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTMsImlhdCI6MTY5ODI3Mzk5NCwiZXhwIjoxNjk4MzYwMzk0fQ.QwMyh8lNdX05Oxbin_wksnAH_ncmRqBaTQJJUKk_kEg"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transaction": {
+      "post": {
+        "summary": "Create a new transaction",
+        "description": "Route responsible for create a transaction",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/Transaction"
+              },
+              "examples": {
+                "Transactions": {
+                  "value": {
+                    "type": "input",
+                    "description": "Salary",
+                    "value": 300000,
+                    "categorie_id": 17
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "jwt must be provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "categorie_id is a required field"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Transaction"
+                },
+                "examples": {
+                  "Transactions": {
+                    "value": {
+                      "id": 41,
+                      "description": "Salary",
+                      "value": 300000,
+                      "date": "2023-10-26T03:00:00.000Z",
+                      "categorie_id": 17,
+                      "user_id": 49,
+                      "type": "input"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List user transactions",
+        "description": "Route responsible for list a user transactions",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Your account does not have any registered transactions"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "jwt must be provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/ReturnedTransaction"
+                },
+                "examples": {
+                  "ReturnedTransactions": {
+                    "value": {
+                      "transactions": [
+                        {
+                          "id": 41,
+                          "description": "Salary",
+                          "value": 300000,
+                          "date": "2023-10-26T03:00:00.000Z",
+                          "categorie_id": 17,
+                          "user_id": 49,
+                          "type": "input"
+                        },
+                        {
+                          "id": 42,
+                          "description": "Salary",
+                          "value": 300000,
+                          "date": "2023-10-27T03:00:00.000Z",
+                          "categorie_id": 17,
+                          "user_id": 49,
+                          "type": "input"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transaction/{id}": {
+      "get": {
+        "summary": "Detail user transaction",
+        "description": "Route responsible for Detail a user transaction",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "Transaction identifier",
+            "required": true
+          }
+        ],
+
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Transaction not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "jwt must be provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/ReturnedTransaction"
+                },
+                "examples": {
+                  "ReturnedTransaction": {
+                    "value": {
+                      "id": 42,
+                      "description": "Salary",
+                      "value": 300000,
+                      "date": "2023-10-26T03:00:00.000Z",
+                      "categorie_id": 17,
+                      "user_id": 58,
+                      "type": "input"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "object"
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "ReturnedUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "LoginUser": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Transaction": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          },
+          "categorie_id": {
+            "type": "number"
+          }
+        }
+      },
+      "ReturnedTransaction": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          },
+          "date": {
+            "type": "string"
+          },
+          "categorie_id": {
+            "type": "number"
+          },
+          "user_id": {
+            "type": "number"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
