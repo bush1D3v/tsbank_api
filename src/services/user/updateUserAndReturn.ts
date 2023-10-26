@@ -3,7 +3,7 @@ import { updateUser } from "../../repositories";
 import { encryptPassword } from "../../utils";
 import { Request } from "express";
 import { getToken } from "../../utils";
-import { verifyEmailExists } from "../../providers";
+import { undefinedUser, verifyEmailExists } from "../../providers";
 
 const updateUserAndReturn = async (req: Request, params: UserParams) => {
   await verifyEmailExists(params.email);
@@ -15,6 +15,8 @@ const updateUserAndReturn = async (req: Request, params: UserParams) => {
   params.password = cryptPassword;
 
   const newUser = await updateUser(params, id);
+
+  undefinedUser(newUser);
 
   return newUser;
 };

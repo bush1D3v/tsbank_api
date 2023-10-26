@@ -8,7 +8,7 @@ const listTransactions = async (req: Request, res: Response) => {
 
     return res.json(transactions);
   } catch (error: any) {
-    handleError(res, error, 404);
+    handleError(res, error, 400);
   }
 };
 

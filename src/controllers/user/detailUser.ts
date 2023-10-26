@@ -8,7 +8,7 @@ const detailUser = async (req: Request, res: Response) => {
 
     return res.json(user);
   } catch (error: any) {
-    handleError(res, error, 401);
+    handleError(res, error, 400);
   }
 };
 

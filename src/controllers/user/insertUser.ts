@@ -13,7 +13,7 @@ const insertUser = async (req: Request, res: Response) => {
 
     return res.status(201).json(user);
   } catch (error: any) {
-    handleError(res, error, 409);
+    handleError(res, error, 400);
   }
 };
 
