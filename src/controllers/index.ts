@@ -1,5 +1,3 @@
-import helloWorld from "./helloWorld";
-
 import {
   insertUser,
   loginUser,
@@ -14,7 +12,6 @@ import {
 } from "./transaction";
 
 export {
-  helloWorld,
   insertUser,
   loginUser,
   detailUser,
