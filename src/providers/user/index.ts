@@ -1,3 +1,4 @@
 import verifyEmailExists from "./verifyEmailExists";
+import undefinedUser from "./undefinedUser";
 
-export { verifyEmailExists };
+export { verifyEmailExists, undefinedUser };
