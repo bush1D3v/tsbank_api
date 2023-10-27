@@ -8,7 +8,8 @@ import {
 import {
   insertTransactionAndReturn,
   getTransactionsAndReturn,
-  getTransactionAndReturn
+  getTransactionAndReturn,
+  updateTransactionAndReturn
 } from "./transaction";
 
 export {
@@ -18,5 +19,6 @@ export {
   updateUserAndReturn,
   insertTransactionAndReturn,
   getTransactionsAndReturn,
-  getTransactionAndReturn
+  getTransactionAndReturn,
+  updateTransactionAndReturn
 };

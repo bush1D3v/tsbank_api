@@ -20,7 +20,7 @@ describe("User Insertion Controller Tests", () => {
     expect(response.body).toHaveProperty("email", newUser.email);
   });
 
-  it("Must handle errors correctly", async () => {
+  it("Must handle type errors correctly", async () => {
     const newUser = {
       name: "User with error",
       email: "error@user.com",
@@ -31,7 +31,7 @@ describe("User Insertion Controller Tests", () => {
       .post("/user")
       .send(newUser);
 
-    expect(response.status).toBe(409);
+    expect(response.status).toBe(400);
   });
 
   afterAll(async () => {
