@@ -44,7 +44,7 @@
         },
         "responses": {
           "409": {
-            "description": "Email already exists",
+            "description": "Conflict",
             "content": {
               "application/json": {
                 "schemas": {
@@ -61,7 +61,7 @@
             }
           },
           "400": {
-            "description": "Missing a field or the type is incorrect",
+            "description": "Bad Request",
             "content": {
               "application/json": {
                 "schemas": {
@@ -509,6 +509,107 @@
       }
     },
     "/transaction/{id}": {
+      "put": {
+        "summary": "Update user transaction",
+        "description": "Route responsible for update a user transaction",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/Transaction"
+              },
+              "examples": {
+                "Transactions": {
+                  "value": {
+                    "type": "input",
+                    "description": "Salary",
+                    "value": 300000,
+                    "categorie_id": 17
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Transaction not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "jwt must be provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "categorie_id is a required field"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/ReturnedTransaction"
+                },
+                "examples": {
+                  "ReturnedTransactions": {
+                    "value": {
+                      "id": 41,
+                      "description": "Salary",
+                      "value": 300000,
+                      "date": "2023-10-26T03:00:00.000Z",
+                      "categorie_id": 17,
+                      "user_id": 49,
+                      "type": "input"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "get": {
         "summary": "Detail user transaction",
         "description": "Route responsible for Detail a user transaction",
