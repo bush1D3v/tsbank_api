@@ -8,7 +8,8 @@ import {
 import {
   insertTransaction,
   listTransactions,
-  detailTransaction
+  detailTransaction,
+  updateTransaction
 } from "./transaction";
 
 export {
@@ -18,5 +19,6 @@ export {
   updateUser,
   insertTransaction,
   listTransactions,
-  detailTransaction
+  detailTransaction,
+  updateTransaction
 };
