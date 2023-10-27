@@ -10,7 +10,8 @@ import {
   getCategoriePerId,
   createNewTransaction,
   getTransactions,
-  getTransaction
+  getTransaction,
+  updateTransaction
 } from "./transaction";
 
 export {
@@ -22,5 +23,6 @@ export {
   getCategoriePerId,
   createNewTransaction,
   getTransactions,
-  getTransaction
+  getTransaction,
+  updateTransaction
 };

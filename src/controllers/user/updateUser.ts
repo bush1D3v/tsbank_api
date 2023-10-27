@@ -6,7 +6,7 @@ const updateUser = async (req: Request, res: Response) => {
   try {
     const newUser = await updateUserAndReturn(req, req.body);
 
-    return res.status(201).json(newUser);
+    return res.json(newUser);
   } catch (error: any) {
     handleError(res, error, 400);
   }
