@@ -3,7 +3,8 @@ import express from "express";
 import {
   insertTransaction,
   listTransactions,
-  detailTransaction
+  detailTransaction,
+  updateTransaction
 } from "../controllers";
 
 import {
@@ -28,6 +29,12 @@ transactionRoutes.get(
 transactionRoutes.get(
   "/transaction/:id",
   detailTransaction
+);
+
+transactionRoutes.put(
+  "/transaction/:id",
+  verifyTransactionBody,
+  updateTransaction
 );
 
 export default transactionRoutes;
