@@ -1,9 +1,7 @@
 import { hash } from "bcrypt";
 
-const encryptPassword = async (password: string) => {
+export default async function encryptPassword(password: string) {
   const cryptPassword = await hash(password, 10);
 
   return cryptPassword;
 };
-
-export default encryptPassword;
