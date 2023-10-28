@@ -9,7 +9,8 @@ import {
   insertTransactionAndReturn,
   getTransactionsAndReturn,
   getTransactionAndReturn,
-  updateTransactionAndReturn
+  updateTransactionAndReturn,
+  deleteTransactionAndConfirm
 } from "./transaction";
 
 export {
@@ -20,5 +21,6 @@ export {
   insertTransactionAndReturn,
   getTransactionsAndReturn,
   getTransactionAndReturn,
-  updateTransactionAndReturn
+  updateTransactionAndReturn,
+  deleteTransactionAndConfirm
 };
