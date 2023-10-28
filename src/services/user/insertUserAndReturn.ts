@@ -3,7 +3,7 @@ import { verifyEmailExists } from "../../providers";
 import { createNewUser } from "../../repositories";
 import { encryptPassword } from "../../utils";
 
-const insertUserAndReturn = async (params: UserParams) => {
+export default async function insertUserAndReturn(params: UserParams) {
   await verifyEmailExists(params.email);
 
   const cryptPassword = await encryptPassword(params.password);
@@ -18,5 +18,3 @@ const insertUserAndReturn = async (params: UserParams) => {
 
   return user;
 };
-
-export default insertUserAndReturn;
