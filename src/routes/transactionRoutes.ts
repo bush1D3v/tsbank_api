@@ -4,12 +4,14 @@ import {
   insertTransaction,
   listTransactions,
   detailTransaction,
-  updateTransaction
+  updateTransaction,
+  deleteTransaction
 } from "../controllers";
 
 import {
   verifyTransactionBody,
-  verifyType
+  verifyType,
+  verifyTypeofParams
 } from "../middlewares";
 
 const transactionRoutes = express();
@@ -28,13 +30,21 @@ transactionRoutes.get(
 
 transactionRoutes.get(
   "/transaction/:id",
+  verifyTypeofParams,
   detailTransaction
 );
 
 transactionRoutes.put(
   "/transaction/:id",
+  verifyTypeofParams,
   verifyTransactionBody,
   updateTransaction
+);
+
+transactionRoutes.delete(
+  "/transaction/:id",
+  verifyTypeofParams,
+  deleteTransaction
 );
 
 export default transactionRoutes;
