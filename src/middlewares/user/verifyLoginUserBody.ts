@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { handleError } from "../../error";
 import { loginUserSchema } from "../../schemas";
 
-const verifyLoginUserBody = async (req: Request, res: Response, next: NextFunction) => {
+export default async function verifyLoginUserBody(req: Request, res: Response, next: NextFunction) {
   try {
     await loginUserSchema.validate(req.body);
 
@@ -11,5 +11,3 @@ const verifyLoginUserBody = async (req: Request, res: Response, next: NextFuncti
     handleError(res, error, 400);
   }
 };
-
-export default verifyLoginUserBody;
