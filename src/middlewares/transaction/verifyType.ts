@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { handleError } from "../../error";
 
-const verifyType = (req: Request, res: Response, next: NextFunction) => {
+export default function verifyType(req: Request, res: Response, next: NextFunction) {
   try {
     const { type } = req.body;
 
@@ -14,5 +14,3 @@ const verifyType = (req: Request, res: Response, next: NextFunction) => {
     handleError(res, error, 400);
   }
 };
-
-export default verifyType;

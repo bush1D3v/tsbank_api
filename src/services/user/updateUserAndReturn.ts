@@ -5,7 +5,7 @@ import { Request } from "express";
 import { getToken } from "../../utils";
 import { undefinedUser, verifyEmailExists } from "../../providers";
 
-const updateUserAndReturn = async (req: Request, params: UserParams) => {
+export default async function updateUserAndReturn(req: Request, params: UserParams) {
   await verifyEmailExists(params.email);
 
   const cryptPassword = await encryptPassword(params.password);
@@ -20,5 +20,3 @@ const updateUserAndReturn = async (req: Request, params: UserParams) => {
 
   return newUser;
 };
-
-export default updateUserAndReturn;

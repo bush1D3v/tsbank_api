@@ -4,7 +4,7 @@ import { validateTransaction, verifyTransactionId } from "../../providers";
 import { updateTransaction } from "../../repositories";
 import { getToken } from "../../utils";
 
-const updateTransactionAndReturn = async (req: Request, params: TransactionParams, transaction_id: number) => {
+export default async function updateTransactionAndReturn(req: Request, params: TransactionParams, transaction_id: number) {
   await verifyTransactionId(transaction_id);
 
   const userId = getToken(req);
@@ -15,5 +15,3 @@ const updateTransactionAndReturn = async (req: Request, params: TransactionParam
 
   return transaction;
 };
-
-export default updateTransactionAndReturn;

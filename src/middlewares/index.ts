@@ -7,7 +7,8 @@ import {
 
 import {
   verifyTransactionBody,
-  verifyType
+  verifyType,
+  verifyTypeofParams
 } from "./transaction";
 
 export {
@@ -15,5 +16,6 @@ export {
   verifyLoginUserBody,
   auth,
   verifyTransactionBody,
-  verifyType
+  verifyType,
+  verifyTypeofParams
 };

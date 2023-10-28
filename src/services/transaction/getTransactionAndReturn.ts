@@ -3,7 +3,7 @@ import { validateTransaction, verifyTransactionId } from "../../providers";
 import { getTransaction } from "../../repositories";
 import { getToken } from "../../utils";
 
-const getTransactionAndReturn = async (req: Request, transaction_id: Number) => {
+export default async function getTransactionAndReturn(req: Request, transaction_id: Number) {
   await verifyTransactionId(transaction_id);
 
   const userId = getToken(req);
@@ -14,5 +14,3 @@ const getTransactionAndReturn = async (req: Request, transaction_id: Number) => 
 
   return transaction;
 };
-
-export default getTransactionAndReturn;
