@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { getTransactionsAndReturn } from "../../services";
 import { handleError } from "../../error";
 
-const listTransactions = async (req: Request, res: Response) => {
+export default async function listTransactions(req: Request, res: Response) {
   try {
     const transactions = await getTransactionsAndReturn(req);
 
@@ -11,5 +11,3 @@ const listTransactions = async (req: Request, res: Response) => {
     handleError(res, error, 400);
   }
 };
-
-export default listTransactions;

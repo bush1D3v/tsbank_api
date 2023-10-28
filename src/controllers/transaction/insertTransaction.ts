@@ -3,15 +3,15 @@ import { handleError } from "../../error";
 import { TransactionParams } from "../../models";
 import { insertTransactionAndReturn } from "../../services";
 
-const insertTransaction = async (req: Request, res: Response) => {
+export default async function insertTransaction(req: Request, res: Response) {
   try {
-    const { type, description, value, categorie_id } = req.body as TransactionParams;
+    const { type, description, value, category_id } = req.body as TransactionParams;
 
     const transaction = {
       type,
       description,
       value,
-      categorie_id
+      category_id
     };
 
     const newTransaction = await insertTransactionAndReturn(transaction, req);
@@ -21,5 +21,3 @@ const insertTransaction = async (req: Request, res: Response) => {
     handleError(res, error, 400);
   }
 };
-
-export default insertTransaction;

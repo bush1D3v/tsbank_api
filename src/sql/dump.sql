@@ -15,7 +15,7 @@ create table
     description text,
     value integer not null,
     date date default current_date,
-    categorie_id integer references categories (id),
+    category_id integer references categories (id),
     user_id integer references users (id),
     type text not null
   );

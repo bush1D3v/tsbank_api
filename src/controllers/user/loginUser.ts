@@ -3,7 +3,7 @@ import { handleError } from "../../error";
 import { LoginUserParams } from "../../models";
 import { loginUserAndReturn } from "../../services";
 
-const loginUser = async (req: Request, res: Response) => {
+export default async function loginUser(req: Request, res: Response) {
   try {
     const { email, password } = req.body as LoginUserParams;
 
@@ -14,5 +14,3 @@ const loginUser = async (req: Request, res: Response) => {
     handleError(res, error, 400);
   }
 };
-
-export default loginUser;

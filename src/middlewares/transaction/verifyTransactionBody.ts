@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { handleError } from "../../error";
 import { transactionSchema } from "../../schemas";
 
-const verifyTransactionBody = async (req: Request, res: Response, next: NextFunction) => {
+export default async function verifyTransactionBody(req: Request, res: Response, next: NextFunction) {
   try {
     await transactionSchema.validate(req.body);
 
@@ -11,5 +11,3 @@ const verifyTransactionBody = async (req: Request, res: Response, next: NextFunc
     handleError(res, error, 400);
   }
 };
-
-export default verifyTransactionBody;

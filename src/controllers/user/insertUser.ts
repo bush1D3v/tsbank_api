@@ -3,7 +3,7 @@ import { handleError } from "../../error";
 import { insertUserAndReturn } from "../../services";
 import { UserParams } from "../../models";
 
-const insertUser = async (req: Request, res: Response) => {
+export default async function insertUser(req: Request, res: Response) {
   try {
     const { name, email, password } = req.body as UserParams;
 
@@ -16,5 +16,3 @@ const insertUser = async (req: Request, res: Response) => {
     handleError(res, error, 400);
   }
 };
-
-export default insertUser;

@@ -362,7 +362,7 @@
                     "type": "input",
                     "description": "Salary",
                     "value": 300000,
-                    "categorie_id": 17
+                    "category_id": 17
                   }
                 }
               }
@@ -397,7 +397,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "categorie_id is a required field"
+                      "message": "category_id is a required field"
                     }
                   }
                 }
@@ -418,7 +418,7 @@
                       "description": "Salary",
                       "value": 300000,
                       "date": "2023-10-26T03:00:00.000Z",
-                      "categorie_id": 17,
+                      "category_id": 17,
                       "user_id": 49,
                       "type": "input"
                     }
@@ -445,7 +445,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Your account does not have any registered transactions"
+                      "message": "Your account does not have any registered transaction"
                     }
                   }
                 }
@@ -485,7 +485,7 @@
                           "description": "Salary",
                           "value": 300000,
                           "date": "2023-10-26T03:00:00.000Z",
-                          "categorie_id": 17,
+                          "category_id": 17,
                           "user_id": 49,
                           "type": "input"
                         },
@@ -494,7 +494,7 @@
                           "description": "Salary",
                           "value": 300000,
                           "date": "2023-10-27T03:00:00.000Z",
-                          "categorie_id": 17,
+                          "category_id": 17,
                           "user_id": 49,
                           "type": "input"
                         }
@@ -514,6 +514,15 @@
         "description": "Route responsible for update a user transaction",
         "tags": ["Transaction"],
         "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "Transaction identifier",
+            "required": true
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -526,7 +535,7 @@
                     "type": "input",
                     "description": "Salary",
                     "value": 300000,
-                    "categorie_id": 17
+                    "category_id": 17
                   }
                 }
               }
@@ -578,7 +587,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "categorie_id is a required field"
+                      "message": "category_id is a required field"
                     }
                   }
                 }
@@ -599,7 +608,7 @@
                       "description": "Salary",
                       "value": 300000,
                       "date": "2023-10-26T03:00:00.000Z",
-                      "categorie_id": 17,
+                      "category_id": 17,
                       "user_id": 49,
                       "type": "input"
                     }
@@ -612,7 +621,7 @@
       },
       "get": {
         "summary": "Detail user transaction",
-        "description": "Route responsible for Detail a user transaction",
+        "description": "Route responsible for detail a user transaction",
         "tags": ["Transaction"],
         "security": [{ "bearerAuth": [] }],
         "parameters": [
@@ -624,7 +633,6 @@
             "required": true
           }
         ],
-
         "responses": {
           "404": {
             "description": "Not found",
@@ -660,6 +668,23 @@
               }
             }
           },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid value of 'id' parameter"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "201": {
             "description": "Created",
             "content": {
@@ -668,15 +693,100 @@
                   "$ref": "#/components/schemas/ReturnedTransaction"
                 },
                 "examples": {
-                  "ReturnedTransaction": {
+                  "ReturnedTransactions": {
                     "value": {
                       "id": 42,
                       "description": "Salary",
                       "value": 300000,
                       "date": "2023-10-26T03:00:00.000Z",
-                      "categorie_id": 17,
+                      "category_id": 17,
                       "user_id": 58,
                       "type": "input"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete user transaction",
+        "description": "Route responsible for delete a user transaction",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "Transaction identifier",
+            "required": true
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Transaction not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "jwt must be provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid value of 'id' parameter"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Confirmated"
+                },
+                "examples": {
+                  "Confirmateds": {
+                    "value": {
+                      "message": "Your transaction has been deleted successfully"
                     }
                   }
                 }
@@ -759,7 +869,7 @@
           "value": {
             "type": "number"
           },
-          "categorie_id": {
+          "category_id": {
             "type": "number"
           }
         }
@@ -782,11 +892,19 @@
           "date": {
             "type": "string"
           },
-          "categorie_id": {
+          "category_id": {
             "type": "number"
           },
           "user_id": {
             "type": "number"
+          }
+        }
+      },
+      "Confirmation": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
           }
         }
       },

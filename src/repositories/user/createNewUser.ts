@@ -1,7 +1,7 @@
 import db from "../../data/connection";
 import { ReturnedDatabaseUserParams, UserParams } from "../../models";
 
-const createNewUser = async (params: UserParams) => {
+export default async function createNewUser(params: UserParams) {
   const user: ReturnedDatabaseUserParams[] = await db("users")
     .insert({
       name: params[ "name" ],
@@ -12,5 +12,3 @@ const createNewUser = async (params: UserParams) => {
 
   return user[ 0 ];
 };
-
-export default createNewUser;

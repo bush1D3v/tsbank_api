@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { handleError } from "../../error";
 import { getTransactionAndReturn } from "../../services";
 
-const detailTransaction = async (req: Request, res: Response) => {
+export default async function detailTransaction(req: Request, res: Response) {
   try {
     const { id } = req.params;
 
@@ -13,5 +13,3 @@ const detailTransaction = async (req: Request, res: Response) => {
     handleError(res, error, 400);
   }
 };
-
-export default detailTransaction;

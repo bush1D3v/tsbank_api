@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { handleError } from "../../error";
 import { updateUserAndReturn } from "../../services";
 
-const updateUser = async (req: Request, res: Response) => {
+export default async function updateUser(req: Request, res: Response) {
   try {
     const newUser = await updateUserAndReturn(req, req.body);
 
@@ -11,5 +11,3 @@ const updateUser = async (req: Request, res: Response) => {
     handleError(res, error, 400);
   }
 };
-
-export default updateUser;

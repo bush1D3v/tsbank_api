@@ -3,7 +3,7 @@ import { verify } from "jsonwebtoken";
 import jwtPassword from "../jwt/jwtPassword";
 import { HttpStatusError } from "../error";
 
-const getToken = (req: Request): number => {
+export default function getToken(req: Request): number {
   const { authorization } = req.headers;
 
   if (!authorization) {
@@ -20,5 +20,3 @@ const getToken = (req: Request): number => {
     throw new HttpStatusError("Unauthorized", 401);
   }
 };
-
-export default getToken;

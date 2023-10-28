@@ -1,6 +1,6 @@
 import db from "../../data/connection";
 
-const getCategoriePerId = async (id: number) => {
+export default async function getCategoriePerId(id: number) {
   const response: string = await db("categories")
     .where({ id })
     .select("description")
@@ -8,5 +8,3 @@ const getCategoriePerId = async (id: number) => {
 
   return response;
 };
-
-export default getCategoriePerId;

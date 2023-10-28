@@ -2,7 +2,7 @@ import { HttpStatusError } from "../../error";
 import { validateEmail, validatePassword } from "../../repositories";
 import { createToken } from "../../utils";
 
-const loginUserAndReturn = async (email: string, password: string) => {
+export default async function loginUserAndReturn(email: string, password: string) {
   const user = await validateEmail(email);
 
   const validPassword = await validatePassword(password, user.password);
@@ -15,5 +15,3 @@ const loginUserAndReturn = async (email: string, password: string) => {
 
   return response;
 };
-
-export default loginUserAndReturn;

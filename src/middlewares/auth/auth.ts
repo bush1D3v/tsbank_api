@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { handleError } from "../../error";
 import { getToken } from "../../utils";
 
-const auth = (req: Request, res: Response, next: NextFunction) => {
+export default function auth(req: Request, res: Response, next: NextFunction) {
   try {
     getToken(req);
 
@@ -11,5 +11,3 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
     handleError(res, error, 401);
   }
 };
-
-export default auth;
