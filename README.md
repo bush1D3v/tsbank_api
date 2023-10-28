@@ -275,34 +275,6 @@ https://tsbank-api.onrender.com/
       }
   ]
     ```
-  
-  **⭐EXTRA⭐**
-  - **Nesta rota, podemos filtrar os tipos de transações de retorno através da URL, desta forma:** <br>
-    **GET** /transaction`?filter[]=clothing&filter[]=salary`
-
-  🎯 Exemplo de resposta:
-    ```json
-    [                                          
-      {                                      
-          "id": 1,                           
-          "type": "output",                   
-          "description": "Yellow shoe",     
-          "value": 15800,                    
-          "date": "2022-03-23T15:35:00.000Z",
-          "user_id": 5,                   
-          "category_id": 4,                  
-      },                                    
-      {                                    
-          "id": 3,                        
-          "type": "input",              
-          "descriction": "Passive income",         
-          "value": 300000,               
-          "date": "2022-03-24T15:30:00.000Z",
-          "user_id": 5,                
-          "category_id": 6,                
-      }
-    ]
-  ```
 
 ## Detalhar Transação do Usuário Logado
 
@@ -365,7 +337,13 @@ https://tsbank-api.onrender.com/
 
   🚨 SEM CORPO DE REQUISIÇÃO
 
-  🚨 SEM RESPOSTA DE REQUISIÇÃO
+  Exemplo de Resposta:
+
+  ```json
+  {
+      "message": "Your transaction has been deleted successfully"
+  }
+  ```
 
 ## Obter Extrato de Transações do Usuário Logado
 
