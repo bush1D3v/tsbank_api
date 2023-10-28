@@ -224,7 +224,7 @@ https://tsbank-api.onrender.com/
         "type": "input",
         "description": "Salary",
         "value": 300000,
-        "categorie_id": 6
+        "category_id": 6
   }
   ```
 
@@ -238,7 +238,7 @@ https://tsbank-api.onrender.com/
       "value": 300000,
       "date": "2022-03-24T15:30:00.000Z",
       "user_id": 5,
-      "categorie_id": 6,
+      "category_id": 6,
   }
   ```
 
@@ -262,7 +262,7 @@ https://tsbank-api.onrender.com/
           "value": 15800,
           "date": "2022-03-23T15:35:00.000Z",
           "user_id": 5,
-          "categorie_id": 4,
+          "category_id": 4,
       },
       {
           "id": 3,
@@ -271,7 +271,7 @@ https://tsbank-api.onrender.com/
           "value": 300000,
           "date": "2022-03-24T15:30:00.000Z",
           "user_id": 5,
-          "categorie_id": 6,
+          "category_id": 6,
       }
   ]
     ```
@@ -290,7 +290,7 @@ https://tsbank-api.onrender.com/
           "value": 15800,                    
           "date": "2022-03-23T15:35:00.000Z",
           "user_id": 5,                   
-          "categorie_id": 4,                  
+          "category_id": 4,                  
       },                                    
       {                                    
           "id": 3,                        
@@ -299,7 +299,7 @@ https://tsbank-api.onrender.com/
           "value": 300000,               
           "date": "2022-03-24T15:30:00.000Z",
           "user_id": 5,                
-          "categorie_id": 6,                
+          "category_id": 6,                
       }
     ]
   ```
@@ -322,7 +322,7 @@ https://tsbank-api.onrender.com/
         "value": 300000,
         "date": "2022-03-24T15:30:00.000Z",
         "user_id": 5,
-        "categorie_id": 6,
+        "category_id": 6,
     }
     ```
     
@@ -338,7 +338,7 @@ https://tsbank-api.onrender.com/
   {
         "description": "Yellow shoe",
         "value": 15800,
-        "categorie_id": 4,
+        "category_id": 4,
         "type": "output"
   }
     ```
@@ -353,7 +353,7 @@ https://tsbank-api.onrender.com/
         "value": 15800,
         "date": "2022-03-24T15:30:00.000Z",
         "user_id": 5,
-        "categorie_id": 4,
+        "category_id": 4,
     }
     ```
 
