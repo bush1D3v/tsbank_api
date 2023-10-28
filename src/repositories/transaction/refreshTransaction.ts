@@ -1,7 +1,7 @@
 import { DatabaseTransactionParams, TransactionParams } from "../../models";
 import db from "../../data/connection";
 
-export default async function updateTransaction(params: TransactionParams, id: number) {
+export default async function refreshTransaction(params: TransactionParams, id: number) {
   const transaction: DatabaseTransactionParams[] = await db("transactions").update({
     type: params.type,
     description: params.description,
