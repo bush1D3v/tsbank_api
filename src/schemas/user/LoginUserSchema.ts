@@ -1,5 +1,5 @@
-import userSchema from "./UserSchema";
+import UserSchema from "./UserSchema";
 
-const LoginUserSchema = userSchema.omit([ "name" ]);
+const LoginUserSchema = UserSchema.omit([ "name" ]);
 
 export default LoginUserSchema;
