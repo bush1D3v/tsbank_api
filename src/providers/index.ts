@@ -8,8 +8,8 @@ import {
 
 export {
   verifyCategorieId,
-  undefinedUser,
   verifyEmailExists,
   validateTransaction,
-  verifyTransactionId
+  verifyTransactionId,
+  undefinedUser
 };
