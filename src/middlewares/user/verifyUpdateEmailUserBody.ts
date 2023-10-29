@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express";
 import { handleError } from "../../error";
-import { updateEmailSchema } from "../../schemas";
+import { UpdateEmailSchema } from "../../schemas";
 
 export default async function verifyUpdateEmailUserBody(req: Request, res: Response, next: NextFunction) {
   try {
-    await updateEmailSchema.validate(req.body);
+    await UpdateEmailSchema.validate(req.body);
 
     next();
   } catch (error: any) {
