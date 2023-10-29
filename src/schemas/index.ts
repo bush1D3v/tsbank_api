@@ -5,7 +5,7 @@ import {
   updateEmailSchema,
   updatePasswordSchema,
   updateUserSchema,
-  deleteUserSchema
+  passwordSchema
 } from "./user";
 
 import { transactionSchema } from "./transaction";
@@ -18,5 +18,5 @@ export {
   updateEmailSchema,
   updatePasswordSchema,
   updateUserSchema,
-  deleteUserSchema
+  passwordSchema
 };
