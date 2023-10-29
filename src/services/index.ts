@@ -2,7 +2,10 @@ import {
   insertUserAndReturn,
   loginUserAndReturn,
   getUserDetailsAndReturn,
-  updateUserAndReturn
+  updateUserAndReturn,
+  updateEmailAndConfirm,
+  updatePasswordAndConfirm,
+  deleteUserAndConfirm
 } from "./user";
 
 import {
@@ -22,5 +25,8 @@ export {
   getTransactionsAndReturn,
   getTransactionAndReturn,
   updateTransactionAndReturn,
-  deleteTransactionAndConfirm
+  deleteTransactionAndConfirm,
+  updateEmailAndConfirm,
+  updatePasswordAndConfirm,
+  deleteUserAndConfirm
 };
