@@ -143,17 +143,15 @@
             "content": {
               "application/json": {
                 "schemas": {
-                  "$ref": "#/components/schemas/Login"
+                  "$ref": "#/components/schemas/ReturnedUser"
                 },
                 "examples": {
-                  "Logins": {
+                  "ReturnedUsers": {
                     "value": {
-                      "user": {
-                        "id": 1,
-                        "name": "Victor Navarro",
-                        "email": "victorjln@gmail.com"
-                      },
-                      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTMsImlhdCI6MTY5ODI3Mzk5NCwiZXhwIjoxNjk4MzYwMzk0fQ.QwMyh8lNdX05Oxbin_wksnAH_ncmRqBaTQJJUKk_kEg"
+                      "id": 1,
+                      "name": "Victor Navarro",
+                      "email": "victorjln@gmail.com",
+                      "balance": 0
                     }
                   }
                 }
@@ -171,14 +169,14 @@
           "content": {
             "application/json": {
               "schemas": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UpdateUser"
               },
               "examples": {
-                "Users": {
+                "UpdateUsers": {
                   "value": {
-                    "name": "Victor Navarro 2",
-                    "email": "victorjln2@gmail.com",
-                    "password": "vtjln2123"
+                    "new_email": "victorjln2@gmail.com",
+                    "new_password": "vtjln1234",
+                    "password": "vtjln123"
                   }
                 }
               }
@@ -247,12 +245,101 @@
                 "examples": {
                   "Logins": {
                     "value": {
-                      "user": {
-                        "id": 1,
-                        "name": "Victor Navarro",
-                        "email": "victorjln@gmail.com"
-                      },
-                      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTMsImlhdCI6MTY5ODI3Mzk5NCwiZXhwIjoxNjk4MzYwMzk0fQ.QwMyh8lNdX05Oxbin_wksnAH_ncmRqBaTQJJUKk_kEg"
+                      "id": 1,
+                      "name": "Victor Navarro",
+                      "email": "victorjln2@gmail.com"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a User",
+        "description": "Route responsible for delete user",
+        "tags": ["User"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/DeleteUser"
+              },
+              "examples": {
+                "UpdateUsers": {
+                  "value": {
+                    "password": "vtjln123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "jwt must be provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "password is a required field"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Confirmation"
+                },
+                "examples": {
+                  "Logins": {
+                    "value": {
+                      "message": "Your account has been deleted"
                     }
                   }
                 }
@@ -320,7 +407,7 @@
             }
           },
           "200": {
-            "description": "User Loged Successfully",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schemas": {
@@ -335,6 +422,213 @@
                         "email": "victorjln@gmail.com"
                       },
                       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTMsImlhdCI6MTY5ODI3Mzk5NCwiZXhwIjoxNjk4MzYwMzk0fQ.QwMyh8lNdX05Oxbin_wksnAH_ncmRqBaTQJJUKk_kEg"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/email": {
+      "patch": {
+        "summary": "Update a user email",
+        "description": "Route responsible for update a user email",
+        "tags": ["User"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/UpdateUserEmail"
+              },
+              "examples": {
+                "UpdateUserEmails": {
+                  "value": {
+                    "password": "tumbaTrau",
+                    "new_email": "trauTumba@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Email already exists"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schemas": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "new_email is a required field"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Confirmation"
+                },
+                "examples": {
+                  "Confirmations": {
+                    "value": {
+                      "message": "Your email has been changed successfully"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/password": {
+      "patch": {
+        "summary": "Update a user passowrd",
+        "description": "Route responsible for update a user passowrd",
+        "tags": ["User"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/UpdateUserPassword"
+              },
+              "examples": {
+                "UpdateUserPasswords": {
+                  "value": {
+                    "password": "tumbaTrau",
+                    "new_password": "trauTumba"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schemas": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "new_password is a required field"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Confirmation"
+                },
+                "examples": {
+                  "Confirmations": {
+                    "value": {
+                      "message": "Your password has been changed successfully"
                     }
                   }
                 }
@@ -370,6 +664,23 @@
           }
         },
         "responses": {
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "401": {
             "description": "Unauthorized",
             "content": {
@@ -594,8 +905,8 @@
               }
             }
           },
-          "200": {
-            "description": "OK",
+          "201": {
+            "description": "Created",
             "content": {
               "application/json": {
                 "schemas": {
@@ -685,8 +996,8 @@
               }
             }
           },
-          "201": {
-            "description": "Created",
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schemas": {
@@ -781,10 +1092,10 @@
             "content": {
               "application/json": {
                 "schemas": {
-                  "$ref": "#/components/schemas/Confirmated"
+                  "$ref": "#/components/schemas/Confirmation"
                 },
                 "examples": {
-                  "Confirmateds": {
+                  "Confirmations": {
                     "value": {
                       "message": "Your transaction has been deleted successfully"
                     }
@@ -843,6 +1154,9 @@
           },
           "email": {
             "type": "string"
+          },
+          "balance": {
+            "type": "number"
           }
         }
       },
@@ -852,6 +1166,50 @@
           "email": {
             "type": "string"
           },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateUserEmail": {
+        "type": "object",
+        "properties": {
+          "new_email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateUserPassword": {
+        "type": "object",
+        "properties": {
+          "new_password": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateUser": {
+        "type": "object",
+        "properties": {
+          "new_email": {
+            "type": "string"
+          },
+          "new_password": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteUser": {
+        "type": "object",
+        "properties": {
           "password": {
             "type": "string"
           }
