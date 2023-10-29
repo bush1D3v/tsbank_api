@@ -2,7 +2,11 @@ import auth from "./auth";
 
 import {
   verifyUserBody,
-  verifyLoginUserBody
+  verifyLoginUserBody,
+  verifyUpdateEmailUserBody,
+  verifyUpdateUserBody,
+  verifyUpdatePasswordUserBody,
+  verifyDeleteUserBody
 } from "./user";
 
 import {
@@ -17,5 +21,9 @@ export {
   auth,
   verifyTransactionBody,
   verifyType,
-  verifyTypeofParams
+  verifyTypeofParams,
+  verifyUpdateEmailUserBody,
+  verifyUpdateUserBody,
+  verifyUpdatePasswordUserBody,
+  verifyDeleteUserBody
 };
