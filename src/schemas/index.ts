@@ -1,7 +1,8 @@
 import {
   userSchema,
   loginUserSchema,
-  generalUserSchema, updateMailSchema,
+  generalUserSchema,
+  updateEmailSchema,
   updatePasswordSchema,
   updateUserSchema,
   deleteUserSchema
@@ -14,7 +15,7 @@ export {
   loginUserSchema,
   transactionSchema,
   generalUserSchema,
-  updateMailSchema,
+  updateEmailSchema,
   updatePasswordSchema,
   updateUserSchema,
   deleteUserSchema
