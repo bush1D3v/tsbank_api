@@ -14,7 +14,6 @@ import {
   createNewTransaction,
   getTransactions,
   getTransaction,
-  refreshTransaction,
   dropTransaction
 } from "./transaction";
 
@@ -28,7 +27,6 @@ export {
   createNewTransaction,
   getTransactions,
   getTransaction,
-  refreshTransaction,
   dropTransaction,
   refreshUserEmail,
   refreshUserPassword,
