@@ -3,7 +3,7 @@ import verifyLoginUserBody from "./verifyLoginUserBody";
 import verifyUpdateEmailUserBody from "./verifyUpdateEmailUserBody";
 import verifyUpdateUserBody from "./verifyUpdateUserBody";
 import verifyUpdatePasswordUserBody from "./verifyUpdatePasswordUserBody";
-import verifyDeleteUserBody from "./verifyDeleteUserBody";
+import verifyPassword from "./verifyPassword";
 
 export {
   verifyUserBody,
@@ -11,5 +11,5 @@ export {
   verifyUpdateEmailUserBody,
   verifyUpdateUserBody,
   verifyUpdatePasswordUserBody,
-  verifyDeleteUserBody
+  verifyPassword
 };

@@ -6,7 +6,7 @@ import {
   verifyUpdateEmailUserBody,
   verifyUpdateUserBody,
   verifyUpdatePasswordUserBody,
-  verifyDeleteUserBody
+  verifyPassword
 } from "./user";
 
 import {
@@ -25,5 +25,5 @@ export {
   verifyUpdateEmailUserBody,
   verifyUpdateUserBody,
   verifyUpdatePasswordUserBody,
-  verifyDeleteUserBody
+  verifyPassword
 };

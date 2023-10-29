@@ -17,7 +17,7 @@ import {
   verifyUpdateEmailUserBody,
   verifyUpdateUserBody,
   verifyUpdatePasswordUserBody,
-  verifyDeleteUserBody
+  verifyPassword
 } from "../middlewares";
 
 const UserRoutes = express();
@@ -61,7 +61,7 @@ UserRoutes.patch(
 
 UserRoutes.delete(
   "/user",
-  verifyDeleteUserBody,
+  verifyPassword,
   deleteUser
 );
 
