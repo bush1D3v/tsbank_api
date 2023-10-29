@@ -1,22 +1,27 @@
-import { UserParams } from "../../models";
-import { updateUser } from "../../repositories";
+import { UpdateUserParams } from "../../models";
+import { getUserPerId, refreshUser, validatePassword } from "../../repositories";
 import { encryptPassword } from "../../utils";
 import { Request } from "express";
 import { getToken } from "../../utils";
-import { undefinedUser, verifyEmailExists } from "../../providers";
+import { verifyEmailExists } from "../../providers";
 
-export default async function updateUserAndReturn(req: Request, params: UserParams) {
-  await verifyEmailExists(params.email);
-
-  const cryptPassword = await encryptPassword(params.password);
+export default async function updateUserAndReturn(req: Request, params: UpdateUserParams) {
+  await verifyEmailExists(params.new_email);
 
   const id = getToken(req);
 
-  params.password = cryptPassword;
+  const user = await getUserPerId(id);
 
-  const newUser = await updateUser(params, id);
+  await validatePassword(params.password, user.password);
 
-  undefinedUser(newUser);
+  const cryptPassword = await encryptPassword(params.new_password);
+
+  const refreshed = {
+    email: params.new_email,
+    password: cryptPassword
+  };
+
+  const newUser = await refreshUser(refreshed, id);
 
   return newUser;
 };
