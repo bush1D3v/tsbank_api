@@ -1,5 +1,5 @@
-import generalUserSchema from "./GeneralUserSchema";
+import GeneralUserSchema from "./GeneralUserSchema";
 
-const UpdateEmailSchema = generalUserSchema.omit([ "new_password", "email", "name" ]);
+const UpdateEmailSchema = GeneralUserSchema.omit([ "new_password", "email", "name" ]);
 
 export default UpdateEmailSchema;
