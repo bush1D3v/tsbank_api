@@ -12,7 +12,6 @@ import {
   insertTransactionAndReturn,
   getTransactionsAndReturn,
   getTransactionAndReturn,
-  updateTransactionAndReturn,
   deleteTransactionAndConfirm
 } from "./transaction";
 
@@ -24,7 +23,6 @@ export {
   insertTransactionAndReturn,
   getTransactionsAndReturn,
   getTransactionAndReturn,
-  updateTransactionAndReturn,
   deleteTransactionAndConfirm,
   updateEmailAndConfirm,
   updatePasswordAndConfirm,
