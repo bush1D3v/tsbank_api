@@ -12,7 +12,6 @@ import {
   insertTransaction,
   listTransactions,
   detailTransaction,
-  updateTransaction,
   deleteTransaction
 } from "./transaction";
 
@@ -24,7 +23,6 @@ export {
   insertTransaction,
   listTransactions,
   detailTransaction,
-  updateTransaction,
   deleteTransaction,
   updateUserEmail,
   updateUserPassword,
