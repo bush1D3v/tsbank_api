@@ -1,5 +1,5 @@
-import { LoginUserParams } from "./LoginUserParams";
-
-export interface UserParams extends LoginUserParams {
+export interface UserParams {
   name: string;
-};
+  email: string;
+  password: string;
+}

@@ -3,7 +3,10 @@ import {
   validatePassword,
   validateEmail,
   getUserPerId,
-  updateUser
+  refreshUser,
+  refreshUserEmail,
+  refreshUserPassword,
+  eraseUser
 } from "./user";
 
 import {
@@ -11,7 +14,6 @@ import {
   createNewTransaction,
   getTransactions,
   getTransaction,
-  updateTransaction,
   dropTransaction
 } from "./transaction";
 
@@ -20,11 +22,13 @@ export {
   validatePassword,
   validateEmail,
   getUserPerId,
-  updateUser,
+  refreshUser,
   getCategoriePerId,
   createNewTransaction,
   getTransactions,
   getTransaction,
-  updateTransaction,
-  dropTransaction
+  dropTransaction,
+  refreshUserEmail,
+  refreshUserPassword,
+  eraseUser
 };

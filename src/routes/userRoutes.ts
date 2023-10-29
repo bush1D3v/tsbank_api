@@ -4,13 +4,20 @@ import {
   insertUser,
   loginUser,
   detailUser,
-  updateUser
+  updateUser,
+  updateUserEmail,
+  updateUserPassword,
+  deleteUser
 } from "../controllers";
 
 import {
   verifyUserBody,
   verifyLoginUserBody,
-  auth
+  auth,
+  verifyUpdateEmailUserBody,
+  verifyUpdateUserBody,
+  verifyUpdatePasswordUserBody,
+  verifyPassword
 } from "../middlewares";
 
 const UserRoutes = express();
@@ -20,6 +27,7 @@ UserRoutes.post(
   verifyUserBody,
   insertUser
 );
+
 UserRoutes.post(
   "/login",
   verifyLoginUserBody,
@@ -32,10 +40,29 @@ UserRoutes.get(
   "/user",
   detailUser
 );
+
 UserRoutes.put(
   "/user",
-  verifyUserBody,
+  verifyUpdateUserBody,
   updateUser
+);
+
+UserRoutes.patch(
+  "/email",
+  verifyUpdateEmailUserBody,
+  updateUserEmail
+);
+
+UserRoutes.patch(
+  "/password",
+  verifyUpdatePasswordUserBody,
+  updateUserPassword
+);
+
+UserRoutes.delete(
+  "/user",
+  verifyPassword,
+  deleteUser
 );
 
 export default UserRoutes;

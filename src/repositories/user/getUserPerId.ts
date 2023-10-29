@@ -1,13 +1,13 @@
 import db from "../../data/connection";
+import { HttpStatusError } from "../../error";
 import { DatabaseUserParams } from "../../models";
-import { undefinedUser } from "../../providers";
 
 export default async function getUserPerId(id: number) {
   const user: DatabaseUserParams = await db("users").where({ id }).first();
 
-  undefinedUser(user);
+  if (typeof user === "undefined") {
+    throw new HttpStatusError("User not found", 404);
+  }
 
-  const { password: _, ...userResponse } = user;
-
-  return userResponse;
+  return user;
 };

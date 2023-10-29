@@ -1,10 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import { handleError } from "../../error";
 import { getToken } from "../../utils";
+import { getUserPerId } from "../../repositories";
 
-export default function auth(req: Request, res: Response, next: NextFunction) {
+export default async function auth(req: Request, res: Response, next: NextFunction) {
   try {
-    getToken(req);
+    const id = getToken(req);
+
+    await getUserPerId(id);
 
     next();
   } catch (error: any) {

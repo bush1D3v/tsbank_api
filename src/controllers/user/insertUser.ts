@@ -13,6 +13,7 @@ export default async function insertUser(req: Request, res: Response) {
 
     return res.status(201).json(user);
   } catch (error: any) {
+    console.log(error);
     handleError(res, error, 400);
   }
 };

@@ -2,14 +2,16 @@ import {
   insertUser,
   loginUser,
   detailUser,
-  updateUser
+  updateUser,
+  updateUserEmail,
+  updateUserPassword,
+  deleteUser
 } from "./user";
 
 import {
   insertTransaction,
   listTransactions,
   detailTransaction,
-  updateTransaction,
   deleteTransaction
 } from "./transaction";
 
@@ -21,6 +23,8 @@ export {
   insertTransaction,
   listTransactions,
   detailTransaction,
-  updateTransaction,
-  deleteTransaction
+  deleteTransaction,
+  updateUserEmail,
+  updateUserPassword,
+  deleteUser
 };
