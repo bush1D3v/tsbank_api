@@ -1,9 +1,5 @@
-import * as yup from "yup";
+import generalUserSchema from "./generalUserSchema";
 
-const userSchema = yup.object({
-  name: yup.string().required(),
-  email: yup.string().email().required(),
-  password: yup.string().required()
-});
+const userSchema = generalUserSchema.omit([ "new_email", "new_password" ]);
 
 export default userSchema;
