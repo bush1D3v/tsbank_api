@@ -1,17 +1,17 @@
-import userSchema from "./userSchema";
-import loginUserSchema from "./loginUserSchema";
-import generalUserSchema from "./generalUserSchema";
-import updateEmailSchema from "./updateEmailSchema";
-import updatePasswordSchema from "./updatePasswordSchema";
-import updateUserSchema from "./updateUserSchema";
-import passwordSchema from "./passwordSchema";
+import UserSchema from "./UserSchema";
+import LoginUserSchema from "./LoginUserSchema";
+import GeneralUserSchema from "./GeneralUserSchema";
+import UpdateEmailSchema from "./UpdateEmailSchema";
+import UpdatePasswordSchema from "./UpdatePasswordSchema";
+import UpdateUserSchema from "./UpdateUserSchema";
+import PasswordSchema from "./PasswordSchema";
 
 export {
-  userSchema,
-  loginUserSchema,
-  generalUserSchema,
-  updateEmailSchema,
-  updatePasswordSchema,
-  updateUserSchema,
-  passwordSchema
+  UserSchema,
+  LoginUserSchema,
+  GeneralUserSchema,
+  UpdateEmailSchema,
+  UpdatePasswordSchema,
+  UpdateUserSchema,
+  PasswordSchema
 };
