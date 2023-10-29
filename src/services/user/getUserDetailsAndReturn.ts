@@ -7,5 +7,7 @@ export default async function getUserDetailsAndReturn(req: Request) {
 
   const user = await getUserPerId(userId);
 
-  return user;
+  const { password: _, ...userResponse } = user;
+
+  return userResponse;
 };
