@@ -1,5 +1,5 @@
-import generalUserSchema from "./GeneralUserSchema";
+import LoginUserSchema from "./LoginUserSchema";
 
-const PasswordSchema = generalUserSchema.omit([ "email", "name", "new_password", "new_email" ]);
+const PasswordSchema = LoginUserSchema.omit([ "email" ]);
 
 export default PasswordSchema;
