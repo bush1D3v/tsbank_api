@@ -1,6 +1,7 @@
-import { UserParams } from "./UserParams";
-
-export interface DatabaseUserParams extends UserParams {
+export interface DatabaseUserParams {
   id: number;
   balance: number;
+  name: string;
+  email: string;
+  password: string;
 };
