@@ -1,4 +1,21 @@
-import { userSchema, loginUserSchema } from "./user";
-import transactionSchema from "./transaction/transactionSchema";
+import {
+  userSchema,
+  loginUserSchema,
+  generalUserSchema, updateMailSchema,
+  updatePasswordSchema,
+  updateUserSchema,
+  deleteUserSchema
+} from "./user";
 
-export { userSchema, loginUserSchema, transactionSchema };
+import { transactionSchema } from "./transaction";
+
+export {
+  userSchema,
+  loginUserSchema,
+  transactionSchema,
+  generalUserSchema,
+  updateMailSchema,
+  updatePasswordSchema,
+  updateUserSchema,
+  deleteUserSchema
+};
