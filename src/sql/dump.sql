@@ -3,7 +3,8 @@ create table
     id serial primary key,
     name text not null,
     email text not null unique,
-    password text not null
+    password text not null,
+    balance float default 0
   );
 
 create table
