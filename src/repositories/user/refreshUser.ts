@@ -1,9 +1,8 @@
 import db from "../../data/connection";
-import { UserParams, ReturnedDatabaseUserParams } from "../../models";
+import { ReturnedDatabaseUserParams, LoginUserParams } from "../../models";
 
-export default async function updateUser(params: UserParams, id: number) {
+export default async function refreshUser(params: LoginUserParams, id: number) {
   const newUser: ReturnedDatabaseUserParams[] = await db("users").update({
-    name: params.name,
     email: params.email,
     password: params.password
   }).where({ id }).returning([ "id", "name", "email" ]);
