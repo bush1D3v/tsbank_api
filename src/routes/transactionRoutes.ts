@@ -4,14 +4,16 @@ import {
   insertTransaction,
   listTransactions,
   detailTransaction,
-  deleteTransaction
+  deleteTransaction,
+  insertDeposit
 } from "../controllers";
 
 import {
   verifyTransactionBody,
   verifyType,
   verifyTypeofParams,
-  verifyPassword
+  verifyPassword,
+  verifyTransactionValue
 } from "../middlewares";
 
 const transactionRoutes = express();
@@ -39,6 +41,12 @@ transactionRoutes.delete(
   verifyPassword,
   verifyTypeofParams,
   deleteTransaction
+);
+
+transactionRoutes.post(
+  "/deposit",
+  verifyTransactionValue,
+  insertDeposit
 );
 
 export default transactionRoutes;
