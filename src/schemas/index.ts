@@ -1,22 +1,22 @@
 import {
-  userSchema,
-  loginUserSchema,
-  generalUserSchema,
-  updateEmailSchema,
-  updatePasswordSchema,
-  updateUserSchema,
-  passwordSchema
+  UserSchema,
+  LoginUserSchema,
+  GeneralUserSchema,
+  UpdateEmailSchema,
+  UpdatePasswordSchema,
+  UpdateUserSchema,
+  PasswordSchema
 } from "./user";
 
-import { transactionSchema } from "./transaction";
+import { TransactionSchema } from "./transaction";
 
 export {
-  userSchema,
-  loginUserSchema,
-  transactionSchema,
-  generalUserSchema,
-  updateEmailSchema,
-  updatePasswordSchema,
-  updateUserSchema,
-  passwordSchema
+  UserSchema,
+  LoginUserSchema,
+  TransactionSchema,
+  GeneralUserSchema,
+  UpdateEmailSchema,
+  UpdatePasswordSchema,
+  UpdateUserSchema,
+  PasswordSchema
 };

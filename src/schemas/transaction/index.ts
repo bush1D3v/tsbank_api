@@ -1,3 +1,4 @@
-import transactionSchema from "./transactionSchema";
+import TransactionSchema from "./TransactionSchema";
+import TransactionValueSchema from "./TransactionValueSchema";
 
-export { transactionSchema };
+export { TransactionSchema, TransactionValueSchema };
