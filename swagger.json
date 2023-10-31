@@ -655,8 +655,7 @@
                   "value": {
                     "type": "input",
                     "description": "Salary",
-                    "value": 300000,
-                    "category_id": 17
+                    "value": 300000
                   }
                 }
               }
@@ -708,7 +707,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "category_id is a required field"
+                      "message": "description is a required field"
                     }
                   }
                 }
@@ -729,7 +728,6 @@
                       "description": "Salary",
                       "value": 300000,
                       "date": "2023-10-26T03:00:00.000Z",
-                      "category_id": 17,
                       "user_id": 49,
                       "type": "input"
                     }
@@ -796,7 +794,6 @@
                           "description": "Salary",
                           "value": 300000,
                           "date": "2023-10-26T03:00:00.000Z",
-                          "category_id": 17,
                           "user_id": 49,
                           "type": "input"
                         },
@@ -805,7 +802,6 @@
                           "description": "Salary",
                           "value": 300000,
                           "date": "2023-10-27T03:00:00.000Z",
-                          "category_id": 17,
                           "user_id": 49,
                           "type": "input"
                         }
@@ -900,7 +896,6 @@
                       "description": "Salary",
                       "value": 300000,
                       "date": "2023-10-26T03:00:00.000Z",
-                      "category_id": 17,
                       "user_id": 58,
                       "type": "input"
                     }
@@ -1004,6 +999,100 @@
                   "Confirmations": {
                     "value": {
                       "message": "Your transaction has been deleted successfully"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deposit": {
+      "post": {
+        "summary": "Make a deposit",
+        "description": "Route responsible for make a deposit and generate a appropriate transaction",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/TransactionValue"
+              },
+              "examples": {
+                "TransactionValues": {
+                  "value": {
+                    "value": 30000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "jwt must be provided"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid value"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Confirmation"
+                },
+                "examples": {
+                  "Confirmations": {
+                    "value": {
+                      "message": "Deposit successfully"
                     }
                   }
                 }
@@ -1132,8 +1221,13 @@
           },
           "value": {
             "type": "number"
-          },
-          "category_id": {
+          }
+        }
+      },
+      "TransactionValue": {
+        "type": "object",
+        "properties": {
+          "value": {
             "type": "number"
           }
         }
@@ -1155,9 +1249,6 @@
           },
           "date": {
             "type": "string"
-          },
-          "category_id": {
-            "type": "number"
           },
           "user_id": {
             "type": "number"
