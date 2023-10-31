@@ -5,13 +5,12 @@ import { insertTransactionAndReturn } from "../../services";
 
 export default async function insertTransaction(req: Request, res: Response) {
   try {
-    const { type, description, value, category_id } = req.body as TransactionParams;
+    const { type, description, value } = req.body as TransactionParams;
 
     const transaction = {
       type,
       description,
-      value,
-      category_id
+      value
     };
 
     const newTransaction = await insertTransactionAndReturn(transaction, req);
