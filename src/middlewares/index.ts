@@ -12,7 +12,8 @@ import {
 import {
   verifyTransactionBody,
   verifyType,
-  verifyTypeofParams
+  verifyTypeofParams,
+  verifyTransactionValue
 } from "./transaction";
 
 export {
@@ -25,5 +26,6 @@ export {
   verifyUpdateEmailUserBody,
   verifyUpdateUserBody,
   verifyUpdatePasswordUserBody,
-  verifyPassword
+  verifyPassword,
+  verifyTransactionValue
 };
