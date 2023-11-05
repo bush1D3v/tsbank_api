@@ -1,4 +1,4 @@
-export interface UpdateUserMailParams {
+export interface UpdateUserEmailParams {
   new_email: string;
   password: string;
 };
