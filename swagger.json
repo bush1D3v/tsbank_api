@@ -34,6 +34,8 @@
                 "Users": {
                   "value": {
                     "name": "Victor Navarro",
+                    "cpf": "12345678931",
+                    "phone": "21123456789",
                     "email": "victorjln@gmail.com",
                     "password": "vtjln123"
                   }
@@ -53,7 +55,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Email already exists"
+                      "message": "This email already used per other user"
                     }
                   }
                 }
@@ -131,7 +133,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "jwt must be provided"
+                      "message": "Unauthorized"
                     }
                   }
                 }
@@ -151,6 +153,8 @@
                       "id": 1,
                       "name": "Victor Navarro",
                       "email": "victorjln@gmail.com",
+                      "cpf": "12345678931",
+                      "phone": "21123456789",
                       "balance": 0
                     }
                   }
@@ -176,6 +180,7 @@
                   "value": {
                     "new_email": "victorjln2@gmail.com",
                     "new_password": "vtjln1234",
+                    "new_phone": "12987654321",
                     "password": "vtjln123"
                   }
                 }
@@ -194,7 +199,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Email already exists"
+                      "message": "This email already used per other user"
                     }
                   }
                 }
@@ -228,7 +233,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "jwt must be provided"
+                      "message": "Unauthorized"
                     }
                   }
                 }
@@ -305,7 +310,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "jwt must be provided"
+                      "message": "Unauthorized"
                     }
                   }
                 }
@@ -465,7 +470,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Email already exists"
+                      "message": "This email already used per other user"
                     }
                   }
                 }
@@ -533,7 +538,7 @@
                 "examples": {
                   "Confirmations": {
                     "value": {
-                      "message": "Your email has been changed successfully"
+                      "message": "Your email has been changed successfully, now is 'trauTumba@gmail.com'"
                     }
                   }
                 }
@@ -638,6 +643,420 @@
         }
       }
     },
+    "/phone": {
+      "patch": {
+        "summary": "Update a user phone",
+        "description": "Route responsible for update a user phone",
+        "tags": ["User"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/UpdateUserPhone"
+              },
+              "examples": {
+                "UpdateUserPhones": {
+                  "value": {
+                    "password": "tumbaTrau",
+                    "new_phone": "31214365879"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "This phone already used per other user"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schemas": {
+              "$ref": "#/components/schemas/Error"
+            },
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "new_phone is a required field"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Confirmation"
+                },
+                "examples": {
+                  "Confirmations": {
+                    "value": {
+                      "message": "Your phone has been changed successfully, now is '31214365879'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deposit": {
+      "post": {
+        "summary": "Make a deposit",
+        "description": "Route responsible for make a deposit and generate a appropriate transaction",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/DepositTransaction"
+              },
+              "examples": {
+                "DepositTransactions": {
+                  "value": {
+                    "value": 30000,
+                    "email": "victorjln2@gmail.com",
+                    "password": "tumbaTrau"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Email not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid value"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/ReturnedTransaction"
+                },
+                "examples": {
+                  "ReturnedTransactions": {
+                    "value": {
+                      "id": 41,
+                      "description": "Deposit",
+                      "value": 30000,
+                      "date": "2023-10-26T03:00:00.000Z",
+                      "user_id": 49,
+                      "type": "input"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/withdraw": {
+      "post": {
+        "summary": "Make a withdraw",
+        "description": "Route responsible for make a withdraw and generate a appropriate transaction",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/OutputTransaction"
+              },
+              "examples": {
+                "OutputTransactions": {
+                  "value": {
+                    "value": 30000,
+                    "password": "tumbaTrau"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Insufficient balance to perform the transaction"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/ReturnedTransaction"
+                },
+                "examples": {
+                  "ReturnedTransactions": {
+                    "value": {
+                      "id": 41,
+                      "description": "Withdraw",
+                      "value": 30000,
+                      "date": "2023-10-26T03:00:00.000Z",
+                      "user_id": 49,
+                      "type": "output"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pix": {
+      "post": {
+        "summary": "Create a pix transaction",
+        "description": "Route responsible for create a pix transaction",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/PixTransaction"
+              },
+              "examples": {
+                "PixTransactions": {
+                  "value": {
+                    "password": "12345678",
+                    "cpf": "12345678931",
+                    "value": 2000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Cpf not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Insufficient balance to perform the transaction"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/ReturnedTransaction"
+                },
+                "examples": {
+                  "ReturnedTransactions": {
+                    "value": {
+                      "id": 41,
+                      "description": "Pix",
+                      "value": 2000,
+                      "date": "2023-10-26T03:00:00.000Z",
+                      "user_id": 49,
+                      "type": "output"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/transaction": {
       "post": {
         "summary": "Create a new transaction",
@@ -654,7 +1073,7 @@
                 "Transactions": {
                   "value": {
                     "type": "input",
-                    "description": "Salary",
+                    "description": "Credit",
                     "value": 300000
                   }
                 }
@@ -690,7 +1109,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "jwt must be provided"
+                      "message": "Unauthorized"
                     }
                   }
                 }
@@ -719,13 +1138,13 @@
             "content": {
               "application/json": {
                 "schemas": {
-                  "$ref": "#/components/schemas/Transaction"
+                  "$ref": "#/components/schemas/ReturnedTransaction"
                 },
                 "examples": {
-                  "Transactions": {
+                  "ReturnedTransactions": {
                     "value": {
                       "id": 41,
-                      "description": "Salary",
+                      "description": "Credit",
                       "value": 300000,
                       "date": "2023-10-26T03:00:00.000Z",
                       "user_id": 49,
@@ -739,8 +1158,8 @@
         }
       },
       "get": {
-        "summary": "List user transactions",
-        "description": "Route responsible for list a user transactions",
+        "summary": "Summary user transactions",
+        "description": "Route responsible for summary a user transactions",
         "tags": ["Transaction"],
         "security": [{ "bearerAuth": [] }],
         "responses": {
@@ -771,41 +1190,25 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "jwt must be provided"
+                      "message": "Unauthorized"
                     }
                   }
                 }
               }
             }
           },
-          "201": {
-            "description": "Created",
+          "200": {
+            "description": "OK",
             "content": {
               "application/json": {
                 "schemas": {
-                  "$ref": "#/components/schemas/ReturnedTransaction"
+                  "$ref": "#/components/schemas/SummaryTransaction"
                 },
                 "examples": {
-                  "ReturnedTransactions": {
+                  "SummaryTransactions": {
                     "value": {
-                      "transactions": [
-                        {
-                          "id": 41,
-                          "description": "Salary",
-                          "value": 300000,
-                          "date": "2023-10-26T03:00:00.000Z",
-                          "user_id": 49,
-                          "type": "input"
-                        },
-                        {
-                          "id": 42,
-                          "description": "Salary",
-                          "value": 300000,
-                          "date": "2023-10-27T03:00:00.000Z",
-                          "user_id": 49,
-                          "type": "input"
-                        }
-                      ]
+                      "input": 20000,
+                      "output": 3500
                     }
                   }
                 }
@@ -858,7 +1261,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "jwt must be provided"
+                      "message": "Unauthorized"
                     }
                   }
                 }
@@ -893,7 +1296,7 @@
                   "ReturnedTransactions": {
                     "value": {
                       "id": 42,
-                      "description": "Salary",
+                      "description": "Debit",
                       "value": 300000,
                       "date": "2023-10-26T03:00:00.000Z",
                       "user_id": 58,
@@ -964,7 +1367,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "jwt must be provided"
+                      "message": "Unauthorized"
                     }
                   }
                 }
@@ -1008,22 +1411,27 @@
         }
       }
     },
-    "/deposit": {
+    "/card": {
       "post": {
-        "summary": "Make a deposit",
-        "description": "Route responsible for make a deposit and generate a appropriate transaction",
-        "tags": ["Transaction"],
+        "summary": "Create a card",
+        "description": "Route responsible for create a card",
+        "tags": ["User"],
         "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "content": {
             "application/json": {
               "schemas": {
-                "$ref": "#/components/schemas/TransactionValue"
+                "$ref": "#/components/schemas/Card"
               },
               "examples": {
-                "TransactionValues": {
+                "Cards": {
                   "value": {
-                    "value": 30000
+                    "card_number": "1234567812345678",
+                    "cardholder_name": "Victor Smith",
+                    "expiration_date": "12/31",
+                    "cvv": "123",
+                    "password": "123456",
+                    "card_type": "Credit"
                   }
                 }
               }
@@ -1058,7 +1466,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "jwt must be provided"
+                      "message": "Unauthorized"
                     }
                   }
                 }
@@ -1075,7 +1483,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid value"
+                      "message": "User already have a credit card"
                     }
                   }
                 }
@@ -1092,7 +1500,398 @@
                 "examples": {
                   "Confirmations": {
                     "value": {
-                      "message": "Deposit successfully"
+                      "message": "Credit card added successfully. Your credit limit is 20000"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update a card password",
+        "description": "Route responsible for update a card password",
+        "tags": ["User"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/UpdateCardPassword"
+              },
+              "examples": {
+                "UpdateCardPasswords": {
+                  "value": {
+                    "new_password": "654321",
+                    "password": "123456",
+                    "card_type": "Credit"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "This user not have a credit card"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Unauthorized"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "new_password is a required field"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Confirmation"
+                },
+                "examples": {
+                  "Confirmations": {
+                    "value": {
+                      "message": "Password of your credit card has been updated successfully"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transaction/card": {
+      "post": {
+        "summary": "Create a card transaction",
+        "description": "Route responsible for create a card transaction",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/CardTransaction"
+              },
+              "examples": {
+                "CardTransactions": {
+                  "value": {
+                    "password": "123456",
+                    "card_type": "Credit",
+                    "value": 2000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "This user not have a credit card"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Insufficient balance to perform the transaction"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Confirmation"
+                },
+                "examples": {
+                  "ReturnedTransactions": {
+                    "value": {
+                      "id": 41,
+                      "description": "Credit",
+                      "value": 2000,
+                      "date": "2023-10-26T03:00:00.000Z",
+                      "user_id": 49,
+                      "type": "output"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/card/pay": {
+      "post": {
+        "summary": "Make a card payment",
+        "description": "Route responsible for make a card payment",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schemas": {
+                "$ref": "#/components/schemas/CardPayer"
+              },
+              "examples": {
+                "CardPayers": {
+                  "value": {
+                    "password": "'123456'",
+                    "value": 2000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "This user not have a credit card"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Insufficient balance to perform the transaction"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/ReturnedTransaction"
+                },
+                "examples": {
+                  "ReturnedTransactions": {
+                    "value": {
+                      "id": 41,
+                      "description": "Card pay",
+                      "value": 2000,
+                      "date": "2023-10-26T03:00:00.000Z",
+                      "user_id": 49,
+                      "type": "output"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/history": {
+      "get": {
+        "summary": "Get a user transaction history",
+        "description": "Route responsible for make a card payment",
+        "tags": ["Transaction"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Your account does not have any registered transaction"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "Invalid password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Confirmation"
+                },
+                "examples": {
+                  "Confirmations": {
+                    "value": {
+                      "Input": [
+                        {
+                          "id": 41,
+                          "description": "Deposit",
+                          "value": 300000,
+                          "date": "2023-10-26T03:00:00.000Z",
+                          "user_id": 49,
+                          "type": "input"
+                        },
+                        {
+                          "id": 42,
+                          "description": "Pix",
+                          "value": 300000,
+                          "date": "2023-10-27T03:00:00.000Z",
+                          "user_id": 49,
+                          "type": "input"
+                        }
+                      ],
+                      "Output": [
+                        {
+                          "id": 11,
+                          "description": "Card pay",
+                          "value": 25000,
+                          "date": "2022-08-05T03:00:00.000Z",
+                          "user_id": 49,
+                          "type": "output"
+                        },
+                        {
+                          "id": 12,
+                          "description": "Pix",
+                          "value": 300000,
+                          "date": "2022-09-16T03:00:00.000Z",
+                          "user_id": 49,
+                          "type": "input"
+                        }
+                      ]
                     }
                   }
                 }
@@ -1124,6 +1923,12 @@
           },
           "password": {
             "type": "string"
+          },
+          "cpf": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
           }
         }
       },
@@ -1148,6 +1953,12 @@
             "type": "string"
           },
           "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "cpf": {
             "type": "string"
           },
           "balance": {
@@ -1188,6 +1999,17 @@
           }
         }
       },
+      "UpdateUserPhone": {
+        "type": "object",
+        "properties": {
+          "new_phone": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
       "UpdateUser": {
         "type": "object",
         "properties": {
@@ -1198,6 +2020,9 @@
             "type": "string"
           },
           "password": {
+            "type": "string"
+          },
+          "new_phone": {
             "type": "string"
           }
         }
@@ -1232,7 +2057,32 @@
           }
         }
       },
-      "ReturnedTransaction": {
+      "DepositTransaction": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "OutputTransaction": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Returnedtransaction": {
         "type": "object",
         "properties": {
           "id": {
@@ -1252,6 +2102,93 @@
           },
           "user_id": {
             "type": "number"
+          }
+        }
+      },
+      "SummaryTransaction": {
+        "type": "objeect",
+        "properties": {
+          "input": {
+            "type": "number"
+          },
+          "output": {
+            "type": "number"
+          }
+        }
+      },
+      "Card": {
+        "type": "object",
+        "properties": {
+          "card_number": {
+            "type": "string"
+          },
+          "cardholder_name": {
+            "type": "string"
+          },
+          "expiration_date": {
+            "type": "string"
+          },
+          "cvv": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "card_type": {
+            "type": "string"
+          }
+        }
+      },
+      "CardTransaction": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "card_type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "CardPayers": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "PixTransactions": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "UpdateCardPassword": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "card_type": {
+            "type": "string"
+          },
+          "new_password": {
+            "type": "string"
           }
         }
       },
