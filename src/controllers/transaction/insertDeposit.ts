@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
-import { insertDepositAndConfirm } from "../../services";
+import { insertDepositAndReturn } from "../../services";
 import { DepositParams } from "../../models";
 
 export default async function insertDeposit(req: Request, res: Response) {
@@ -13,7 +13,7 @@ export default async function insertDeposit(req: Request, res: Response) {
       email
     };
 
-    const responseTransaction = await insertDepositAndConfirm(req, params);
+    const responseTransaction = await insertDepositAndReturn(req, params);
 
     return res.status(201).json(responseTransaction);
   } catch (error: any) {
