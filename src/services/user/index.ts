@@ -2,22 +2,22 @@ import insertUserAndReturn from "./insertUserAndReturn";
 import loginUserAndReturn from "./loginUserAndReturn";
 import getUserDetailsAndReturn from "./getUserDetailsAndReturn";
 import updateUserAndReturn from "./updateUserAndReturn";
-import updateEmailAndConfirm from "./updateEmailAndConfirm";
+import updateEmailAndReturn from "./updateEmailAndReturn";
 import updatePasswordAndConfirm from "./updatePasswordAndConfirm";
 import deleteUserAndConfirm from "./deleteUserAndConfirm";
-import insertCardAndConfirm from "./insertCardAndConfirm";
+import insertCardAndReturn from "./insertCardAndReturn";
 import updateCardPasswordAndConfirm from "./updateCardPasswordAndConfirm";
-import updatePhoneAndConfirm from "./updatePhoneAndConfirm";
+import updatePhoneAndReturn from "./updatePhoneAndReturn";
 
 export {
   insertUserAndReturn,
   loginUserAndReturn,
   getUserDetailsAndReturn,
   updateUserAndReturn,
-  updateEmailAndConfirm,
+  updateEmailAndReturn,
   updatePasswordAndConfirm,
   deleteUserAndConfirm,
-  insertCardAndConfirm,
+  insertCardAndReturn,
   updateCardPasswordAndConfirm,
-  updatePhoneAndConfirm
+  updatePhoneAndReturn
 };
