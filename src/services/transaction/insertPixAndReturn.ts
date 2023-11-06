@@ -11,7 +11,7 @@ import {
 } from "../../repositories";
 import { HttpStatusError } from "../../error";
 
-export default async function insertPixAndConfirm(req: Request, params: PixParams) {
+export default async function insertPixAndReturn(req: Request, params: PixParams) {
   const cpfUser = await validateCpf(params.cpf);
 
   if ("cpfUser") {
