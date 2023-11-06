@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
-import { makeWithdrawAndConfirm } from "../../services";
+import { makeWithdrawAndReturn } from "../../services";
 import { OutputTransactionParams } from "../../models";
 
 export default async function makeWithdraw(req: Request, res: Response) {
@@ -12,7 +12,7 @@ export default async function makeWithdraw(req: Request, res: Response) {
       password
     };
 
-    const responseTransaction = await makeWithdrawAndConfirm(req, params);
+    const responseTransaction = await makeWithdrawAndReturn(req, params);
 
     return res.status(201).json(responseTransaction);
   } catch (error: any) {
