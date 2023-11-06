@@ -1,13 +1,23 @@
-import getTransactionsAndReturn from "./getTransactionsAndReturn";
+import summaryTransactionsAndReturn from "./summaryTransactionsAndReturn";
 import insertTransactionAndReturn from "./insertTransactionAndReturn";
 import getTransactionAndReturn from "./getTransactionAndReturn";
 import deleteTransactionAndConfirm from "./deleteTransactionAndConfirm";
 import insertDepositAndConfirm from "./insertDepositAndConfirm";
+import makeWithdrawAndConfirm from "./makeWithdrawAndConfirm";
+import insertCardTransactionAndConfirm from "./insertCardTransactionAndConfirm";
+import insertPixAndConfirm from "./insertPixAndConfirm";
+import makeCardPayAndConfirm from "./makeCardPayAndConfirm";
+import getHistoryAndReturn from "./getHistoryAndReturn";
 
 export {
   insertTransactionAndReturn,
-  getTransactionsAndReturn,
+  summaryTransactionsAndReturn,
   getTransactionAndReturn,
   deleteTransactionAndConfirm,
-  insertDepositAndConfirm
+  insertDepositAndConfirm,
+  makeWithdrawAndConfirm,
+  insertCardTransactionAndConfirm,
+  insertPixAndConfirm,
+  makeCardPayAndConfirm,
+  getHistoryAndReturn
 };

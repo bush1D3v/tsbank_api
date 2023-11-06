@@ -1,10 +1,5 @@
-import * as yup from "yup";
+import GeneralTransactionSchema from "./GeneralTransactionSchema";
 
-const TransactionSchema = yup.object({
-  type: yup.string().required(),
-  description: yup.string().required(),
-  value: yup.number().required(),
-  category_id: yup.number().required()
-});
+const TransactionSchema = GeneralTransactionSchema.omit([ "password", "email", "cpf" ]);
 
 export default TransactionSchema;

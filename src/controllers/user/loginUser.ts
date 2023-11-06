@@ -7,7 +7,12 @@ export default async function loginUser(req: Request, res: Response) {
   try {
     const { email, password } = req.body as LoginUserParams;
 
-    const response = await loginUserAndReturn(email, password);
+    const params = {
+      email,
+      password
+    };
+
+    const response = await loginUserAndReturn(params);
 
     return res.send(response);
   } catch (error: any) {

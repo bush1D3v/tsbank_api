@@ -1,13 +1,19 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
 import { deleteTransactionAndConfirm } from "../../services";
+import { DeleteTransactionParams } from "../../models";
 
 export default async function deleteTransaction(req: Request, res: Response) {
   try {
     const { id } = req.params;
-    const { password } = req.body;
+    const { password } = req.body as DeleteTransactionParams;
 
-    await deleteTransactionAndConfirm(req, parseInt(id), password);
+    const params = {
+      transaction_id: parseInt(id),
+      password: password
+    };
+
+    await deleteTransactionAndConfirm(req, params);
 
     return res.json({
       message: "Your transaction has been deleted successfully"

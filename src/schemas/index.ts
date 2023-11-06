@@ -5,10 +5,22 @@ import {
   UpdateEmailSchema,
   UpdatePasswordSchema,
   UpdateUserSchema,
-  PasswordSchema
+  PasswordSchema,
+  GeneralCardSchema,
+  CardSchema,
+  UpdateCardPasswordSchema,
+  UpdatePhoneSchema
 } from "./user";
 
-import { TransactionSchema } from "./transaction";
+import {
+  TransactionSchema,
+  GeneralTransactionSchema,
+  TransactionWithdrawSchema,
+  DepositSchema,
+  CardTransactionSchema,
+  PixSchema,
+  CardPaySchema
+} from "./transaction";
 
 export {
   UserSchema,
@@ -18,5 +30,15 @@ export {
   UpdateEmailSchema,
   UpdatePasswordSchema,
   UpdateUserSchema,
-  PasswordSchema
+  PasswordSchema,
+  GeneralTransactionSchema,
+  TransactionWithdrawSchema,
+  GeneralCardSchema,
+  CardSchema,
+  DepositSchema,
+  CardTransactionSchema,
+  UpdateCardPasswordSchema,
+  UpdatePhoneSchema,
+  PixSchema,
+  CardPaySchema
 };

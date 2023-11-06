@@ -6,14 +6,21 @@ import {
   verifyUpdateEmailUserBody,
   verifyUpdateUserBody,
   verifyUpdatePasswordUserBody,
-  verifyPassword
+  verifyCardBody,
+  verifyPassword,
+  verifyUpdateCardPassword,
+  verifyUpdatePhoneUserBody
 } from "./user";
 
 import {
   verifyTransactionBody,
   verifyType,
   verifyTypeofParams,
-  verifyTransactionValue
+  verifyOutputTransaction,
+  verifyDepositTransaction,
+  verifyCardTransaction,
+  verifyPixValue,
+  verifyCardPay
 } from "./transaction";
 
 export {
@@ -27,5 +34,12 @@ export {
   verifyUpdateUserBody,
   verifyUpdatePasswordUserBody,
   verifyPassword,
-  verifyTransactionValue
+  verifyOutputTransaction,
+  verifyCardBody,
+  verifyDepositTransaction,
+  verifyCardTransaction,
+  verifyUpdateCardPassword,
+  verifyUpdatePhoneUserBody,
+  verifyPixValue,
+  verifyCardPay
 };

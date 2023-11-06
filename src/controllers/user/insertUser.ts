@@ -5,9 +5,15 @@ import { UserParams } from "../../models";
 
 export default async function insertUser(req: Request, res: Response) {
   try {
-    const { name, email, password } = req.body as UserParams;
+    const { name, email, password, cpf, phone } = req.body as UserParams;
 
-    const params = { name, email, password };
+    const params = {
+      name,
+      email,
+      password,
+      cpf,
+      phone
+    };
 
     const user = await insertUserAndReturn(params);
 

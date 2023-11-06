@@ -5,15 +5,23 @@ import {
   updateUser,
   updateUserEmail,
   updateUserPassword,
-  deleteUser
+  deleteUser,
+  insertCard,
+  updateCardPassword,
+  updateUserPhone
 } from "./user";
 
 import {
   insertTransaction,
-  listTransactions,
+  summaryTransactions,
   detailTransaction,
   deleteTransaction,
-  insertDeposit
+  insertDeposit,
+  makeWithdraw,
+  insertCardTransaction,
+  insertPix,
+  makeCardPay,
+  getHistory
 } from "./transaction";
 
 export {
@@ -22,11 +30,19 @@ export {
   detailUser,
   updateUser,
   insertTransaction,
-  listTransactions,
+  summaryTransactions,
   detailTransaction,
   deleteTransaction,
   updateUserEmail,
   updateUserPassword,
   deleteUser,
-  insertDeposit
+  insertDeposit,
+  makeWithdraw,
+  insertCard,
+  insertCardTransaction,
+  updateCardPassword,
+  updateUserPhone,
+  insertPix,
+  makeCardPay,
+  getHistory
 };

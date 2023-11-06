@@ -1,17 +1,37 @@
 import { Request } from "express";
+import { HttpStatusError } from "../../error";
+import { DepositParams } from "../../models";
 import { getToken } from "../../utils";
-import { createNewDeposit, createNewTransaction } from "../../repositories";
+import {
+  createNewDeposit,
+  createNewTransaction,
+  getUserPerId,
+  validateEmail,
+  validatePassword
+} from "../../repositories";
 
-export default async function insertDepositAndConfirm(req: Request, value: number) {
-  const id = getToken(req);
+export default async function insertDepositAndConfirm(req: Request, params: DepositParams) {
+  const validEmail = await validateEmail(params.email);
 
-  await createNewDeposit(id, value);
+  if (!validEmail) {
+    throw new HttpStatusError("Email not found", 404);
+  }
 
-  const params = {
-    type: "Input",
-    description: "Deposit",
-    value
+  const userId = getToken(req);
+
+  const user = await getUserPerId(userId);
+
+  await validatePassword(params.password, user.password);
+
+  await createNewDeposit(params.email, params.value);
+
+  let transactionParams = {
+    type: "input",
+    description: "deposit",
+    value: params.value
   };
 
-  await createNewTransaction(params, id);
+  const inputTransaction = await createNewTransaction(transactionParams, validEmail.id);
+
+  return inputTransaction;
 };

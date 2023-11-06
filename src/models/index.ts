@@ -3,14 +3,29 @@ import {
   LoginUserParams,
   DatabaseUserParams,
   ReturnedDatabaseUserParams,
-  UpdateUserMailParams,
+  UpdateUserEmailParams,
   UpdateUserPasswordParams,
-  UserParams
+  UserParams,
+  InsertCardParams,
+  CardParams,
+  ValidateCardParams,
+  DatabaseCardParams,
+  UpdateCardPasswordParams,
+  RefreshCardParams,
+  UpdateUserPhoneParams,
+  DeleteUserParams
 } from "./user";
 
 import {
   TransactionParams,
-  DatabaseTransactionParams
+  DatabaseTransactionParams,
+  DeleteTransactionParams,
+  OutputTransactionParams,
+  CardTransactionParams,
+  PixParams,
+  DepositParams,
+  CardPayParams,
+  NewPixParams
 } from "./transaction";
 
 export {
@@ -20,7 +35,22 @@ export {
   ReturnedDatabaseUserParams,
   TransactionParams,
   DatabaseTransactionParams,
-  UpdateUserMailParams,
+  UpdateUserEmailParams,
   UpdateUserPasswordParams,
-  UserParams
+  UserParams,
+  DeleteTransactionParams,
+  OutputTransactionParams,
+  CardParams,
+  ValidateCardParams,
+  DatabaseCardParams,
+  InsertCardParams,
+  CardTransactionParams,
+  UpdateCardPasswordParams,
+  RefreshCardParams,
+  UpdateUserPhoneParams,
+  PixParams,
+  DepositParams,
+  DeleteUserParams,
+  CardPayParams,
+  NewPixParams
 };

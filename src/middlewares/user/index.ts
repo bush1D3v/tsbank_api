@@ -4,6 +4,9 @@ import verifyUpdateEmailUserBody from "./verifyUpdateEmailUserBody";
 import verifyUpdateUserBody from "./verifyUpdateUserBody";
 import verifyUpdatePasswordUserBody from "./verifyUpdatePasswordUserBody";
 import verifyPassword from "./verifyPassword";
+import verifyCardBody from "./verifyCardBody";
+import verifyUpdateCardPassword from "./verifyUpdateCardPassword";
+import verifyUpdatePhoneUserBody from "./verifyUpdatePhoneUser";
 
 export {
   verifyUserBody,
@@ -11,5 +14,8 @@ export {
   verifyUpdateEmailUserBody,
   verifyUpdateUserBody,
   verifyUpdatePasswordUserBody,
-  verifyPassword
+  verifyPassword,
+  verifyCardBody,
+  verifyUpdateCardPassword,
+  verifyUpdatePhoneUserBody
 };

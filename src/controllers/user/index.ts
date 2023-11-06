@@ -5,6 +5,9 @@ import updateUser from "./updateUser";
 import updateUserEmail from "./updateUserEmail";
 import updateUserPassword from "./updateUserPassword";
 import deleteUser from "./deleteUser";
+import insertCard from "./insertCard";
+import updateCardPassword from "./updateCardPassword";
+import updateUserPhone from "./updateUserPhone";
 
 export {
   insertUser,
@@ -13,5 +16,8 @@ export {
   updateUser,
   updateUserEmail,
   updateUserPassword,
-  deleteUser
+  deleteUser,
+  insertCard,
+  updateCardPassword,
+  updateUserPhone
 };
