@@ -3,12 +3,12 @@ import {
   loginUserAndReturn,
   getUserDetailsAndReturn,
   updateUserAndReturn,
-  updateEmailAndConfirm,
+  updateEmailAndReturn,
   updatePasswordAndConfirm,
   deleteUserAndConfirm,
-  insertCardAndConfirm,
+  insertCardAndReturn,
   updateCardPasswordAndConfirm,
-  updatePhoneAndConfirm
+  updatePhoneAndReturn
 } from "./user";
 
 import {
@@ -16,11 +16,11 @@ import {
   summaryTransactionsAndReturn,
   getTransactionAndReturn,
   deleteTransactionAndConfirm,
-  insertDepositAndConfirm,
-  makeWithdrawAndConfirm,
-  insertCardTransactionAndConfirm,
-  insertPixAndConfirm,
-  makeCardPayAndConfirm,
+  insertDepositAndReturn,
+  makeWithdrawAndReturn,
+  insertCardTransactionAndReturn,
+  insertPixAndReturn,
+  makeCardPayAndReturn,
   getHistoryAndReturn
 } from "./transaction";
 
@@ -33,16 +33,16 @@ export {
   summaryTransactionsAndReturn,
   getTransactionAndReturn,
   deleteTransactionAndConfirm,
-  updateEmailAndConfirm,
+  updateEmailAndReturn,
   updatePasswordAndConfirm,
   deleteUserAndConfirm,
-  insertDepositAndConfirm,
-  makeWithdrawAndConfirm,
-  insertCardAndConfirm,
-  insertCardTransactionAndConfirm,
+  insertDepositAndReturn,
+  makeWithdrawAndReturn,
+  insertCardAndReturn,
+  insertCardTransactionAndReturn,
   updateCardPasswordAndConfirm,
-  updatePhoneAndConfirm,
-  insertPixAndConfirm,
-  makeCardPayAndConfirm,
+  updatePhoneAndReturn,
+  insertPixAndReturn,
+  makeCardPayAndReturn,
   getHistoryAndReturn
 };
