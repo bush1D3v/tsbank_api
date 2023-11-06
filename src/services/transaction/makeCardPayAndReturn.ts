@@ -9,7 +9,7 @@ import {
   validatePassword
 } from "../../repositories";
 
-export default async function makeCardPayAndConfirm(req: Request, params: OutputTransactionParams) {
+export default async function makeCardPayAndReturn(req: Request, params: OutputTransactionParams) {
   const userId = getToken(req);
 
   const user = await getUserPerId(userId);
