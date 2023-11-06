@@ -6,7 +6,14 @@ import {
   refreshUser,
   refreshUserEmail,
   refreshUserPassword,
-  eraseUser
+  eraseUser,
+  createCard,
+  validateCardType,
+  getCardPerUserId,
+  validateCpf,
+  refreshCardPassword,
+  validatePhone,
+  refreshUserPhone
 } from "./user";
 
 import {
@@ -15,7 +22,15 @@ import {
   getTransactions,
   getTransaction,
   dropTransaction,
-  createNewDeposit
+  createNewDeposit,
+  validateOutput,
+  removeValue,
+  getBalancePerId,
+  createCardTransaction,
+  createNewPix,
+  cardPay,
+  getTypedTransactions,
+  getTypeValue
 } from "./transaction";
 
 export {
@@ -32,5 +47,20 @@ export {
   refreshUserEmail,
   refreshUserPassword,
   eraseUser,
-  createNewDeposit
+  createNewDeposit,
+  getBalancePerId,
+  validateOutput,
+  removeValue,
+  createCard,
+  validateCardType,
+  getCardPerUserId,
+  createCardTransaction,
+  validateCpf,
+  refreshCardPassword,
+  validatePhone,
+  refreshUserPhone,
+  createNewPix,
+  cardPay,
+  getTypedTransactions,
+  getTypeValue
 };
