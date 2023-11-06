@@ -1,4 +1,10 @@
-import { verifyEmailExists, undefinedUser } from "./user";
+import {
+  verifyEmailExists,
+  undefinedUser,
+  validateCard,
+  verifyCpfExists,
+  verifyPhoneExists
+} from "./user";
 
 import {
   validateTransaction,
@@ -9,5 +15,8 @@ export {
   verifyEmailExists,
   validateTransaction,
   verifyTransactionId,
-  undefinedUser
+  undefinedUser,
+  validateCard,
+  verifyCpfExists,
+  verifyPhoneExists
 };
