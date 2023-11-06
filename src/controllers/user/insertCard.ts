@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
-import { insertCardAndConfirm } from "../../services";
+import { insertCardAndReturn } from "../../services";
 import { CardParams } from "../../models";
 
 export default async function insertCard(req: Request, res: Response) {
@@ -23,7 +23,7 @@ export default async function insertCard(req: Request, res: Response) {
       card_type
     };
 
-    const balance = await insertCardAndConfirm(req, params);
+    const balance = await insertCardAndReturn(req, params);
 
     if (balance) {
       return res.status(201).json({
