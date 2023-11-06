@@ -7,7 +7,10 @@ import {
   updateUser,
   updateUserEmail,
   updateUserPassword,
-  deleteUser
+  deleteUser,
+  insertCard,
+  updateCardPassword,
+  updateUserPhone
 } from "../controllers";
 
 import {
@@ -17,7 +20,10 @@ import {
   verifyUpdateEmailUserBody,
   verifyUpdateUserBody,
   verifyUpdatePasswordUserBody,
-  verifyPassword
+  verifyPassword,
+  verifyCardBody,
+  verifyUpdateCardPassword,
+  verifyUpdatePhoneUserBody
 } from "../middlewares";
 
 const UserRoutes = express();
@@ -59,10 +65,28 @@ UserRoutes.patch(
   updateUserPassword
 );
 
+UserRoutes.patch(
+  "/phone",
+  verifyUpdatePhoneUserBody,
+  updateUserPhone
+);
+
 UserRoutes.delete(
   "/user",
   verifyPassword,
   deleteUser
+);
+
+UserRoutes.post(
+  "/card",
+  verifyCardBody,
+  insertCard
+);
+
+UserRoutes.patch(
+  "/card",
+  verifyUpdateCardPassword,
+  updateCardPassword
 );
 
 export default UserRoutes;
