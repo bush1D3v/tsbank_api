@@ -5,15 +5,23 @@ import {
   updateUserAndReturn,
   updateEmailAndConfirm,
   updatePasswordAndConfirm,
-  deleteUserAndConfirm
+  deleteUserAndConfirm,
+  insertCardAndConfirm,
+  updateCardPasswordAndConfirm,
+  updatePhoneAndConfirm
 } from "./user";
 
 import {
   insertTransactionAndReturn,
-  getTransactionsAndReturn,
+  summaryTransactionsAndReturn,
   getTransactionAndReturn,
   deleteTransactionAndConfirm,
-  insertDepositAndConfirm
+  insertDepositAndConfirm,
+  makeWithdrawAndConfirm,
+  insertCardTransactionAndConfirm,
+  insertPixAndConfirm,
+  makeCardPayAndConfirm,
+  getHistoryAndReturn
 } from "./transaction";
 
 export {
@@ -22,11 +30,19 @@ export {
   getUserDetailsAndReturn,
   updateUserAndReturn,
   insertTransactionAndReturn,
-  getTransactionsAndReturn,
+  summaryTransactionsAndReturn,
   getTransactionAndReturn,
   deleteTransactionAndConfirm,
   updateEmailAndConfirm,
   updatePasswordAndConfirm,
   deleteUserAndConfirm,
-  insertDepositAndConfirm
+  insertDepositAndConfirm,
+  makeWithdrawAndConfirm,
+  insertCardAndConfirm,
+  insertCardTransactionAndConfirm,
+  updateCardPasswordAndConfirm,
+  updatePhoneAndConfirm,
+  insertPixAndConfirm,
+  makeCardPayAndConfirm,
+  getHistoryAndReturn
 };
