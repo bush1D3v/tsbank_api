@@ -4,7 +4,7 @@ import { verifyEmailExists } from "../../providers";
 import { getUserPerId, refreshUserEmail, validatePassword } from "../../repositories";
 import { getToken } from "../../utils";
 
-export default async function updateEmailAndConfirm(req: Request, params: UpdateUserEmailParams) {
+export default async function updateEmailAndReturn(req: Request, params: UpdateUserEmailParams) {
   await verifyEmailExists(params.new_email);
 
   const id = getToken(req);
