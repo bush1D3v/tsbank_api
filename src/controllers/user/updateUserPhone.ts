@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
-import { updatePhoneAndConfirm } from "../../services";
+import { updatePhoneAndReturn } from "../../services";
 import { UpdateUserPhoneParams } from "../../models";
 
 export default async function updateUserPhone(req: Request, res: Response) {
@@ -12,7 +12,7 @@ export default async function updateUserPhone(req: Request, res: Response) {
       new_phone
     };
 
-    const { phone } = await updatePhoneAndConfirm(req, params);
+    const { phone } = await updatePhoneAndReturn(req, params);
 
     return res.status(201).json({
       "message": `Your phone has been changed successfully, now is ${phone}`

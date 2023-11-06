@@ -10,7 +10,7 @@ import {
   validatePassword
 } from "../../repositories";
 
-export default async function insertDepositAndConfirm(req: Request, params: DepositParams) {
+export default async function insertDepositAndReturn(req: Request, params: DepositParams) {
   const validEmail = await validateEmail(params.email);
 
   if (!validEmail) {

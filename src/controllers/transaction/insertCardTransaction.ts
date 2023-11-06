@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
 import { CardTransactionParams } from "../../models";
-import { insertCardTransactionAndConfirm } from "../../services";
+import { insertCardTransactionAndReturn } from "../../services";
 
 export default async function insertCardTransaction(req: Request, res: Response) {
   try {
@@ -13,7 +13,7 @@ export default async function insertCardTransaction(req: Request, res: Response)
       value
     };
 
-    const responseTransaction = await insertCardTransactionAndConfirm(req, params);
+    const responseTransaction = await insertCardTransactionAndReturn(req, params);
 
     return res.status(201).json(responseTransaction);
   } catch (error: any) {

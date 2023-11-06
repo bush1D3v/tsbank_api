@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
-import { makeCardPayAndConfirm } from "../../services";
+import { makeCardPayAndReturn } from "../../services";
 import { CardPayParams } from "../../models";
 
 export default async function makeCardPay(req: Request, res: Response) {
@@ -12,7 +12,7 @@ export default async function makeCardPay(req: Request, res: Response) {
       password
     };
 
-    const transactionResponse = await makeCardPayAndConfirm(req, params);
+    const transactionResponse = await makeCardPayAndReturn(req, params);
 
     return res.status(201).json(transactionResponse);
   } catch (error: any) {

@@ -4,7 +4,7 @@ import { encryptPassword, getToken } from "../../utils";
 import { validateCard } from "../../providers";
 import { createCard, getBalancePerId } from "../../repositories";
 
-export default async function insertCardAndConfirm(req: Request, params: CardParams) {
+export default async function insertCardAndReturn(req: Request, params: CardParams) {
   const user_id = getToken(req);
 
   const validateParams = {

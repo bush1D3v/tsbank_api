@@ -2,14 +2,14 @@ import { Request } from "express";
 import { OutputTransactionParams } from "../../models";
 import { getToken } from "../../utils";
 import {
+  cardPay,
   createNewTransaction,
   getUserPerId,
-  removeValue,
   validateOutput,
   validatePassword
 } from "../../repositories";
 
-export default async function makeWithdrawAndConfirm(req: Request, params: OutputTransactionParams) {
+export default async function makeCardPayAndReturn(req: Request, params: OutputTransactionParams) {
   const userId = getToken(req);
 
   const user = await getUserPerId(userId);
@@ -18,15 +18,15 @@ export default async function makeWithdrawAndConfirm(req: Request, params: Outpu
 
   validateOutput(user.balance, params.value);
 
-  await removeValue("balance", params.value, userId);
+  await cardPay(params.value, userId);
 
   const transaction = {
-    type: "Output",
-    description: "Withdraw",
+    type: "output",
+    description: "card pay",
     value: params.value
   };
 
-  const responseTransaction = await createNewTransaction(transaction, userId);
+  const transactionResponse = await createNewTransaction(transaction, userId);
 
-  return responseTransaction;
+  return transactionResponse;
 };

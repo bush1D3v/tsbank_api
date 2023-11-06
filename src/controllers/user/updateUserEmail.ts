@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
 import { UpdateUserEmailParams } from "../../models";
-import { updateEmailAndConfirm } from "../../services";
+import { updateEmailAndReturn } from "../../services";
 
 export default async function updateUserEmail(req: Request, res: Response) {
   try {
@@ -12,7 +12,7 @@ export default async function updateUserEmail(req: Request, res: Response) {
       new_email
     };
 
-    const { email } = await updateEmailAndConfirm(req, user);
+    const { email } = await updateEmailAndReturn(req, user);
 
     res.status(201).json({
       "message": `Your email has been changed successfully, now is '${email}'`

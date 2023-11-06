@@ -4,7 +4,7 @@ import { getUserPerId, refreshUserPhone, validatePassword } from "../../reposito
 import { UpdateUserPhoneParams } from "../../models";
 import { verifyPhoneExists } from "../../providers";
 
-export default async function updatePhoneAndConfirm(req: Request, params: UpdateUserPhoneParams) {
+export default async function updatePhoneAndReturn(req: Request, params: UpdateUserPhoneParams) {
   const id = getToken(req);
 
   const user = await getUserPerId(id);
