@@ -6,6 +6,13 @@ import refreshUser from "./refreshUser";
 import refreshUserEmail from "./refreshUserEmail";
 import refreshUserPassword from "./refreshUserPassword";
 import eraseUser from "./eraseUser";
+import createCard from "./createCard";
+import validateCardType from "./validateCardType";
+import getCardPerUserId from "./getCardPerUserId";
+import validateCpf from "./validateCpf";
+import refreshCardPassword from "./refreshCardPassword";
+import validatePhone from "./validatePhone";
+import refreshUserPhone from "./refreshUserPhone";
 
 export {
   createNewUser,
@@ -15,5 +22,12 @@ export {
   refreshUser,
   refreshUserEmail,
   refreshUserPassword,
-  eraseUser
+  eraseUser,
+  createCard,
+  validateCardType,
+  getCardPerUserId,
+  validateCpf,
+  refreshCardPassword,
+  validatePhone,
+  refreshUserPhone
 };
