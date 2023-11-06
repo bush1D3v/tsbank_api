@@ -1,5 +1,9 @@
+import verifyCardPay from "./verifyCardPay";
+import verifyCardTransaction from "./verifyCardTransaction";
+import verifyDepositTransaction from "./verifyDepositTransaction";
+import verifyOutputTransaction from "./verifyOutputTransaction";
+import verifyPixValue from "./verifyPixValue";
 import verifyTransactionBody from "./verifyTransactionBody";
-import verifyTransactionValue from "./verifyTransactionValue";
 import verifyType from "./verifyType";
 import verifyTypeofParams from "./verifyTypeofParams";
 
@@ -7,5 +11,9 @@ export {
   verifyTransactionBody,
   verifyType,
   verifyTypeofParams,
-  verifyTransactionValue
+  verifyOutputTransaction,
+  verifyDepositTransaction,
+  verifyCardTransaction,
+  verifyPixValue,
+  verifyCardPay
 };
