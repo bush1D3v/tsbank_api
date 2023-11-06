@@ -1,10 +1,10 @@
 import { Request } from "express";
-import { UpdateUserMailParams } from "../../models";
+import { UpdateUserEmailParams } from "../../models";
 import { verifyEmailExists } from "../../providers";
 import { getUserPerId, refreshUserEmail, validatePassword } from "../../repositories";
 import { getToken } from "../../utils";
 
-export default async function updateEmailAndConfirm(req: Request, params: UpdateUserMailParams) {
+export default async function updateEmailAndConfirm(req: Request, params: UpdateUserEmailParams) {
   await verifyEmailExists(params.new_email);
 
   const id = getToken(req);
@@ -13,5 +13,7 @@ export default async function updateEmailAndConfirm(req: Request, params: Update
 
   await validatePassword(params.password, user.password);
 
-  await refreshUserEmail(user.password, params.new_email);
+  const returnedEmail = await refreshUserEmail(user.password, params.new_email);
+
+  return returnedEmail;
 };
