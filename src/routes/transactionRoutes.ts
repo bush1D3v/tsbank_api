@@ -2,10 +2,15 @@ import express from "express";
 
 import {
   insertTransaction,
-  listTransactions,
+  summaryTransactions,
   detailTransaction,
   deleteTransaction,
-  insertDeposit
+  insertDeposit,
+  makeWithdraw,
+  insertCardTransaction,
+  insertPix,
+  makeCardPay,
+  getHistory
 } from "../controllers";
 
 import {
@@ -13,7 +18,11 @@ import {
   verifyType,
   verifyTypeofParams,
   verifyPassword,
-  verifyTransactionValue
+  verifyOutputTransaction,
+  verifyDepositTransaction,
+  verifyCardTransaction,
+  verifyPixValue,
+  verifyCardPay,
 } from "../middlewares";
 
 const transactionRoutes = express();
@@ -27,7 +36,7 @@ transactionRoutes.post(
 
 transactionRoutes.get(
   "/transaction",
-  listTransactions
+  summaryTransactions
 );
 
 transactionRoutes.get(
@@ -45,8 +54,37 @@ transactionRoutes.delete(
 
 transactionRoutes.post(
   "/deposit",
-  verifyTransactionValue,
+  verifyDepositTransaction,
   insertDeposit
+);
+
+transactionRoutes.post(
+  "/withdraw",
+  verifyOutputTransaction,
+  makeWithdraw
+);
+
+transactionRoutes.post(
+  "/transaction/card",
+  verifyCardTransaction,
+  insertCardTransaction
+);
+
+transactionRoutes.post(
+  "/pix",
+  verifyPixValue,
+  insertPix
+);
+
+transactionRoutes.post(
+  "/card/pay",
+  verifyCardPay,
+  makeCardPay
+);
+
+transactionRoutes.get(
+  "/history",
+  getHistory
 );
 
 export default transactionRoutes;
