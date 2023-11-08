@@ -13,7 +13,8 @@ import {
   UpdateCardPasswordParams,
   RefreshCardParams,
   UpdateUserPhoneParams,
-  DeleteUserParams
+  DeleteUserParams,
+  RefreshUserParams
 } from "./user";
 
 import {
@@ -25,7 +26,8 @@ import {
   PixParams,
   DepositParams,
   CardPayParams,
-  NewPixParams
+  NewPixParams,
+  GetCardPerUserIdParams
 } from "./transaction";
 
 export {
@@ -52,5 +54,7 @@ export {
   DepositParams,
   DeleteUserParams,
   CardPayParams,
-  NewPixParams
+  NewPixParams,
+  RefreshUserParams,
+  GetCardPerUserIdParams
 };
