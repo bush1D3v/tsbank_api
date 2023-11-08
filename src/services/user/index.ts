@@ -8,6 +8,7 @@ import deleteUserAndConfirm from "./deleteUserAndConfirm";
 import insertCardAndReturn from "./insertCardAndReturn";
 import updateCardPasswordAndConfirm from "./updateCardPasswordAndConfirm";
 import updatePhoneAndReturn from "./updatePhoneAndReturn";
+import detailCardsAndReturn from "./detailCardsAndReturn";
 
 export {
   insertUserAndReturn,
@@ -19,5 +20,6 @@ export {
   deleteUserAndConfirm,
   insertCardAndReturn,
   updateCardPasswordAndConfirm,
-  updatePhoneAndReturn
+  updatePhoneAndReturn,
+  detailCardsAndReturn
 };
