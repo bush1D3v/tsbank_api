@@ -1,9 +1,13 @@
 import db from "../../data/connection";
 import { InsertCardParams } from "../../models";
 
+type Balance = {
+  balance: number
+}
+
 export default async function createCard(params: InsertCardParams) {
   if (params.card_type.toLowerCase() === "credit") {
-    const balance: number = await db("credit_cards").insert({
+    const value: Balance[] = await db("credit_cards").insert({
       card_number: params.card_number,
       cardholder_name: params.cardholder_name,
       expiration_date: params.expiration_date,
@@ -13,7 +17,7 @@ export default async function createCard(params: InsertCardParams) {
       password: params.password
     }).returning("balance");
 
-    return balance;
+    return value[ 0 ].balance;
   } else if (params.card_type.toLowerCase() === "debit") {
     await db("debit_cards").insert({
       card_number: params.card_number,
