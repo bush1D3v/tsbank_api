@@ -21,8 +21,8 @@ export default async function makeWithdrawAndReturn(req: Request, params: Output
   await removeValue("balance", params.value, userId);
 
   const transaction = {
-    type: "Output",
-    description: "Withdraw",
+    type: "output",
+    description: "withdraw",
     value: params.value
   };
 
