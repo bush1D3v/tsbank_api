@@ -5,6 +5,7 @@ import {
   createCardTransaction,
   createNewTransaction,
   getCardPerUserId,
+  getUserPerId,
   validateOutput,
   validatePassword
 } from "../../repositories";
@@ -12,11 +13,22 @@ import {
 export default async function insertCardTransactionAndReturn(req: Request, params: CardTransactionParams) {
   const userId = getToken(req);
 
-  const card = await getCardPerUserId(userId, params.card_type);
+  const cardParams = {
+    cardType: params.card_type,
+    userId
+  };
 
-  await validatePassword(params.password.toString(), card.password);
+  const card = await getCardPerUserId(cardParams);
 
-  validateOutput(card.balance, params.value);
+  await validatePassword(params.password, card.password);
+
+  if (typeof card.balance === "undefined") {
+    const user = await getUserPerId(userId);
+
+    validateOutput(user.balance, params.value);
+  } else {
+    validateOutput(card.balance, params.value);
+  }
 
   await createCardTransaction(params.card_type, userId, params.value);
 
