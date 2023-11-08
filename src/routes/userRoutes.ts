@@ -10,7 +10,8 @@ import {
   deleteUser,
   insertCard,
   updateCardPassword,
-  updateUserPhone
+  updateUserPhone,
+  detailCards
 } from "../controllers";
 
 import {
@@ -81,6 +82,11 @@ UserRoutes.post(
   "/card",
   verifyCardBody,
   insertCard
+);
+
+UserRoutes.get(
+  "/card",
+  detailCards
 );
 
 UserRoutes.patch(
