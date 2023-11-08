@@ -7,13 +7,13 @@ import { getToken } from "../../utils";
 export default async function updateEmailAndReturn(req: Request, params: UpdateUserEmailParams) {
   await verifyEmailExists(params.new_email);
 
-  const id = getToken(req);
+  const userId = getToken(req);
 
-  const user = await getUserPerId(id);
+  const user = await getUserPerId(userId);
 
   await validatePassword(params.password, user.password);
 
-  const returnedEmail = await refreshUserEmail(user.password, params.new_email);
+  const returnedEmail = await refreshUserEmail(userId, params.new_email);
 
   return returnedEmail;
 };

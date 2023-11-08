@@ -1,0 +1,27 @@
+import db from "../../data/connection";
+import { HttpStatusError } from "../../error";
+import { DatabaseCardParams } from "../../models";
+
+type responseCards = {
+  credit: DatabaseCardParams;
+  debit: DatabaseCardParams;
+}
+
+export default async function getCardsPerUserId(user_id: number) {
+  const credit: DatabaseCardParams = await db("credit_cards")
+    .where({ user_id }).first();
+
+  const debit: DatabaseCardParams = await db("debit_cards")
+    .where({ user_id }).first();
+
+  if (!credit && !debit) {
+    throw new HttpStatusError("This user not have a card", 404);
+  }
+
+  const cards: responseCards = {
+    credit,
+    debit
+  };
+
+  return cards;
+};

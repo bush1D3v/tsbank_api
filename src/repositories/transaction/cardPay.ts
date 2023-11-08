@@ -5,8 +5,4 @@ export default async function cardPay(value: number, userId: number) {
     .where({
       "user_id": userId
     });
-  await db("users").decrement("balance", value)
-    .where({
-      "id": userId
-    });
 };

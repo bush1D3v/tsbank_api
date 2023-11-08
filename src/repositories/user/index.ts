@@ -13,6 +13,7 @@ import validateCpf from "./validateCpf";
 import refreshCardPassword from "./refreshCardPassword";
 import validatePhone from "./validatePhone";
 import refreshUserPhone from "./refreshUserPhone";
+import getCardsPerUserId from "./getCardsPerUserId";
 
 export {
   createNewUser,
@@ -29,5 +30,6 @@ export {
   validateCpf,
   refreshCardPassword,
   validatePhone,
-  refreshUserPhone
+  refreshUserPhone,
+  getCardsPerUserId
 };

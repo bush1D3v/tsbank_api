@@ -14,8 +14,8 @@ import { HttpStatusError } from "../../error";
 export default async function insertPixAndReturn(req: Request, params: PixParams) {
   const cpfUser = await validateCpf(params.cpf);
 
-  if ("cpfUser") {
-    throw new HttpStatusError("it's not possible to make a pix for yourself", 400);
+  if (!cpfUser) {
+    throw new HttpStatusError("This cpf does not exists", 400);
   }
 
   const userId = getToken(req);

@@ -1,16 +1,25 @@
 import { Request } from "express";
 import { UpdateCardPasswordParams } from "../../models";
 import { encryptPassword, getToken } from "../../utils";
-import { getCardPerUserId, refreshCardPassword, validatePassword } from "../../repositories";
+import {
+  getCardPerUserId,
+  refreshCardPassword,
+  validatePassword
+} from "../../repositories";
 
 export default async function updateCardPasswordAndConfirm(req: Request, params: UpdateCardPasswordParams) {
   const userId = getToken(req);
 
-  const card = await getCardPerUserId(userId, params.card_type);
+  const cardParams = {
+    cardType: params.card_type,
+    userId
+  };
+
+  const card = await getCardPerUserId(cardParams);
 
   await validatePassword(params.password, card.password);
 
-  const password = await encryptPassword(params.new_password.toString());
+  const password = await encryptPassword(params.new_password);
 
   const refreshParams = {
     card_id: card.id,

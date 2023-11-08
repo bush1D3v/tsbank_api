@@ -14,7 +14,7 @@ CREATE TABLE
     id SERIAL PRIMARY KEY,
     description VARCHAR(25) NOT NULL,
     value FLOAT NOT NULL,
-    date DATE DEFAULT current_timestamp,
+    date TIMESTAMP DEFAULT current_timestamp,
     user_id INTEGER REFERENCES users (id) NOT NULL,
     type VARCHAR(6) NOT NULL
   );

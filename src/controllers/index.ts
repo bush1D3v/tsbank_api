@@ -8,7 +8,8 @@ import {
   deleteUser,
   insertCard,
   updateCardPassword,
-  updateUserPhone
+  updateUserPhone,
+  detailCards
 } from "./user";
 
 import {
@@ -44,5 +45,6 @@ export {
   updateUserPhone,
   insertPix,
   makeCardPay,
-  getHistory
+  getHistory,
+  detailCards
 };

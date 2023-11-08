@@ -1,13 +1,16 @@
 import db from "../../data/connection";
 import { HttpStatusError } from "../../error";
-import { DatabaseCardParams } from "../../models";
+import {
+  DatabaseCardParams,
+  GetCardPerUserIdParams
+} from "../../models";
 
-export default async function getCardPerUserId(userId: number, cardType: string) {
-  const card: DatabaseCardParams = await db(cardType.toLowerCase() + "_cards")
-    .where({ user_id: userId }).first();
+export default async function getCardPerUserId(params: GetCardPerUserIdParams) {
+  const card: DatabaseCardParams = await db(params.cardType.toLowerCase() + "_cards")
+    .where({ user_id: params.userId }).first();
 
   if (!card) {
-    throw new HttpStatusError(`This user not have a ${cardType.toLowerCase()} card`, 404);
+    throw new HttpStatusError(`This user not have a ${params.cardType.toLowerCase()} card`, 404);
   }
 
   return card;

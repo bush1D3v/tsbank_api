@@ -1,5 +1,5 @@
 export interface CardTransactionParams {
-  password: number;
+  password: string;
   card_type: string;
   value: number;
 }

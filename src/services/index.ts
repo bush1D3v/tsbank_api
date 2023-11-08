@@ -8,7 +8,8 @@ import {
   deleteUserAndConfirm,
   insertCardAndReturn,
   updateCardPasswordAndConfirm,
-  updatePhoneAndReturn
+  updatePhoneAndReturn,
+  detailCardsAndReturn
 } from "./user";
 
 import {
@@ -44,5 +45,6 @@ export {
   updatePhoneAndReturn,
   insertPixAndReturn,
   makeCardPayAndReturn,
-  getHistoryAndReturn
+  getHistoryAndReturn,
+  detailCardsAndReturn
 };

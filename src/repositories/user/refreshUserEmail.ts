@@ -4,10 +4,10 @@ type EmailDate = {
   email: string
 }
 
-export default async function refreshUserEmail(password: string, new_email: string) {
+export default async function refreshUserEmail(id: number, new_email: string) {
   const returnedEmail: EmailDate[] = await db("users").update({ "email": new_email })
     .where({
-      password
+      id
     }).returning([ "email" ]);
 
   return returnedEmail[ 0 ];

@@ -3,6 +3,7 @@ import { CardTransactionParams } from "./CardTransactionParams";
 import { DatabaseTransactionParams } from "./DatabaseTransactionParams";
 import { DeleteTransactionParams } from "./DeleteTransactionParams";
 import { DepositParams } from "./DepositParams";
+import { GetCardPerUserIdParams } from "./GetCardPerUserIdParams";
 import { NewPixParams } from "./NewPixParams";
 import { OutputTransactionParams } from "./OutputTransactionParams";
 import { PixParams } from "./PixParams";
@@ -17,5 +18,6 @@ export {
   PixParams,
   DepositParams,
   CardPayParams,
-  NewPixParams
+  NewPixParams,
+  GetCardPerUserIdParams
 };

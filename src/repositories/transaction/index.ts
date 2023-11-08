@@ -13,6 +13,8 @@ import createNewPix from "./createNewPix";
 import cardPay from "./cardPay";
 import getTypedTransactions from "./getTypedTransactions";
 import getTypeValue from "./getTypeValue";
+import dropTransactions from "./dropTransactions";
+import dropCards from "./dropCards";
 
 export {
   getCategoriePerId,
@@ -28,5 +30,7 @@ export {
   createNewPix,
   cardPay,
   getTypedTransactions,
-  getTypeValue
+  getTypeValue,
+  dropTransactions,
+  dropCards
 };
