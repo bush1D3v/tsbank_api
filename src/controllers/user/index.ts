@@ -8,6 +8,7 @@ import deleteUser from "./deleteUser";
 import insertCard from "./insertCard";
 import updateCardPassword from "./updateCardPassword";
 import updateUserPhone from "./updateUserPhone";
+import detailCards from "./detailCards";
 
 export {
   insertUser,
@@ -19,5 +20,6 @@ export {
   deleteUser,
   insertCard,
   updateCardPassword,
-  updateUserPhone
+  updateUserPhone,
+  detailCards
 };
