@@ -1,13 +1,23 @@
 import { Request } from "express";
 import { getToken } from "../../utils";
-import { eraseUser, getUserPerId, validatePassword } from "../../repositories";
+import {
+  dropCards,
+  dropTransactions,
+  eraseUser,
+  getUserPerId,
+  validatePassword
+} from "../../repositories";
 
 export default async function deleteUserAndConfirm(req: Request, password: string) {
-  const id = getToken(req);
+  const userId = getToken(req);
 
-  const user = await getUserPerId(id);
+  const user = await getUserPerId(userId);
 
   await validatePassword(password, user.password);
 
-  await eraseUser(id);
+  await dropTransactions(userId);
+
+  await dropCards(userId);
+
+  await eraseUser(userId);
 };
