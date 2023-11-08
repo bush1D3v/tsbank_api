@@ -9,6 +9,6 @@ export default async function validateCard(params: ValidateCardParams) {
     });
 
   if (cardExists.length > 0) {
-    throw new HttpStatusError(`This user already have a ${params.card_type} card`, 409);
+    throw new HttpStatusError(`This user already have a ${params.card_type.toLowerCase()} card`, 409);
   }
 };
