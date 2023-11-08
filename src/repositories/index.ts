@@ -13,7 +13,8 @@ import {
   validateCpf,
   refreshCardPassword,
   validatePhone,
-  refreshUserPhone
+  refreshUserPhone,
+  getCardsPerUserId
 } from "./user";
 
 import {
@@ -30,7 +31,9 @@ import {
   createNewPix,
   cardPay,
   getTypedTransactions,
-  getTypeValue
+  getTypeValue,
+  dropTransactions,
+  dropCards
 } from "./transaction";
 
 export {
@@ -62,5 +65,8 @@ export {
   createNewPix,
   cardPay,
   getTypedTransactions,
-  getTypeValue
+  getTypeValue,
+  getCardsPerUserId,
+  dropTransactions,
+  dropCards
 };
