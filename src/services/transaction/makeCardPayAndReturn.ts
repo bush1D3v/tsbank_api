@@ -5,6 +5,7 @@ import {
   cardPay,
   createNewTransaction,
   getUserPerId,
+  removeValue,
   validateOutput,
   validatePassword
 } from "../../repositories";
@@ -19,6 +20,8 @@ export default async function makeCardPayAndReturn(req: Request, params: OutputT
   validateOutput(user.balance, params.value);
 
   await cardPay(params.value, userId);
+
+  await removeValue("balance", params.value, userId);
 
   const transaction = {
     type: "output",
