@@ -13,6 +13,7 @@ import { UpdateCardPasswordParams } from "./UpdateCardPasswordParams";
 import { RefreshCardParams } from "./RefreshCardParams";
 import { UpdateUserPhoneParams } from "./UpdateUserPhoneParams";
 import { DeleteUserParams } from "./DeleteUserParams";
+import { RefreshUserParams } from "./RefreshUserParams";
 
 export {
   UpdateUserParams,
@@ -29,5 +30,6 @@ export {
   UpdateCardPasswordParams,
   RefreshCardParams,
   UpdateUserPhoneParams,
-  DeleteUserParams
+  DeleteUserParams,
+  RefreshUserParams
 };
