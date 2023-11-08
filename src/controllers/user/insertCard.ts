@@ -27,11 +27,11 @@ export default async function insertCard(req: Request, res: Response) {
 
     if (balance) {
       return res.status(201).json({
-        message: `${card_type} card added succesfully. Your credit limit is: ${balance}`
+        message: `${card_type.toLowerCase()} card added succesfully. Your credit limit is: ${balance}`
       });
     } else {
       return res.status(201).json({
-        message: `${card_type} card added succesfully`
+        message: `${card_type.toLowerCase()} card added succesfully`
       });
     }
   } catch (error: any) {
