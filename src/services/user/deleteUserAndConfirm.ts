@@ -1,11 +1,10 @@
 import { Request } from "express";
-import { getToken } from "../../utils";
+import { getToken, validatePassword } from "../../utils";
 import {
   dropCards,
   dropTransactions,
   eraseUser,
-  getUserPerId,
-  validatePassword
+  getUserPerId
 } from "../../repositories";
 
 export default async function deleteUserAndConfirm(req: Request, password: string) {
