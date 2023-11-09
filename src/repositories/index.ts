@@ -1,6 +1,5 @@
 import {
   createNewUser,
-  validatePassword,
   validateEmail,
   getUserPerId,
   refreshUser,
@@ -8,7 +7,6 @@ import {
   refreshUserPassword,
   eraseUser,
   createCard,
-  validateCardType,
   getCardPerUserId,
   validateCpf,
   refreshCardPassword,
@@ -24,7 +22,6 @@ import {
   getTransaction,
   dropTransaction,
   createNewDeposit,
-  validateOutput,
   removeValue,
   getBalancePerId,
   createCardTransaction,
@@ -38,7 +35,6 @@ import {
 
 export {
   createNewUser,
-  validatePassword,
   validateEmail,
   getUserPerId,
   refreshUser,
@@ -52,10 +48,8 @@ export {
   eraseUser,
   createNewDeposit,
   getBalancePerId,
-  validateOutput,
   removeValue,
   createCard,
-  validateCardType,
   getCardPerUserId,
   createCardTransaction,
   validateCpf,
