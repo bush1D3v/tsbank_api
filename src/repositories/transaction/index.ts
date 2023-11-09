@@ -5,7 +5,6 @@ import getTransactions from "./getTransactions";
 import getTransaction from "./getTransaction";
 import dropTransaction from "./dropTransaction";
 import createNewDeposit from "./createNewDeposit";
-import validateOutput from "./validateOutput";
 import removeValue from "./removeValue";
 import getBalancePerId from "./getBalancePerId";
 import createCardTransaction from "./createCardTransaction";
@@ -23,7 +22,6 @@ export {
   getTransaction,
   dropTransaction,
   createNewDeposit,
-  validateOutput,
   removeValue,
   getBalancePerId,
   createCardTransaction,
