@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { handleError } from "../../error";
 import { CardSchema } from "../../schemas";
-import { validateCardType } from "../../repositories";
+import { validateCardType } from "../../providers";
 
 export default async function verifyCardBody(req: Request, res: Response, next: NextFunction) {
   try {
