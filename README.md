@@ -78,7 +78,7 @@ Faça as alterações necessárias no código, adicione novos recursos ou corre�
 Garanta que suas alterações não quebraram nenhum recurso existente. Execute os testes e certifique-se de que todos passam:
 
 ```
-npm test
+npm run test
 ```
 ou
 ```
