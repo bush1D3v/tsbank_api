@@ -1,14 +1,13 @@
 import { Request } from "express";
 import { CardTransactionParams } from "../../models";
-import { getToken } from "../../utils";
+import { getToken, validatePassword } from "../../utils";
 import {
   createCardTransaction,
   createNewTransaction,
   getCardPerUserId,
-  getUserPerId,
-  validateOutput,
-  validatePassword
+  getUserPerId
 } from "../../repositories";
+import { validateOutput } from "../../providers";
 
 export default async function insertCardTransactionAndReturn(req: Request, params: CardTransactionParams) {
   const userId = getToken(req);
