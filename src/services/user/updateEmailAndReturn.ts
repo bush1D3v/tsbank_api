@@ -1,8 +1,8 @@
 import { Request } from "express";
 import { UpdateUserEmailParams } from "../../models";
 import { verifyEmailExists } from "../../providers";
-import { getUserPerId, refreshUserEmail, validatePassword } from "../../repositories";
-import { getToken } from "../../utils";
+import { getUserPerId, refreshUserEmail } from "../../repositories";
+import { getToken, validatePassword } from "../../utils";
 
 export default async function updateEmailAndReturn(req: Request, params: UpdateUserEmailParams) {
   await verifyEmailExists(params.new_email);
