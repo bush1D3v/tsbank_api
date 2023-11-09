@@ -3,12 +3,15 @@ import {
   undefinedUser,
   validateCard,
   verifyCpfExists,
-  verifyPhoneExists
+  verifyPhoneExists,
+  validateCardType
 } from "./user";
 
 import {
   validateTransaction,
-  verifyTransactionId
+  verifyTransactionId,
+  validatePix,
+  validateOutput
 } from "./transaction";
 
 export {
@@ -18,5 +21,8 @@ export {
   undefinedUser,
   validateCard,
   verifyCpfExists,
-  verifyPhoneExists
+  verifyPhoneExists,
+  validatePix,
+  validateOutput,
+  validateCardType
 };
