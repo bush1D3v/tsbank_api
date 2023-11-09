@@ -1,6 +1,6 @@
 import { UpdateUserParams } from "../../models";
-import { getUserPerId, refreshUser, validatePassword } from "../../repositories";
-import { encryptPassword } from "../../utils";
+import { getUserPerId, refreshUser } from "../../repositories";
+import { encryptPassword, validatePassword } from "../../utils";
 import { Request } from "express";
 import { getToken } from "../../utils";
 import { verifyEmailExists, verifyPhoneExists } from "../../providers";
