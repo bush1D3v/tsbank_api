@@ -1,13 +1,12 @@
 import { Request } from "express";
 import { OutputTransactionParams } from "../../models";
-import { getToken } from "../../utils";
+import { getToken, validatePassword } from "../../utils";
 import {
   createNewTransaction,
   getUserPerId,
-  removeValue,
-  validateOutput,
-  validatePassword
+  removeValue
 } from "../../repositories";
+import { validateOutput } from "../../providers";
 
 export default async function makeWithdrawAndReturn(req: Request, params: OutputTransactionParams) {
   const userId = getToken(req);
