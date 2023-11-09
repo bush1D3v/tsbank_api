@@ -1,30 +1,24 @@
 import { Request } from "express";
 import { PixParams } from "../../models";
-import { getToken } from "../../utils";
+import { getToken, validatePassword } from "../../utils";
 import {
   createNewPix,
   createNewTransaction,
   getUserPerId,
-  validateCpf,
-  validateOutput,
-  validatePassword
+  validateCpf
 } from "../../repositories";
-import { HttpStatusError } from "../../error";
+import { validateOutput, validatePix, verifyCpfExists } from "../../providers";
 
 export default async function insertPixAndReturn(req: Request, params: PixParams) {
-  const cpfUser = await validateCpf(params.cpf);
+  await verifyCpfExists(params.cpf);
 
-  if (!cpfUser) {
-    throw new HttpStatusError("This cpf does not exists", 400);
-  }
+  const cpfUser = await validateCpf(params.cpf);
 
   const userId = getToken(req);
 
   const user = await getUserPerId(userId);
 
-  if (user.cpf === params.cpf) {
-    throw new HttpStatusError("it's not possible to make a pix for yourself", 400);
-  }
+  validatePix(user.cpf, params.cpf);
 
   validateOutput(user.balance, params.value);
 
