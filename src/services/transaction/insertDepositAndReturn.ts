@@ -1,13 +1,12 @@
 import { Request } from "express";
 import { HttpStatusError } from "../../error";
 import { DepositParams } from "../../models";
-import { getToken } from "../../utils";
+import { getToken, validatePassword } from "../../utils";
 import {
   createNewDeposit,
   createNewTransaction,
   getUserPerId,
-  validateEmail,
-  validatePassword
+  validateEmail
 } from "../../repositories";
 
 export default async function insertDepositAndReturn(req: Request, params: DepositParams) {
