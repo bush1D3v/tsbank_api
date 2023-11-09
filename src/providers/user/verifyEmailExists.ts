@@ -5,6 +5,6 @@ export default async function verifyEmailExists(email: string) {
   const emailExists = await validateEmail(email);
 
   if (emailExists) {
-    throw new HttpStatusError("This email already used per other user", 409);
+    throw new HttpStatusError("this email already used per other user", 409);
   }
 };

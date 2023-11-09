@@ -5,6 +5,6 @@ export default async function verifyCpfExists(cpf: string) {
   const cpfExists = await validateCpf(cpf);
 
   if (cpfExists) {
-    throw new HttpStatusError("This cpf already used per other user", 409);
+    throw new HttpStatusError("this cpf already used per other user", 409);
   }
 };
