@@ -1,6 +1,6 @@
 import { Request } from "express";
-import { getToken } from "../../utils";
-import { getUserPerId, refreshUserPhone, validatePassword } from "../../repositories";
+import { getToken, validatePassword } from "../../utils";
+import { getUserPerId, refreshUserPhone } from "../../repositories";
 import { UpdateUserPhoneParams } from "../../models";
 import { verifyPhoneExists } from "../../providers";
 

@@ -1,7 +1,7 @@
 import { HttpStatusError } from "../../error";
 import { LoginUserParams } from "../../models";
-import { validateEmail, validatePassword } from "../../repositories";
-import { createToken } from "../../utils";
+import { validateEmail } from "../../repositories";
+import { createToken, validatePassword } from "../../utils";
 
 export default async function loginUserAndReturn(params: LoginUserParams) {
   const user = await validateEmail(params.email);

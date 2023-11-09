@@ -1,6 +1,6 @@
 import { Request } from "express";
-import { encryptPassword, getToken } from "../../utils";
-import { getUserPerId, refreshUserPassword, validatePassword } from "../../repositories";
+import { encryptPassword, getToken, validatePassword } from "../../utils";
+import { getUserPerId, refreshUserPassword } from "../../repositories";
 import { UpdateUserPasswordParams } from "../../models";
 
 export default async function updatePasswordAndConfirm(req: Request, params: UpdateUserPasswordParams) {
