@@ -1,11 +1,11 @@
 import { Request } from "express";
 import { UpdateCardPasswordParams } from "../../models";
-import { encryptPassword, getToken } from "../../utils";
+import { getCardPerUserId, refreshCardPassword } from "../../repositories";
 import {
-  getCardPerUserId,
-  refreshCardPassword,
+  encryptPassword,
+  getToken,
   validatePassword
-} from "../../repositories";
+} from "../../utils";
 
 export default async function updateCardPasswordAndConfirm(req: Request, params: UpdateCardPasswordParams) {
   const userId = getToken(req);
