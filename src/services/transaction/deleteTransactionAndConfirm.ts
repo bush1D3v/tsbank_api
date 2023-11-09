@@ -1,7 +1,7 @@
 import { Request } from "express";
-import { dropTransaction, getUserPerId, validatePassword } from "../../repositories";
+import { dropTransaction, getUserPerId } from "../../repositories";
 import { validateTransaction, verifyTransactionId } from "../../providers";
-import { getToken } from "../../utils";
+import { getToken, validatePassword } from "../../utils";
 import { DeleteTransactionParams } from "../../models";
 
 export default async function deleteTransactionAndConfirm(req: Request, params: DeleteTransactionParams) {
