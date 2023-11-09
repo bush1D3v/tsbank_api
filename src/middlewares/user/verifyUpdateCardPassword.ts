@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { handleError } from "../../error";
 import { UpdateCardPasswordSchema } from "../../schemas";
-import { validateCardType } from "../../repositories";
+import { validateCardType } from "../../providers";
 
 export default async function verifyUpdateCardPassword(req: Request, res: Response, next: NextFunction) {
   try {
