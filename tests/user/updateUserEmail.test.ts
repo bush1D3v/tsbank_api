@@ -26,7 +26,7 @@ let response: request.Response;
 
 const unauthUser = async () => {
   response = await request(server)
-    .post("/email")
+    .patch("/email")
     .send(updatedEmailUser);
 
   return response;
