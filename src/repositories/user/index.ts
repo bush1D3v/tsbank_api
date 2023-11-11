@@ -1,5 +1,5 @@
 import createNewUser from "./createNewUser";
-import validateEmail from "./validateEmail";
+import getUserPerEmail from "./getUserPerEmail";
 import getUserPerId from "./getUserPerId";
 import refreshUser from "./refreshUser";
 import refreshUserEmail from "./refreshUserEmail";
@@ -7,15 +7,15 @@ import refreshUserPassword from "./refreshUserPassword";
 import eraseUser from "./eraseUser";
 import createCard from "./createCard";
 import getCardPerUserId from "./getCardPerUserId";
-import validateCpf from "./validateCpf";
+import getUserPerCpf from "./getUserPerCpf";
 import refreshCardPassword from "./refreshCardPassword";
-import validatePhone from "./validatePhone";
+import getUserPerPhone from "./getUserPerPhone";
 import refreshUserPhone from "./refreshUserPhone";
 import getCardsPerUserId from "./getCardsPerUserId";
 
 export {
   createNewUser,
-  validateEmail,
+  getUserPerEmail,
   getUserPerId,
   refreshUser,
   refreshUserEmail,
@@ -23,9 +23,9 @@ export {
   eraseUser,
   createCard,
   getCardPerUserId,
-  validateCpf,
+  getUserPerCpf,
   refreshCardPassword,
-  validatePhone,
+  getUserPerPhone,
   refreshUserPhone,
   getCardsPerUserId
 };
