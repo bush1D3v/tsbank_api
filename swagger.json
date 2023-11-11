@@ -55,7 +55,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "This email already used per other user"
+                      "message": "this email already used per other user"
                     }
                   }
                 }
@@ -116,7 +116,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User not found"
+                      "message": "user not found"
                     }
                   }
                 }
@@ -133,7 +133,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -199,7 +199,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "This email already used per other user"
+                      "message": "this email already used per other user"
                     }
                   }
                 }
@@ -216,7 +216,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User not found"
+                      "message": "user not found"
                     }
                   }
                 }
@@ -233,7 +233,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -252,7 +252,7 @@
                     "value": {
                       "id": 1,
                       "name": "Victor Navarro",
-                      "email": "victorjln2@gmail.com"
+                      "email": "victorjln@gmail.com"
                     }
                   }
                 }
@@ -293,7 +293,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User not found"
+                      "message": "user not found"
                     }
                   }
                 }
@@ -310,7 +310,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -344,7 +344,7 @@
                 "examples": {
                   "Logins": {
                     "value": {
-                      "message": "Your account has been deleted"
+                      "message": "your account has been deleted"
                     }
                   }
                 }
@@ -387,7 +387,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid email and/or password"
+                      "message": "invalid email and/or password"
                     }
                   }
                 }
@@ -424,7 +424,9 @@
                       "user": {
                         "id": 1,
                         "name": "Victor Navarro",
-                        "email": "victorjln@gmail.com"
+                        "email": "victorjln@gmail.com",
+                        "cpf": "12345678931",
+                        "phone": "21123456789"
                       },
                       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTMsImlhdCI6MTY5ODI3Mzk5NCwiZXhwIjoxNjk4MzYwMzk0fQ.QwMyh8lNdX05Oxbin_wksnAH_ncmRqBaTQJJUKk_kEg"
                     }
@@ -451,7 +453,7 @@
               "examples": {
                 "UpdateUserEmails": {
                   "value": {
-                    "password": "tumbaTrau",
+                    "password": "vtjln123",
                     "new_email": "trauTumba@gmail.com"
                   }
                 }
@@ -470,7 +472,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "This email already used per other user"
+                      "message": "this email already used per other user"
                     }
                   }
                 }
@@ -487,7 +489,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User not found"
+                      "message": "user not found"
                     }
                   }
                 }
@@ -504,7 +506,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid password"
+                      "message": "invalid password"
                     }
                   }
                 }
@@ -538,7 +540,7 @@
                 "examples": {
                   "Confirmations": {
                     "value": {
-                      "message": "Your email has been changed successfully, now is 'trauTumba@gmail.com'"
+                      "message": "your email has been changed successfully, now is 'trauTumba@gmail.com'"
                     }
                   }
                 }
@@ -563,7 +565,7 @@
               "examples": {
                 "UpdateUserPasswords": {
                   "value": {
-                    "password": "tumbaTrau",
+                    "password": "vtjln123",
                     "new_password": "trauTumba"
                   }
                 }
@@ -582,7 +584,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User not found"
+                      "message": "user not found"
                     }
                   }
                 }
@@ -599,7 +601,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid password"
+                      "message": "invalid password"
                     }
                   }
                 }
@@ -633,7 +635,7 @@
                 "examples": {
                   "Confirmations": {
                     "value": {
-                      "message": "Your password has been changed successfully"
+                      "message": "your password has been changed successfully"
                     }
                   }
                 }
@@ -658,7 +660,7 @@
               "examples": {
                 "UpdateUserPhones": {
                   "value": {
-                    "password": "tumbaTrau",
+                    "password": "vtjln123",
                     "new_phone": "31214365879"
                   }
                 }
@@ -677,7 +679,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "This phone already used per other user"
+                      "message": "this phone already used per other user"
                     }
                   }
                 }
@@ -694,7 +696,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User not found"
+                      "message": "user not found"
                     }
                   }
                 }
@@ -711,7 +713,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid password"
+                      "message": "invalid password"
                     }
                   }
                 }
@@ -745,7 +747,7 @@
                 "examples": {
                   "Confirmations": {
                     "value": {
-                      "message": "Your phone has been changed successfully, now is '31214365879'"
+                      "message": "your phone has been changed successfully, now is '31214365879'"
                     }
                   }
                 }
@@ -771,8 +773,8 @@
                 "DepositTransactions": {
                   "value": {
                     "value": 30000,
-                    "email": "victorjln2@gmail.com",
-                    "password": "tumbaTrau"
+                    "email": "victorjln@gmail.com",
+                    "password": "vtjln123"
                   }
                 }
               }
@@ -790,7 +792,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Email not found"
+                      "message": "email not found"
                     }
                   }
                 }
@@ -807,7 +809,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid password"
+                      "message": "invalid password"
                     }
                   }
                 }
@@ -824,7 +826,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid value"
+                      "message": "invalid value"
                     }
                   }
                 }
@@ -842,7 +844,7 @@
                   "ReturnedTransactions": {
                     "value": {
                       "id": 41,
-                      "description": "Deposit",
+                      "description": "deposit",
                       "value": 30000,
                       "date": "2023-11-05T05:44:14.175Z",
                       "user_id": 49,
@@ -872,7 +874,7 @@
                 "OutputTransactions": {
                   "value": {
                     "value": 30000,
-                    "password": "tumbaTrau"
+                    "password": "vtjln123"
                   }
                 }
               }
@@ -890,7 +892,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User not found"
+                      "message": "user not found"
                     }
                   }
                 }
@@ -907,7 +909,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -924,7 +926,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Insufficient balance to perform the transaction"
+                      "message": "insufficient balance to perform the transaction"
                     }
                   }
                 }
@@ -942,7 +944,7 @@
                   "ReturnedTransactions": {
                     "value": {
                       "id": 41,
-                      "description": "Withdraw",
+                      "description": "withdraw",
                       "value": 30000,
                       "date": "2023-12-05T05:34:14.571Z",
                       "user_id": 49,
@@ -971,7 +973,7 @@
               "examples": {
                 "PixTransactions": {
                   "value": {
-                    "password": "12345678",
+                    "password": "vtjln123",
                     "cpf": "12345678931",
                     "value": 2000
                   }
@@ -991,7 +993,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Cpf not found"
+                      "message": "cpf not found"
                     }
                   }
                 }
@@ -1008,7 +1010,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid password"
+                      "message": "invalid password"
                     }
                   }
                 }
@@ -1025,7 +1027,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Insufficient balance to perform the transaction"
+                      "message": "insufficient balance to perform the transaction"
                     }
                   }
                 }
@@ -1043,7 +1045,7 @@
                   "ReturnedTransactions": {
                     "value": {
                       "id": 41,
-                      "description": "Pix",
+                      "description": "pix",
                       "value": 2000,
                       "date": "2023-02-20T11:54:10.198Z",
                       "user_id": 49,
@@ -1073,7 +1075,7 @@
                 "Transactions": {
                   "value": {
                     "type": "input",
-                    "description": "Credit",
+                    "description": "credit",
                     "value": 300000
                   }
                 }
@@ -1092,7 +1094,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User not found"
+                      "message": "user not found"
                     }
                   }
                 }
@@ -1109,7 +1111,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -1144,7 +1146,7 @@
                   "ReturnedTransactions": {
                     "value": {
                       "id": 41,
-                      "description": "Credit",
+                      "description": "credit",
                       "value": 300000,
                       "date": "2023-05-10T09:07:98.632Z",
                       "user_id": 49,
@@ -1173,7 +1175,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Your account does not have any registered transaction"
+                      "message": "your account does not have any registered transaction"
                     }
                   }
                 }
@@ -1190,7 +1192,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -1244,7 +1246,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Transaction not found"
+                      "message": "transaction not found"
                     }
                   }
                 }
@@ -1261,7 +1263,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -1278,7 +1280,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid value of 'id' parameter"
+                      "message": "invalid value of 'id' parameter"
                     }
                   }
                 }
@@ -1296,7 +1298,7 @@
                   "ReturnedTransactions": {
                     "value": {
                       "id": 42,
-                      "description": "Debit",
+                      "description": "debit",
                       "value": 300000,
                       "date": "2023-08-05T06:56:19.545Z",
                       "user_id": 58,
@@ -1323,7 +1325,7 @@
               "examples": {
                 "Validations": {
                   "value": {
-                    "password": "tumbaTrau"
+                    "password": "vtjln123"
                   }
                 }
               }
@@ -1350,7 +1352,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Transaction not found"
+                      "message": "transaction not found"
                     }
                   }
                 }
@@ -1367,7 +1369,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -1384,7 +1386,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid value of 'id' parameter"
+                      "message": "invalid value of 'id' parameter"
                     }
                   }
                 }
@@ -1401,7 +1403,7 @@
                 "examples": {
                   "Confirmations": {
                     "value": {
-                      "message": "Your transaction has been deleted successfully"
+                      "message": "your transaction has been deleted successfully"
                     }
                   }
                 }
@@ -1427,7 +1429,7 @@
                 "Cards": {
                   "value": {
                     "card_number": "1234567812345678",
-                    "cardholder_name": "Victor Smith",
+                    "cardholder_name": "Victor Navarro",
                     "expiration_date": "12/31",
                     "cvv": "123",
                     "password": "123456",
@@ -1449,7 +1451,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User not found"
+                      "message": "user not found"
                     }
                   }
                 }
@@ -1466,7 +1468,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -1483,7 +1485,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "User already have a credit card"
+                      "message": "user already have a credit card"
                     }
                   }
                 }
@@ -1500,7 +1502,7 @@
                 "examples": {
                   "Confirmations": {
                     "value": {
-                      "message": "Credit card added successfully. Your credit limit is 20000"
+                      "message": "credit card added successfully. Your credit limit is 20000"
                     }
                   }
                 }
@@ -1525,7 +1527,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "This user not have a card"
+                      "message": "this user not have a card"
                     }
                   }
                 }
@@ -1542,7 +1544,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -1562,17 +1564,17 @@
                       "credit": {
                         "id": 3,
                         "card_number": "1234567812345678",
-                        "cardholder_name": "Victor Smith",
+                        "cardholder_name": "Victor Navarro",
                         "expiration_date": "12/3",
                         "cvv": "123",
                         "user_id": 7,
                         "created_at": "2023-11-05T05:44:14.175Z",
-                        "balance": 2000
+                        "balance": 20000
                       },
                       "debit": {
                         "id": 1,
                         "card_number": "1234567812345678",
-                        "cardholder_name": "Victor Smith",
+                        "cardholder_name": "Victor Navarro",
                         "expiration_date": "12/03",
                         "cvv": "123",
                         "user_id": 7,
@@ -1600,9 +1602,9 @@
               "examples": {
                 "UpdateCardPasswords": {
                   "value": {
-                    "new_password": "654321",
                     "password": "123456",
-                    "card_type": "Credit"
+                    "new_password": "654321",
+                    "card_type": "credit"
                   }
                 }
               }
@@ -1620,7 +1622,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "This user not have a credit card"
+                      "message": "this user not have a credit card"
                     }
                   }
                 }
@@ -1637,7 +1639,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Unauthorized"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -1671,7 +1673,7 @@
                 "examples": {
                   "Confirmations": {
                     "value": {
-                      "message": "Password of your credit card has been updated successfully"
+                      "message": "password of your credit card has been updated successfully"
                     }
                   }
                 }
@@ -1716,7 +1718,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "This user not have a credit card"
+                      "message": "this user not have a credit card"
                     }
                   }
                 }
@@ -1733,7 +1735,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid password"
+                      "message": "invalid password"
                     }
                   }
                 }
@@ -1750,7 +1752,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Insufficient balance to perform the transaction"
+                      "message": "insufficient balance to perform the transaction"
                     }
                   }
                 }
@@ -1768,7 +1770,7 @@
                   "ReturnedTransactions": {
                     "value": {
                       "id": 41,
-                      "description": "Credit",
+                      "description": "credit",
                       "value": 2000,
                       "date": "2023-19-06T05:44:14.175Z",
                       "user_id": 49,
@@ -1797,7 +1799,7 @@
               "examples": {
                 "CardPayers": {
                   "value": {
-                    "password": "'123456'",
+                    "password": "123456",
                     "value": 2000
                   }
                 }
@@ -1816,7 +1818,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "This user not have a credit card"
+                      "message": "this user not have a credit card"
                     }
                   }
                 }
@@ -1833,7 +1835,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid password"
+                      "message": "invalid password"
                     }
                   }
                 }
@@ -1850,7 +1852,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Insufficient balance to perform the transaction"
+                      "message": "insufficient balance to perform the transaction"
                     }
                   }
                 }
@@ -1868,7 +1870,7 @@
                   "ReturnedTransactions": {
                     "value": {
                       "id": 41,
-                      "description": "Card pay",
+                      "description": "card pay",
                       "value": 2000,
                       "date": "2023-10-05T09:54:18.988Z",
                       "user_id": 49,
@@ -1899,7 +1901,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Your account does not have any registered transaction"
+                      "message": "your account does not have any registered transaction"
                     }
                   }
                 }
@@ -1916,7 +1918,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "Invalid password"
+                      "message": "invalid password"
                     }
                   }
                 }
@@ -1936,7 +1938,7 @@
                       "Input": [
                         {
                           "id": 41,
-                          "description": "Deposit",
+                          "description": "deposit",
                           "value": 300000,
                           "date": "2023-11-05T04:46:26.564Z",
                           "user_id": 49,
@@ -1944,7 +1946,7 @@
                         },
                         {
                           "id": 42,
-                          "description": "Pix",
+                          "description": "pix",
                           "value": 300000,
                           "date": "2023-11-05T04:44:14.175Z",
                           "user_id": 49,
@@ -1954,7 +1956,7 @@
                       "Output": [
                         {
                           "id": 11,
-                          "description": "Card pay",
+                          "description": "card pay",
                           "value": 25000,
                           "date": "2023-11-05T05:46:26.564Z",
                           "user_id": 49,
@@ -1962,7 +1964,7 @@
                         },
                         {
                           "id": 12,
-                          "description": "Pix",
+                          "description": "pix",
                           "value": 300000,
                           "date": "2023-11-05T05:44:14.175Z",
                           "user_id": 49,
