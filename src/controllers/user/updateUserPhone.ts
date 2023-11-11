@@ -15,7 +15,7 @@ export default async function updateUserPhone(req: Request, res: Response) {
     const { phone } = await updatePhoneAndReturn(req, params);
 
     return res.status(201).json({
-      "message": `Your phone has been changed successfully, now is ${phone}`
+      "message": `Your phone has been changed successfully, now is '${phone}'`
     });
   } catch (error: any) {
     handleError(res, error, 400);
