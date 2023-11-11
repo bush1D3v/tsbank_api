@@ -5,14 +5,14 @@ import {
   createNewPix,
   createNewTransaction,
   getUserPerId,
-  validateCpf
+  getUserPerCpf
 } from "../../repositories";
 import { validateOutput, validatePix, verifyCpfExists } from "../../providers";
 
 export default async function insertPixAndReturn(req: Request, params: PixParams) {
   await verifyCpfExists(params.cpf);
 
-  const cpfUser = await validateCpf(params.cpf);
+  const cpfUser = await getUserPerCpf(params.cpf);
 
   const userId = getToken(req);
 
