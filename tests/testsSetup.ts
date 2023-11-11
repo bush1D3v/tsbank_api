@@ -1,12 +1,11 @@
 import db from "../src/data/connection";
+import server from "../src/server";
 
-beforeEach(async () => {
+afterAll(async () => {
   await db("users").delete("*");
   await db("transactions").delete("*");
   await db("credit_cards").delete("*");
   await db("debit_cards").delete("*");
-});
-
-afterAll(async () => {
   await db.destroy();
+  server.close();
 });
