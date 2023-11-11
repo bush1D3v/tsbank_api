@@ -6,11 +6,11 @@ import {
   createNewDeposit,
   createNewTransaction,
   getUserPerId,
-  validateEmail
+  getUserPerEmail
 } from "../../repositories";
 
 export default async function insertDepositAndReturn(req: Request, params: DepositParams) {
-  const validEmail = await validateEmail(params.email);
+  const validEmail = await getUserPerEmail(params.email);
 
   if (!validEmail) {
     throw new HttpStatusError("Email not found", 404);

@@ -1,11 +1,11 @@
-const dotenv = require("dotenv");
+const { config } = require("dotenv");
 
-dotenv.config({ path: ".env.test" });
+config({ path: ".env.test" });
 
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
-  moduleFileExtensions: [ "ts", "js" ],
+  moduleFileExtensions: ["ts", "js"],
   setupFilesAfterEnv: ["./tests/testsSetup.ts"],
   transform: {
     "^.+\\.ts$": "ts-jest",

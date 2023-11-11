@@ -21,7 +21,7 @@ export default async function updateUser(req: Request, res: Response) {
 
     const newUser = await updateUserAndReturn(req, params);
 
-    return res.json(newUser);
+    return res.status(201).json(newUser);
   } catch (error: any) {
     handleError(res, error, 400);
   }

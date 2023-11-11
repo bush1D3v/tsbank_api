@@ -1,6 +1,6 @@
 import {
   createNewUser,
-  validateEmail,
+  getUserPerEmail,
   getUserPerId,
   refreshUser,
   refreshUserEmail,
@@ -8,9 +8,9 @@ import {
   eraseUser,
   createCard,
   getCardPerUserId,
-  validateCpf,
+  getUserPerCpf,
   refreshCardPassword,
-  validatePhone,
+  getUserPerPhone,
   refreshUserPhone,
   getCardsPerUserId
 } from "./user";
@@ -35,7 +35,7 @@ import {
 
 export {
   createNewUser,
-  validateEmail,
+  getUserPerEmail,
   getUserPerId,
   refreshUser,
   getCategoriePerId,
@@ -52,9 +52,9 @@ export {
   createCard,
   getCardPerUserId,
   createCardTransaction,
-  validateCpf,
+  getUserPerCpf,
   refreshCardPassword,
-  validatePhone,
+  getUserPerPhone,
   refreshUserPhone,
   createNewPix,
   cardPay,

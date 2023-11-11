@@ -7,7 +7,7 @@ export default function getToken(req: Request): number {
   const { authorization } = req.headers;
 
   if (!authorization) {
-    throw new HttpStatusError("Unauthorized", 401);
+    throw new HttpStatusError("unauthorized", 401);
   }
 
   const token = authorization.split(" ")[ 1 ];
@@ -17,6 +17,6 @@ export default function getToken(req: Request): number {
   if (typeof userToken !== "string") {
     return userToken.id;
   } else {
-    throw new HttpStatusError("Unauthorized", 401);
+    throw new HttpStatusError("unauthorized", 401);
   }
 };

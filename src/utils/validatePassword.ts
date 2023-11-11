@@ -5,7 +5,7 @@ export default async function validatePassword(reqPassword: string, userPassword
   const password = await compare(reqPassword, userPassword);
 
   if (!password) {
-    throw new HttpStatusError("Invalid password", 401);
+    throw new HttpStatusError("invalid password", 401);
   }
 
   return password;
