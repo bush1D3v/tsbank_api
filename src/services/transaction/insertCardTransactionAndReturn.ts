@@ -1,13 +1,13 @@
 import { Request } from "express";
 import { CardTransactionParams } from "../../models";
 import { getToken, validatePassword } from "../../utils";
+import { undefinedUser, validateOutput } from "../../providers";
 import {
   createCardTransaction,
   createNewTransaction,
   getCardPerUserId,
   getUserPerId
 } from "../../repositories";
-import { validateOutput } from "../../providers";
 
 export default async function insertCardTransactionAndReturn(req: Request, params: CardTransactionParams) {
   const userId = getToken(req);
@@ -23,6 +23,8 @@ export default async function insertCardTransactionAndReturn(req: Request, param
 
   if (typeof card.balance === "undefined") {
     const user = await getUserPerId(userId);
+
+    undefinedUser(user);
 
     validateOutput(user.balance, params.value);
   } else {
