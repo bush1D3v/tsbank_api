@@ -1,14 +1,12 @@
-import { HttpStatusError } from "../../error";
 import { LoginUserParams } from "../../models";
+import { undefinedEmail } from "../../providers";
 import { getUserPerEmail } from "../../repositories";
 import { createToken, validatePassword } from "../../utils";
 
 export default async function loginUserAndReturn(params: LoginUserParams) {
   const user = await getUserPerEmail(params.email);
 
-  if (typeof user === "undefined") {
-    throw new HttpStatusError("invalid email", 401);
-  }
+  undefinedEmail(user);
 
   await validatePassword(params.password, user.password);
 
