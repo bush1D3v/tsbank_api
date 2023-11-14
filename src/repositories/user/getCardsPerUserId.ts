@@ -1,6 +1,7 @@
 import db from "../../data/connection";
 import { HttpStatusError } from "../../error";
 import { DatabaseCardParams } from "../../models";
+import { dateFormatter } from "../../utils";
 
 type responseCards = {
   credit: DatabaseCardParams;
@@ -15,8 +16,11 @@ export default async function getCardsPerUserId(user_id: number) {
     .where({ user_id }).first();
 
   if (!credit && !debit) {
-    throw new HttpStatusError("This user not have a card", 404);
+    throw new HttpStatusError("this user not have a card", 404);
   }
+
+  credit.created_at = dateFormatter(credit.created_at);
+  debit.created_at = dateFormatter(debit.created_at);
 
   const cards: responseCards = {
     credit,
