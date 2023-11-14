@@ -1,5 +1,5 @@
 import GeneralTransactionSchema from "./GeneralTransactionSchema";
 
-const DepositSchema = GeneralTransactionSchema.omit([ "type", "description", "password", "cpf" ]);
+const DepositSchema = GeneralTransactionSchema.omit([ "type", "description", "cpf" ]);
 
 export default DepositSchema;
