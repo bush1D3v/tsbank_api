@@ -11,7 +11,8 @@ import {
   validateTransaction,
   verifyTransactionId,
   validatePix,
-  validateOutput
+  validateOutput,
+  verifyAccountTransactions
 } from "./transaction";
 
 export {
@@ -24,5 +25,6 @@ export {
   verifyPhoneExists,
   validatePix,
   validateOutput,
-  validateCardType
+  validateCardType,
+  verifyAccountTransactions
 };
