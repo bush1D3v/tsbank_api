@@ -6,7 +6,7 @@ export default function verifyTypeofParams(req: Request, res: Response, next: Ne
     const { id } = req.params;
 
     if (isNaN(Number(id))) {
-      throw new Error("Invalid value of 'id' parameter");
+      throw new Error("invalid value of 'id' parameter");
     }
 
     next();
