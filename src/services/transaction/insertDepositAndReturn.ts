@@ -2,6 +2,7 @@ import { Request } from "express";
 import { HttpStatusError } from "../../error";
 import { DepositParams } from "../../models";
 import { getToken, validatePassword } from "../../utils";
+import { undefinedUser } from "../../providers";
 import {
   createNewDeposit,
   createNewTransaction,
@@ -13,12 +14,14 @@ export default async function insertDepositAndReturn(req: Request, params: Depos
   const validEmail = await getUserPerEmail(params.email);
 
   if (!validEmail) {
-    throw new HttpStatusError("Email not found", 404);
+    throw new HttpStatusError("email not found", 404);
   }
 
   const userId = getToken(req);
 
   const user = await getUserPerId(userId);
+
+  undefinedUser(user);
 
   await validatePassword(params.password, user.password);
 
