@@ -826,7 +826,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "invalid value"
+                      "message": "value must be greater than or equal to 0.1"
                     }
                   }
                 }
@@ -1441,6 +1441,23 @@
           }
         },
         "responses": {
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "this user already have a credit card"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "404": {
             "description": "Not found",
             "content": {
@@ -1485,7 +1502,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "user already have a credit card"
+                      "message": "card_number must be at least 16 characters"
                     }
                   }
                 }
@@ -1799,7 +1816,7 @@
               "examples": {
                 "CardPayers": {
                   "value": {
-                    "password": "123456",
+                    "password": "vtjln123",
                     "value": 2000
                   }
                 }
@@ -1918,7 +1935,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "invalid password"
+                      "message": "unauthorized"
                     }
                   }
                 }
