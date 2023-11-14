@@ -1,8 +1,8 @@
 export interface CardParams {
-  card_number: number;
+  card_number: string;
   cardholder_name: string;
-  expiration_date: Date;
-  cvv: number;
+  expiration_date: string;
+  cvv: string;
   password: string;
   card_type: string;
 };

@@ -16,7 +16,7 @@ export default async function deleteTransaction(req: Request, res: Response) {
     await deleteTransactionAndConfirm(req, params);
 
     return res.json({
-      message: "Your transaction has been deleted successfully"
+      message: "your transaction has been deleted successfully"
     });
   } catch (error: any) {
     handleError(res, error, 400);

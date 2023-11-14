@@ -10,7 +10,7 @@ export default async function deleteUser(req: Request, res: Response) {
     await deleteUserAndConfirm(req, password);
 
     return res.json({
-      "message": "Your account has been deleted"
+      "message": "your account has been deleted"
     });
   } catch (error: any) {
     handleError(res, error, 400);

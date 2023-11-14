@@ -1,5 +1,6 @@
 import { Request } from "express";
 import { getToken, validatePassword } from "../../utils";
+import { undefinedUser } from "../../providers";
 import {
   dropCards,
   dropTransactions,
@@ -11,6 +12,8 @@ export default async function deleteUserAndConfirm(req: Request, password: strin
   const userId = getToken(req);
 
   const user = await getUserPerId(userId);
+
+  undefinedUser(user);
 
   await validatePassword(password, user.password);
 

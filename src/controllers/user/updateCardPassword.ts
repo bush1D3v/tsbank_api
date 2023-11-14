@@ -16,7 +16,7 @@ export default async function updateCardPassword(req: Request, res: Response) {
     await updateCardPasswordAndConfirm(req, params);
 
     return res.status(201).json({
-      message: `Password of your ${card_type.toLowerCase()} card has been updated successfully`
+      message: `password of your ${card_type.toLowerCase()} card has been updated successfully`
     });
   } catch (error: any) {
     handleError(res, error, 400);

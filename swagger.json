@@ -826,7 +826,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "invalid value"
+                      "message": "value must be greater than or equal to 0.1"
                     }
                   }
                 }
@@ -846,7 +846,7 @@
                       "id": 41,
                       "description": "deposit",
                       "value": 30000,
-                      "date": "2023-11-05T05:44:14.175Z",
+                      "date": "2023/11/05 05:44:14",
                       "user_id": 49,
                       "type": "input"
                     }
@@ -946,7 +946,7 @@
                       "id": 41,
                       "description": "withdraw",
                       "value": 30000,
-                      "date": "2023-12-05T05:34:14.571Z",
+                      "date": "2023/12/05 05:34:14",
                       "user_id": 49,
                       "type": "output"
                     }
@@ -1047,7 +1047,7 @@
                       "id": 41,
                       "description": "pix",
                       "value": 2000,
-                      "date": "2023-02-20T11:54:10.198Z",
+                      "date": "2023/02/20 11:54:10",
                       "user_id": 49,
                       "type": "output"
                     }
@@ -1148,7 +1148,7 @@
                       "id": 41,
                       "description": "credit",
                       "value": 300000,
-                      "date": "2023-05-10T09:07:98.632Z",
+                      "date": "2023/05/10 09:07:98",
                       "user_id": 49,
                       "type": "input"
                     }
@@ -1300,7 +1300,7 @@
                       "id": 42,
                       "description": "debit",
                       "value": 300000,
-                      "date": "2023-08-05T06:56:19.545Z",
+                      "date": "2023/08/05 06:56:19",
                       "user_id": 58,
                       "type": "input"
                     }
@@ -1441,6 +1441,23 @@
           }
         },
         "responses": {
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schemas": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Errors": {
+                    "value": {
+                      "message": "this user already have a credit card"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "404": {
             "description": "Not found",
             "content": {
@@ -1485,7 +1502,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "user already have a credit card"
+                      "message": "card_number must be at least 16 characters"
                     }
                   }
                 }
@@ -1568,7 +1585,7 @@
                         "expiration_date": "12/3",
                         "cvv": "123",
                         "user_id": 7,
-                        "created_at": "2023-11-05T05:44:14.175Z",
+                        "created_at": "2023/11/05 05:44:14",
                         "balance": 20000
                       },
                       "debit": {
@@ -1578,7 +1595,7 @@
                         "expiration_date": "12/03",
                         "cvv": "123",
                         "user_id": 7,
-                        "created_at": "2023-11-05T06:08:02.219Z"
+                        "created_at": "2023/11/05 06:08:02"
                       }
                     }
                   }
@@ -1772,7 +1789,7 @@
                       "id": 41,
                       "description": "credit",
                       "value": 2000,
-                      "date": "2023-19-06T05:44:14.175Z",
+                      "date": "2023/19/06 05:44:14",
                       "user_id": 49,
                       "type": "output"
                     }
@@ -1799,7 +1816,7 @@
               "examples": {
                 "CardPayers": {
                   "value": {
-                    "password": "123456",
+                    "password": "vtjln123",
                     "value": 2000
                   }
                 }
@@ -1872,7 +1889,7 @@
                       "id": 41,
                       "description": "card pay",
                       "value": 2000,
-                      "date": "2023-10-05T09:54:18.988Z",
+                      "date": "2023/10/05 09:54:18",
                       "user_id": 49,
                       "type": "output"
                     }
@@ -1918,7 +1935,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "invalid password"
+                      "message": "unauthorized"
                     }
                   }
                 }
@@ -1940,7 +1957,7 @@
                           "id": 41,
                           "description": "deposit",
                           "value": 300000,
-                          "date": "2023-11-05T04:46:26.564Z",
+                          "date": "2023/11/05 04:46:26",
                           "user_id": 49,
                           "type": "input"
                         },
@@ -1948,7 +1965,7 @@
                           "id": 42,
                           "description": "pix",
                           "value": 300000,
-                          "date": "2023-11-05T04:44:14.175Z",
+                          "date": "2023/11/05 04:44:14",
                           "user_id": 49,
                           "type": "input"
                         }
@@ -1958,7 +1975,7 @@
                           "id": 11,
                           "description": "card pay",
                           "value": 25000,
-                          "date": "2023-11-05T05:46:26.564Z",
+                          "date": "2023/11/05 05:46:26",
                           "user_id": 49,
                           "type": "output"
                         },
@@ -1966,7 +1983,7 @@
                           "id": 12,
                           "description": "pix",
                           "value": 300000,
-                          "date": "2023-11-05T05:44:14.175Z",
+                          "date": "2023/11/05 05:44:14",
                           "user_id": 49,
                           "type": "input"
                         }

@@ -1,7 +1,7 @@
 import { Request } from "express";
 import { CardParams } from "../../models";
-import { encryptPassword, getToken } from "../../utils";
 import { validateCard } from "../../providers";
+import { encryptPassword, getToken } from "../../utils";
 import { createCard, getBalancePerId } from "../../repositories";
 
 export default async function insertCardAndReturn(req: Request, params: CardParams) {
@@ -9,7 +9,8 @@ export default async function insertCardAndReturn(req: Request, params: CardPara
 
   const validateParams = {
     card_type: params.card_type,
-    user_id
+    user_id,
+    "card_number": params.card_number
   };
 
   await validateCard(validateParams);

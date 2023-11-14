@@ -1,42 +1,17 @@
 import request from "supertest";
 import server from "../../src/server";
-import { LoginUserParams, UserParams } from "../../src/models";
+import { loginUser, user } from "../models";
+import {
+  deleteUser,
+  insertUserAndLogin,
+  unauthUser
+} from "../functions";
 
 type UpdateUserTestParams = {
   new_phone: string | null;
   new_email: string | null;
   new_password: string | null;
   password: string | null;
-};
-
-const user: UserParams = {
-  name: "Victor Navarro",
-  cpf: "12345678931",
-  phone: "21123456789",
-  email: "victorjln@gmail.com",
-  password: "vtjln123"
-};
-
-const loginUser: LoginUserParams = {
-  email: "victorjln@gmail.com",
-  password: "vtjln123"
-};
-
-const unauthUser = async () => {
-  response = await request(server)
-    .put("/user")
-    .send(updatedUser);
-
-  return response;
-};
-
-const deleteUser = async (token: string | undefined, password: string | null) => {
-  response = await request(server)
-    .delete("/user")
-    .set("Authorization", `Bearer ${token}`)
-    .send({ password });
-
-  return response;
 };
 
 const updateUser = async (token: string | undefined, user: UpdateUserTestParams) => {
@@ -63,22 +38,14 @@ describe("Update User Controller Tests", () => {
 
     await deleteUser(bearerToken, updatedUser.new_password);
 
-    await request(server)
-      .post("/user")
-      .send(user);
 
-    const tokenReq = await request(server)
-      .post("/login")
-      .send(loginUser);
-
-    bearerToken = tokenReq.body.token;
+    bearerToken = await insertUserAndLogin(user, loginUser);
   });
 
   it("Update a user successfully", async () => {
     await updateUser(bearerToken, updatedUser);
 
     expect(response.status).toBe(201);
-
     expect(response.body).toHaveProperty("id");
     expect(response.body).toHaveProperty("name");
     expect(response.body).toHaveProperty("email", updatedUser.new_email);
@@ -144,27 +111,26 @@ describe("Update User Controller Tests", () => {
 
   it("Jwt mal formed", async () => {
     let errorToken;
+
     await updateUser(errorToken, updatedUser);
 
     expect(response.status).toBe(401);
-
     expect(response.body).toHaveProperty("message", "jwt malformed");
   });
 
   it("Invalid signature", async () => {
-    let errorToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+    const errorToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+
     await updateUser(errorToken, updatedUser);
 
     expect(response.status).toBe(401);
-
     expect(response.body).toHaveProperty("message", "invalid signature");
   });
 
   it("Unauthorized", async () => {
-    await unauthUser();
+    response = await unauthUser("put", server, "user");
 
     expect(response.status).toBe(401);
-
     expect(response.body).toHaveProperty("message", "unauthorized");
   });
 
@@ -173,7 +139,6 @@ describe("Update User Controller Tests", () => {
     await updateUser(bearerToken, updatedUser);
 
     expect(response.status).toBe(404);
-
     expect(response.body).toHaveProperty("message", "user not found");
   });
 

@@ -27,7 +27,8 @@ import {
   DepositParams,
   CardPayParams,
   NewPixParams,
-  GetCardPerUserIdParams
+  GetCardPerUserIdParams,
+  WithdrawParams
 } from "./transaction";
 
 export {
@@ -56,5 +57,6 @@ export {
   CardPayParams,
   NewPixParams,
   RefreshUserParams,
-  GetCardPerUserIdParams
+  GetCardPerUserIdParams,
+  WithdrawParams
 };

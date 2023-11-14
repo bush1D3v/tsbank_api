@@ -1,9 +1,13 @@
+import { Request } from "express";
+import { getToken } from "../../utils";
 import { UpdateUserParams } from "../../models";
 import { getUserPerId, refreshUser } from "../../repositories";
 import { encryptPassword, validatePassword } from "../../utils";
-import { Request } from "express";
-import { getToken } from "../../utils";
-import { verifyEmailExists, verifyPhoneExists } from "../../providers";
+import {
+  undefinedUser,
+  verifyEmailExists,
+  verifyPhoneExists
+} from "../../providers";
 
 export default async function updateUserAndReturn(req: Request, params: UpdateUserParams) {
   await verifyEmailExists(params.new_email);
@@ -13,6 +17,8 @@ export default async function updateUserAndReturn(req: Request, params: UpdateUs
   const userId = getToken(req);
 
   const user = await getUserPerId(userId);
+
+  undefinedUser(user);
 
   await validatePassword(params.password, user.password);
 

@@ -1,7 +1,11 @@
 import { UserParams } from "../../models";
-import { verifyCpfExists, verifyEmailExists, verifyPhoneExists } from "../../providers";
 import { createNewUser } from "../../repositories";
 import { encryptPassword } from "../../utils";
+import {
+  verifyCpfExists,
+  verifyEmailExists,
+  verifyPhoneExists
+} from "../../providers";
 
 export default async function insertUserAndReturn(params: UserParams) {
   await verifyEmailExists(params.email);

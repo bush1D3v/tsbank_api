@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { handleError } from "../../error";
 import { makeWithdrawAndReturn } from "../../services";
-import { OutputTransactionParams } from "../../models";
+import { WithdrawParams } from "../../models";
 
 export default async function makeWithdraw(req: Request, res: Response) {
   try {
-    const { value, password } = req.body as OutputTransactionParams;
+    const { value, password } = req.body as WithdrawParams;
 
     const params = {
       value,

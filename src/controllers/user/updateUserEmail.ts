@@ -15,7 +15,7 @@ export default async function updateUserEmail(req: Request, res: Response) {
     const { email } = await updateEmailAndReturn(req, user);
 
     res.status(201).json({
-      "message": `Your email has been changed successfully, now is '${email}'`
+      "message": `your email has been changed successfully, now is '${email}'`
     });
   } catch (error: any) {
     handleError(res, error, 400);

@@ -1,13 +1,15 @@
 import { Request } from "express";
+import { UpdateUserPhoneParams } from "../../models";
 import { getToken, validatePassword } from "../../utils";
 import { getUserPerId, refreshUserPhone } from "../../repositories";
-import { UpdateUserPhoneParams } from "../../models";
-import { verifyPhoneExists } from "../../providers";
+import { undefinedUser, verifyPhoneExists } from "../../providers";
 
 export default async function updatePhoneAndReturn(req: Request, params: UpdateUserPhoneParams) {
   const id = getToken(req);
 
   const user = await getUserPerId(id);
+
+  undefinedUser(user);
 
   await validatePassword(params.password, user.password);
 

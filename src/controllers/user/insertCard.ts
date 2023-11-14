@@ -25,13 +25,13 @@ export default async function insertCard(req: Request, res: Response) {
 
     const balance = await insertCardAndReturn(req, params);
 
-    if (balance) {
+    if (typeof balance === "number" && balance >= 0) {
       return res.status(201).json({
-        message: `${card_type.toLowerCase()} card added succesfully. Your credit limit is: ${balance}`
+        message: `${card_type.toLowerCase()} card added successfully. Your credit limit is: ${balance}`
       });
     } else {
       return res.status(201).json({
-        message: `${card_type.toLowerCase()} card added succesfully`
+        message: `${card_type.toLowerCase()} card added successfully`
       });
     }
   } catch (error: any) {

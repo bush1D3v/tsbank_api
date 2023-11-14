@@ -8,6 +8,7 @@ import { NewPixParams } from "./NewPixParams";
 import { OutputTransactionParams } from "./OutputTransactionParams";
 import { PixParams } from "./PixParams";
 import { TransactionParams } from "./TransactionParams";
+import { WithdrawParams } from "./WithdrawParams";
 
 export {
   TransactionParams,
@@ -19,5 +20,6 @@ export {
   DepositParams,
   CardPayParams,
   NewPixParams,
-  GetCardPerUserIdParams
+  GetCardPerUserIdParams,
+  WithdrawParams
 };
