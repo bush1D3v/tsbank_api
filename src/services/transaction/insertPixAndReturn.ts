@@ -2,21 +2,27 @@ import { Request } from "express";
 import { PixParams } from "../../models";
 import { getToken, validatePassword } from "../../utils";
 import {
+  undefinedUser,
+  validateOutput,
+  validatePix
+} from "../../providers";
+import {
   createNewPix,
   createNewTransaction,
   getUserPerId,
   getUserPerCpf
 } from "../../repositories";
-import { validateOutput, validatePix, verifyCpfExists } from "../../providers";
 
 export default async function insertPixAndReturn(req: Request, params: PixParams) {
-  await verifyCpfExists(params.cpf);
-
   const cpfUser = await getUserPerCpf(params.cpf);
+
+  undefinedUser(cpfUser);
 
   const userId = getToken(req);
 
   const user = await getUserPerId(userId);
+
+  undefinedUser(user);
 
   validatePix(user.cpf, params.cpf);
 
