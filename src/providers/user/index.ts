@@ -4,6 +4,7 @@ import verifyEmailExists from "./verifyEmailExists";
 import verifyCpfExists from "./verifyCpfExists";
 import verifyPhoneExists from "./verifyPhoneExists";
 import validateCardType from "./validateCardType";
+import undefinedEmail from "./undefinedEmail";
 
 export {
   verifyEmailExists,
@@ -11,5 +12,6 @@ export {
   validateCard,
   verifyCpfExists,
   verifyPhoneExists,
-  validateCardType
+  validateCardType,
+  undefinedEmail
 };
