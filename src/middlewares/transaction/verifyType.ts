@@ -6,7 +6,7 @@ export default function verifyType(req: Request, res: Response, next: NextFuncti
     const { type } = req.body;
 
     if (type.toLowerCase() !== "input" && type.toLowerCase() !== "output") {
-      throw new Error("Invalid value of 'type'");
+      throw new Error("invalid value of 'type'");
     }
 
     next();
