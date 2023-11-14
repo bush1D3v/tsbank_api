@@ -4,7 +4,8 @@ import {
   validateCard,
   verifyCpfExists,
   verifyPhoneExists,
-  validateCardType
+  validateCardType,
+  undefinedEmail
 } from "./user";
 
 import {
@@ -26,5 +27,6 @@ export {
   validatePix,
   validateOutput,
   validateCardType,
-  verifyAccountTransactions
+  verifyAccountTransactions,
+  undefinedEmail
 };

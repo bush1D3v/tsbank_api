@@ -4,7 +4,8 @@ export default async function removeValue(accountItem: string, value: number, us
   if (accountItem.toLowerCase() === "credit") {
     await db("credit_cards").decrement("balance", value)
       .where({ user_id });
+  } else {
+    await db("users").decrement("balance", value)
+      .where({ id: user_id });
   }
-  await db("users").decrement(accountItem, value)
-    .where({ id: user_id });
 };
