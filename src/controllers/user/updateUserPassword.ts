@@ -15,7 +15,7 @@ export default async function updateUserPassword(req: Request, res: Response) {
     await updatePasswordAndConfirm(req, params);
 
     return res.status(201).json({
-      "message": "Your password has been changed successfully"
+      "message": "your password has been changed successfully"
     });
   } catch (error: any) {
     handleError(res, error, 400);
