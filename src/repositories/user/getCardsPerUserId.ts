@@ -19,8 +19,13 @@ export default async function getCardsPerUserId(user_id: number) {
     throw new HttpStatusError("this user not have a card", 404);
   }
 
-  credit.created_at = dateFormatter(credit.created_at);
-  debit.created_at = dateFormatter(debit.created_at);
+  if (credit) {
+    debit.created_at = dateFormatter(debit.created_at);
+  }
+
+  if (debit) {
+    credit.created_at = dateFormatter(credit.created_at);
+  }
 
   const cards: responseCards = {
     credit,
