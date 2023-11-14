@@ -1,11 +1,11 @@
 export interface DatabaseCardParams {
   id: number;
-  card_number: number;
+  card_number: string;
   cardholder_name: string;
-  expiration_date: Date;
-  cvv: number;
+  expiration_date: string;
+  cvv: string;
   user_id: number;
-  created_at: Date;
+  created_at: string;
   balance: number;
   password: string;
 };
