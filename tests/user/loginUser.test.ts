@@ -1,22 +1,14 @@
 import request from "supertest";
 import server from "../../src/server";
-import { UserParams } from "../../src/models";
+import { user } from "../models";
 
 type LoginUserTestParams = {
   email: string | null;
   password: string | number | null;
-}
+};
 
 let logedUser: LoginUserTestParams;
 let response: request.Response;
-
-const createdUser: UserParams = {
-  name: "Victor Navarro",
-  cpf: "12345678931",
-  phone: "21123456789",
-  email: "victorjln@gmail.com",
-  password: "vtjln123"
-};
 
 const loginUser = async (user: LoginUserTestParams) => {
   response = await request(server)
@@ -37,7 +29,7 @@ describe("Login User Controller Tests", () => {
   beforeAll(async () => {
     await request(server)
       .post("/user")
-      .send(createdUser);
+      .send(user);
   });
 
 
