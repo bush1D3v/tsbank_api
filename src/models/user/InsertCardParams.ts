@@ -1,8 +1,8 @@
 export interface InsertCardParams {
-  card_number: number;
+  card_number: string;
   cardholder_name: string;
-  expiration_date: Date;
-  cvv: number;
+  expiration_date: string;
+  cvv: string;
   user_id: number;
   balance: number;
   password: string;
