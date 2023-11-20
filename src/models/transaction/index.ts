@@ -1,5 +1,6 @@
 import { CardPayParams } from "./CardPayParams";
 import { CardTransactionParams } from "./CardTransactionParams";
+import { CardType } from "./CardType";
 import { DatabaseTransactionParams } from "./DatabaseTransactionParams";
 import { DeleteTransactionParams } from "./DeleteTransactionParams";
 import { DepositParams } from "./DepositParams";
@@ -21,5 +22,6 @@ export {
   CardPayParams,
   NewPixParams,
   GetCardPerUserIdParams,
-  WithdrawParams
+  WithdrawParams,
+  CardType
 };
