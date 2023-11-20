@@ -4,7 +4,7 @@
   "description": "API RESTful de simulações bancárias.",
   "main": "server.ts",
   "engines": {
-    "node": "20.x"
+    "node": "18.x"
   },
   "scripts": {
     "start": "node ./src/server.ts",
