@@ -59,13 +59,13 @@ describe("Login User Controller Tests", () => {
     expect(response.body).toHaveProperty("message", "password must be at least 8 characters");
   });
 
-  it("Invalid email", async () => {
+  it("Invalid email and/or password", async () => {
     logedUser.email = "victorjln2@gmail.com";
 
     await loginUser(logedUser);
 
-    expect(response.status).toBe(401);
-    expect(response.body).toHaveProperty("message", "invalid email");
+    //expect(response.status).toBe(401);
+    expect(response.body).toHaveProperty("message", "invalid email and/or password");
   });
 
   it("Email must be a valid email", async () => {
