@@ -1,14 +1,21 @@
+import { compare } from "bcrypt";
 import { LoginUserParams } from "../../models";
-import { undefinedEmail } from "../../providers";
 import { getUserPerEmail } from "../../repositories";
-import { createToken, validatePassword } from "../../utils";
+import { createToken } from "../../utils";
+import { HttpStatusError } from "../../error";
 
 export default async function loginUserAndReturn(params: LoginUserParams) {
   const user = await getUserPerEmail(params.email);
 
-  undefinedEmail(user);
+  if (!user) {
+    throw new HttpStatusError("invalid email and/or password", 401);
+  }
 
-  await validatePassword(params.password, user.password);
+  const validPassword = await compare(params.password, user.password);
+
+  if (!validPassword) {
+    throw new HttpStatusError("invalid email and/or password", 401);
+  }
 
   const response = createToken(user);
 
