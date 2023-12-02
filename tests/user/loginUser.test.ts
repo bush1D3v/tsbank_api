@@ -64,7 +64,7 @@ describe("Login User Controller Tests", () => {
 
     await loginUser(logedUser);
 
-    //expect(response.status).toBe(401);
+    expect(response.status).toBe(401);
     expect(response.body).toHaveProperty("message", "invalid email and/or password");
   });
 
