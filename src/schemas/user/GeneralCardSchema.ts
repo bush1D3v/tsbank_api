@@ -8,7 +8,7 @@ const GeneralCardSchema = yup.object({
   password: yup.string().min(4).max(6).required(),
   new_password: yup.string().min(4).max(6).required(),
   card_type: yup.string().required(),
-  value: yup.number().min(0.1).required()
+  value: yup.number().min(0.01).required()
 });
 
 export default GeneralCardSchema;
