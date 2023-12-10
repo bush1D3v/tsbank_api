@@ -72,13 +72,13 @@ describe("Update Card Password Controller Tests", () => {
     expect(response.body).toHaveProperty("message", "new_password must be at least 4 characters");
   });
 
-  it("Invalid value of 'card_type'", async () => {
+  it("Invalid value of 'Card Type'", async () => {
     updatedCardPassword.card_type = "bedit";
 
     await updateCardPassword(bearerToken, updatedCardPassword);
 
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty("message", "invalid value of 'card_type'");
+    expect(response.body).toHaveProperty("message", "invalid value of 'Card Type'");
   });
 
   it("Jwt mal formed", async () => {
