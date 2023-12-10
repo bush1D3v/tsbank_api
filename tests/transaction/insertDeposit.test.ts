@@ -47,13 +47,13 @@ describe("Insert Deposit Controller Tests", () => {
     expect(response.body).toHaveProperty("type", "input");
   });
 
-  it("Value must be greater than or equal to 0.1", async () => {
+  it("Value must be greater than or equal to 0.01", async () => {
     insertedDeposit.value = 0;
 
     await insertDeposit(bearerToken, insertedDeposit);
 
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.1");
+    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.01");
   });
 
   it("Email must be a valid email", async () => {

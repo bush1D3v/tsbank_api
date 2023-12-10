@@ -60,13 +60,13 @@ describe("Make Withdraw Controller Tests", () => {
     expect(response.body).toHaveProperty("message", "insufficient balance to perform the transaction");
   });
 
-  it("Value must be greater than or equal to 0.1", async () => {
+  it("Value must be greater than or equal to 0.01", async () => {
     makedWithdraw.value = 0;
 
     await makeWithdraw(bearerToken, makedWithdraw);
 
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.1");
+    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.01");
   });
 
   it("Invalid password", async () => {

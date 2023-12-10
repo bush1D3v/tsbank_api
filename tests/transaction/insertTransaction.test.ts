@@ -47,13 +47,13 @@ describe("Insert Transaction Controller Tests", () => {
     expect(response.body).toHaveProperty("type", insertedTransaction.type);
   });
 
-  it("Value must be greater than or equal to 0.1", async () => {
+  it("Value must be greater than or equal to 0.01", async () => {
     insertedTransaction.value = 0;
 
     await insertTransaction(bearerToken, insertedTransaction);
 
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.1");
+    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.01");
   });
 
   it("Invalid value of type", async () => {

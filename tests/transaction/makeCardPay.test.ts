@@ -82,13 +82,13 @@ describe("Make Card Payment Controller Tests", () => {
     expect(response.body).toHaveProperty("message", "insufficient balance to perform the transaction");
   });
 
-  it("Value must be greater than or equal to 0.1", async () => {
+  it("Value must be greater than or equal to 0.01", async () => {
     makedCardPay.value = 0;
 
     await makeCardPay(bearerToken, makedCardPay);
 
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.1");
+    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.01");
   });
 
   it("Jwt mal formed", async () => {
