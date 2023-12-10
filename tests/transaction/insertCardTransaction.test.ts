@@ -66,13 +66,13 @@ describe("Insert Card Transaction Controller Tests", () => {
     expect(response.body).toHaveProperty("message", "insufficient balance to perform the transaction");
   });
 
-  it("Value must be greater than or equal to 0.1", async () => {
+  it("Value must be greater than or equal to 0.01", async () => {
     insertedCardTransaction.value = 0;
 
     await insertCardTransaction(bearerToken, insertedCardTransaction);
 
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.1");
+    expect(response.body).toHaveProperty("message", "value must be greater than or equal to 0.01");
   });
 
   it("Invalid password", async () => {
@@ -93,13 +93,13 @@ describe("Insert Card Transaction Controller Tests", () => {
     expect(response.body).toHaveProperty("message", "password must be at least 4 characters");
   });
 
-  it("Invalid value of 'card_type'", async () => {
+  it("Invalid value of 'Card Type'", async () => {
     insertedCardTransaction.card_type = "bedit";
 
     await insertCardTransaction(bearerToken, insertedCardTransaction);
 
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty("message", "invalid value of 'card_type'");
+    expect(response.body).toHaveProperty("message", "invalid value of 'Card Type'");
   });
 
   it("Jwt mal formed", async () => {
