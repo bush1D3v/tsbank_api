@@ -130,13 +130,13 @@ describe("Insert Card Controller Tests", () => {
     expect(response.body).toHaveProperty("message", "password must be at least 4 characters");
   });
 
-  it("Invalid value of 'card_type'", async () => {
+  it("Invalid value of 'Card Type'", async () => {
     insertedCard.card_type = "bedit";
 
     await insertCard(bearerToken, insertedCard);
 
     expect(response.status).toBe(400);
-    expect(response.body).toHaveProperty("message", "invalid value of 'card_type'");
+    expect(response.body).toHaveProperty("message", "invalid value of 'Card Type'");
   });
 
   it("Jwt mal formed", async () => {
