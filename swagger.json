@@ -826,7 +826,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "value must be greater than or equal to 0.1"
+                      "message": "value must be greater than or equal to 0.01"
                     }
                   }
                 }
