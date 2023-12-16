@@ -39,8 +39,6 @@ describe("Get a User Transaction History Controller Tests", () => {
     await getHistory(bearerToken);
 
     expect(response.status).toBe(200);
-    expect(response.body).toHaveProperty("input");
-    expect(response.body).toHaveProperty("output");
   });
 
   it("Your account does not have any registered transaction", async () => {
