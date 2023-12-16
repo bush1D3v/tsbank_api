@@ -4,9 +4,9 @@ import { getHistoryAndReturn } from "../../services";
 
 export default async function getHistory(req: Request, res: Response) {
   try {
-    const filtredTransactions = await getHistoryAndReturn(req);
+    const filteredTransactions = await getHistoryAndReturn(req);
 
-    return res.json(filtredTransactions);
+    return res.json(filteredTransactions);
   } catch (error: any) {
     handleError(res, error, 400);
   }
