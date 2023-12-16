@@ -552,8 +552,8 @@
     },
     "/password": {
       "patch": {
-        "summary": "Update a user passowrd",
-        "description": "Route responsible for update a user passowrd",
+        "summary": "Update a user password",
+        "description": "Route responsible for update a user password",
         "tags": ["User"],
         "security": [{ "bearerAuth": [] }],
         "requestBody": {
