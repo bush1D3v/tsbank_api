@@ -10,7 +10,5 @@ export default async function getHistoryAndReturn(req: Request) {
 
   verifyAccountTransactions(transactions);
 
-  const typedTransactions = getTypedTransactions(transactions);
-
-  return typedTransactions;
+  return transactions;
 };
