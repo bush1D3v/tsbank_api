@@ -1951,44 +1951,40 @@
                 },
                 "examples": {
                   "Confirmations": {
-                    "value": {
-                      "Input": [
-                        {
-                          "id": 41,
-                          "description": "deposit",
-                          "value": 300000,
-                          "date": "2023/11/05 04:46:26",
-                          "user_id": 49,
-                          "type": "input"
-                        },
-                        {
-                          "id": 42,
-                          "description": "pix",
-                          "value": 300000,
-                          "date": "2023/11/05 04:44:14",
-                          "user_id": 49,
-                          "type": "input"
-                        }
-                      ],
-                      "Output": [
-                        {
-                          "id": 11,
-                          "description": "card pay",
-                          "value": 25000,
-                          "date": "2023/11/05 05:46:26",
-                          "user_id": 49,
-                          "type": "output"
-                        },
-                        {
-                          "id": 12,
-                          "description": "pix",
-                          "value": 300000,
-                          "date": "2023/11/05 05:44:14",
-                          "user_id": 49,
-                          "type": "input"
-                        }
-                      ]
-                    }
+                    "value": [
+                      {
+                        "id": 41,
+                        "description": "deposit",
+                        "value": 300000,
+                        "date": "2023/11/05 04:46:26",
+                        "user_id": 49,
+                        "type": "input"
+                      },
+                      {
+                        "id": 42,
+                        "description": "pix",
+                        "value": 300000,
+                        "date": "2023/11/05 04:44:14",
+                        "user_id": 49,
+                        "type": "input"
+                      },
+                      {
+                        "id": 11,
+                        "description": "card pay",
+                        "value": 25000,
+                        "date": "2023/11/05 05:46:26",
+                        "user_id": 49,
+                        "type": "output"
+                      },
+                      {
+                        "id": 12,
+                        "description": "pix",
+                        "value": 300000,
+                        "date": "2023/11/05 05:44:14",
+                        "user_id": 49,
+                        "type": "input"
+                      }
+                    ]
                   }
                 }
               }
@@ -2178,7 +2174,7 @@
           }
         }
       },
-      "Returnedtransaction": {
+      "ReturnedTransaction": {
         "type": "object",
         "properties": {
           "id": {
@@ -2202,7 +2198,7 @@
         }
       },
       "SummaryTransaction": {
-        "type": "objeect",
+        "type": "object",
         "properties": {
           "input": {
             "type": "number"
