@@ -16,7 +16,7 @@ export default async function getCardsPerUserId(user_id: number) {
     .where({ user_id }).first();
 
   if (!credit && !debit) {
-    throw new HttpStatusError("this user not have a card", 404);
+    throw new HttpStatusError("this user does not have a card", 404);
   }
 
   if (typeof credit !== "undefined") {
