@@ -1544,7 +1544,7 @@
                 "examples": {
                   "Errors": {
                     "value": {
-                      "message": "this user not have a card"
+                      "message": "this user does not have a card"
                     }
                   }
                 }
