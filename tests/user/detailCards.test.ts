@@ -41,14 +41,14 @@ describe("Detail a User Cards Controller Tests", () => {
     expect(response.body[ 1 ]).toHaveProperty("debit");
   });
 
-  it("This user not have a card", async () => {
+  it("This user does not have a card", async () => {
     await deleteCard("credit");
     await deleteCard("debit");
     await detailCards(bearerToken);
 
     expect(response.status).toBe(404);
 
-    expect(response.body).toHaveProperty("message", "this user not have a card");
+    expect(response.body).toHaveProperty("message", "this user does not have a card");
   });
 
   it("Jwt mal formed", async () => {
