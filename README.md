@@ -8,7 +8,7 @@
 A **API TSBank** é uma aplicação **RESTful** que oferece suporte a operações **CRUD** simples, **gerenciamento** e **controle** de transações, geração de **extratos**, **saques**, **depósitos** e transações **entre contas**, além de ter a capacidade de atualizar **todas** as informações do usuário.
 
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
-<div>
+<div align='center'>
     <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg' />
     <img align='center' height='54' width='68' title='Node.js' alt='nodejs' src='https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg' />
     <img align='center' height='55' width='70' title='PostgreSQL' alt='postgresql' src='https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original.svg' />
