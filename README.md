@@ -1,6 +1,6 @@
 # ⛰️ TSBANK API
-![License](https://img.shields.io/static/v1?label=license&message=MIT&color=yellow) &nbsp;
-![Npm version](https://img.shields.io/static/v1?label=npm&message=v10.1.0&color=orange) &nbsp;
+![License](https://img.shields.io/static/v1?label=license&message=MIT&color=orange) &nbsp;
+![Pnpm version](https://img.shields.io/static/v1?label=pnpm&message=v8.13.1&color=yellow) &nbsp;
 ![Repository size](https://img.shields.io/github/repo-size/bush1D3v/tsbank_api?color=green) &nbsp;
 ![Pull request](https://img.shields.io/static/v1?label=PR&message=welcome&color=blue)
 
@@ -60,9 +60,17 @@ Certifique-se de ter Node.js instalado no seu sistema. Em seguida, instale as de
 ```
 npm install
 ```
+
 ou
+
 ```
 yarn install
+```
+
+ou
+
+```
+pnpm install
 ```
 
 ### 🆕 Criando uma Branch
@@ -81,9 +89,17 @@ Garanta que suas alterações não quebraram nenhum recurso existente. Execute o
 ```
 npm run test
 ```
+
 ou
+
 ```
 yarn test
+```
+
+ou
+
+```
+pnpm test
 ```
 
 ### 📝 Documentando
