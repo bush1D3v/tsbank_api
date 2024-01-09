@@ -38,7 +38,6 @@ describe("Update User Controller Tests", () => {
 
     await deleteUser(bearerToken, updatedUser.new_password);
 
-
     bearerToken = await insertUserAndLogin(user, loginUser);
   });
 
