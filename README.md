@@ -35,7 +35,7 @@ Para usar a API, é **necessário** autenticar-se. Você deve obter um **token J
 ## 📃 Documentação da Aplicação
 A seguir, temos o link da **documentação oficial** da nossa aplicação no **Swagger**: <br>
 https://tsbank-api.onrender.com/
-> obs: Pode ocorrer atraso no carregamento, pois se o deploy não for acessado por um certo período, uma requisição subsequente solicitará ao Render que a aplicação seja reativada.
+> obs: Pode ocorrer atraso no carregamento, pois se o UptimeRobot falhar, e, posteriormente, o deploy não for acessado por um certo período, uma requisição subsequente solicitará ao Render que a aplicação saia do "Modo Sleep".
 
 # 🖋️ Contribuindo para a TSBank API
 
