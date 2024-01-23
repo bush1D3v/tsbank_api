@@ -426,8 +426,7 @@
                         "name": "Victor Navarro",
                         "email": "victorjln@gmail.com",
                         "cpf": "12345678931",
-                        "phone": "21123456789",
-                        "password": "vtjln123"
+                        "phone": "21123456789"
                       },
                       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTMsImlhdCI6MTY5ODI3Mzk5NCwiZXhwIjoxNjk4MzYwMzk0fQ.QwMyh8lNdX05Oxbin_wksnAH_ncmRqBaTQJJUKk_kEg"
                     }
