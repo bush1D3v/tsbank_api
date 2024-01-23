@@ -5,8 +5,10 @@ import { DatabaseUserParams } from "../models";
 export default function createToken(user: DatabaseUserParams) {
   const token = sign({ id: user.id }, jwtPassword, { expiresIn: process.env.JWT_EXPIRES });
 
+  const { password: _, ...logedUser } = user;
+
   return {
-    user,
+    user: logedUser,
     token
   };
 };
