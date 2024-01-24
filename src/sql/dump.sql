@@ -5,7 +5,7 @@ CREATE TABLE
     name VARCHAR(75) NOT NULL,
     email VARCHAR(75) NOT NULL UNIQUE,
     phone VARCHAR(11) NOT NULL UNIQUE,
-    password VARCHAR(150) NOT NULL,
+    password VARCHAR(50) NOT NULL,
     balance FLOAT DEFAULT 0
   );
 
