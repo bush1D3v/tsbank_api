@@ -15,9 +15,12 @@ export default async function updatePasswordAndConfirm(req: Request, params: Upd
 
   undefinedUser(user);
 
-  await validatePassword(params.password, user.password);
+  const result = await Promise.all([
+    validatePassword(params.password, user.password),
+    encryptPassword(params.new_password)
+  ]);
 
-  const newPassword = await encryptPassword(params.new_password);
+  const newPassword = result[ 1 ];
 
   await refreshUserPassword(id, newPassword);
 };
