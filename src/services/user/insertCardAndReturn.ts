@@ -15,9 +15,13 @@ export default async function insertCardAndReturn(req: Request, params: CardPara
 
   await validateCard(validateParams);
 
-  const balance = await getBalancePerId(user_id, "users");
+  const result = await Promise.all([
+    getBalancePerId(user_id, "users"),
+    encryptPassword(params.password)
+  ]);
 
-  const cardPassword = await encryptPassword(params.password);
+  const balance = result[ 0 ];
+  const cardPassword = result[ 1 ];
 
   const createCardParams = {
     card_number: params.card_number,
