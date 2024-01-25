@@ -17,9 +17,9 @@ export default async function deleteTransactionAndConfirm(req: Request, params: 
 
   undefinedUser(user);
 
-  await validatePassword(params.password, user.password);
-
-  await validateTransaction(params.transaction_id, userId);
-
-  await dropTransaction(params.transaction_id);
+  await Promise.all([
+    validatePassword(params.password, user.password),
+    validateTransaction(params.transaction_id, userId),
+    dropTransaction(params.transaction_id)
+  ]);
 };
