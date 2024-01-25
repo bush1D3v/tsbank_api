@@ -28,7 +28,7 @@ CREATE TABLE
     cvv VARCHAR(3) NOT NULL,
     user_id INT REFERENCES users (id) NOT NULL,
     created_at TIMESTAMP DEFAULT current_timestamp,
-    balance FLOAT DEFAULT 0,
+    balance REFERENCES users (balance) DEFAULT 0,
     password VARCHAR(6) NOT NULL
   );
 
