@@ -8,9 +8,12 @@ export default async function getTransactionAndReturn(req: Request, transaction_
 
   const userId = getToken(req);
 
-  await validateTransaction(transaction_id, userId);
+  const result = await Promise.all([
+    validateTransaction(transaction_id, userId),
+    getTransaction(transaction_id)
+  ]);
 
-  const transaction = await getTransaction(transaction_id);
+  const transaction = result[ 1 ];
 
   return transaction;
 };
