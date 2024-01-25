@@ -39,7 +39,12 @@ export default async function insertCardTransactionAndReturn(req: Request, param
     value: params.value
   };
 
-  const responseTransaction = await createNewTransaction(transactionParams, userId);
+  const result = await Promise.all([
+    createCardTransaction(params.card_type, userId, params.value),
+    createNewTransaction(transactionParams, userId)
+  ]);
+
+  const responseTransaction = result[ 1 ];
 
   return responseTransaction;
 };
