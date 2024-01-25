@@ -11,11 +11,13 @@ export default async function updatePhoneAndReturn(req: Request, params: UpdateU
 
   undefinedUser(user);
 
-  await validatePassword(params.password, user.password);
+  const result = await Promise.all([
+    validatePassword(params.password, user.password),
+    verifyPhoneExists(params.new_phone),
+    refreshUserPhone(user.phone, params.new_phone)
+  ]);
 
-  await verifyPhoneExists(params.new_phone);
-
-  const returnedPhone = await refreshUserPhone(user.phone, params.new_phone);
+  const returnedPhone = result[ 2 ];
 
   return returnedPhone;
 };
