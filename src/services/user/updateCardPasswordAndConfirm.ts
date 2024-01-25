@@ -17,9 +17,12 @@ export default async function updateCardPasswordAndConfirm(req: Request, params:
 
   const card = await getCardPerUserId(cardParams);
 
-  await validatePassword(params.password, card.password);
+  const result = await Promise.all([
+    validatePassword(params.password, card.password),
+    encryptPassword(params.new_password)
+  ]);
 
-  const password = await encryptPassword(params.new_password);
+  const password = result[ 1 ];
 
   const refreshParams = {
     card_id: card.id,
