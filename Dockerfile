@@ -7,7 +7,6 @@ COPY swagger.json ./
 COPY nodemon.json ./
 COPY jest.config.js ./
 COPY .env ./
-COPY .env.test ./
 COPY . .
 
 RUN npm install
