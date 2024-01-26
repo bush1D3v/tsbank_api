@@ -1,0 +1,8 @@
+.dockerignore
+.editorconfig
+.env.example
+.env.test.example
+.eslintrc.json
+.gitignore
+LICENSE
+README.md
