@@ -7,7 +7,7 @@
     "dev": "nodemon",
     "jest": "npx jest --detectOpenHandles",
     "build": "docker build -t tsbank_api .",
-    "docker": "docker run --name tsbank_api -p 3001:3001 tsbank_api || docker start tsbank_api",
+    "docker": "docker run -d --name tsbank_api -p 3001:3001 tsbank_api || docker start tsbank_api",
     "stop": "docker stop tsbank_api",
     "test": "docker run --rm --name tsbank_api_tests -it tsbank_api yarn jest"
   },
