@@ -8,14 +8,13 @@ import {
 } from "../../providers";
 
 export default async function insertUserAndReturn(params: UserParams) {
-  const result = await Promise.all([
-    verifyEmailExists(params.email),
-    verifyCpfExists(params.cpf),
-    verifyPhoneExists(params.phone),
-    encryptPassword(params.password)
-  ]);
+  await verifyEmailExists(params.email);
 
-  const cryptPassword = result[ 3 ];
+  await verifyCpfExists(params.cpf);
+
+  await verifyPhoneExists(params.phone);
+
+  const cryptPassword = await encryptPassword(params.password);
 
   const newUser = {
     name: params.name,

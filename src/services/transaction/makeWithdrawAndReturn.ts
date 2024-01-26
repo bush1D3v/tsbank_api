@@ -15,20 +15,19 @@ export default async function makeWithdrawAndReturn(req: Request, params: Withdr
 
   undefinedUser(user);
 
+  await validatePassword(params.password, user.password);
+
+  validateOutput(user.balance, params.value);
+
+  await removeValue("balance", params.value, userId);
+
   const transaction = {
     type: "output",
     description: "withdraw",
     value: params.value
   };
 
-  const result = await Promise.all([
-    validatePassword(params.password, user.password),
-    validateOutput(user.balance, params.value),
-    removeValue("balance", params.value, userId),
-    createNewTransaction(transaction, userId)
-  ]);
-
-  const responseTransaction = result[ 3 ];
+  const responseTransaction = await createNewTransaction(transaction, userId);
 
   return responseTransaction;
 };

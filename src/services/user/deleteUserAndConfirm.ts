@@ -15,10 +15,11 @@ export default async function deleteUserAndConfirm(req: Request, password: strin
 
   undefinedUser(user);
 
-  await Promise.all([
-    validatePassword(password, user.password),
-    dropTransactions(userId),
-    dropCards(userId),
-    eraseUser(userId)
-  ]);
+  await validatePassword(password, user.password);
+
+  await dropTransactions(userId);
+
+  await dropCards(userId);
+
+  await eraseUser(userId);
 };

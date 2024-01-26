@@ -17,17 +17,20 @@ export default async function makeCardPayAndReturn(req: Request, params: OutputT
 
   undefinedUser(user);
 
+  await validatePassword(params.password, user.password);
+
   const getCard = {
     cardType: "credit",
     userId
   };
 
-  await Promise.all([
-    validatePassword(params.password, user.password),
-    getCardPerUserId(getCard)
-  ]);
+  await getCardPerUserId(getCard);
 
   validateOutput(user.balance, params.value);
+
+  await cardPay(params.value, userId);
+
+  await removeValue("balance", params.value, userId);
 
   const transaction = {
     type: "output",
@@ -35,13 +38,7 @@ export default async function makeCardPayAndReturn(req: Request, params: OutputT
     value: params.value
   };
 
-  const result = await Promise.all([
-    cardPay(params.value, userId),
-    removeValue("balance", params.value, userId),
-    createNewTransaction(transaction, userId)
-  ]);
-
-  const transactionResponse = result[ 2 ];
+  const transactionResponse = await createNewTransaction(transaction, userId);
 
   return transactionResponse;
 };

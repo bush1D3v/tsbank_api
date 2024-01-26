@@ -13,12 +13,9 @@ export default async function updateEmailAndReturn(req: Request, params: UpdateU
 
   undefinedUser(user);
 
-  const result = await Promise.all([
-    validatePassword(params.password, user.password),
-    refreshUserEmail(userId, params.new_email)
-  ]);
+  await validatePassword(params.password, user.password);
 
-  const returnedEmail = result[ 1 ];
+  const returnedEmail = await refreshUserEmail(userId, params.new_email);
 
   return returnedEmail;
 };

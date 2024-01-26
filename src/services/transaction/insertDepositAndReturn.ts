@@ -23,19 +23,17 @@ export default async function insertDepositAndReturn(req: Request, params: Depos
 
   undefinedUser(user);
 
-  const transactionParams = {
+  await validatePassword(params.password, user.password);
+
+  await createNewDeposit(params.email, params.value);
+
+  let transactionParams = {
     type: "input",
     description: "deposit",
     value: params.value
   };
 
-  const result = await Promise.all([
-    validatePassword(params.password, user.password),
-    createNewDeposit(params.email, params.value),
-    createNewTransaction(transactionParams, validEmail.id)
-  ]);
-
-  const inputTransaction = result[ 2 ];
+  const inputTransaction = await createNewTransaction(transactionParams, validEmail.id);
 
   return inputTransaction;
 };

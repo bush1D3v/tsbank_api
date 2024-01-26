@@ -10,10 +10,9 @@ import {
 } from "../../providers";
 
 export default async function updateUserAndReturn(req: Request, params: UpdateUserParams) {
-  await Promise.all([
-    verifyEmailExists(params.new_email),
-    verifyPhoneExists(params.new_phone)
-  ]);
+  await verifyEmailExists(params.new_email);
+
+  await verifyPhoneExists(params.new_phone);
 
   const userId = getToken(req);
 
@@ -21,12 +20,9 @@ export default async function updateUserAndReturn(req: Request, params: UpdateUs
 
   undefinedUser(user);
 
-  const result = await Promise.all([
-    validatePassword(params.password, user.password),
-    encryptPassword(params.new_password)
-  ]);
+  await validatePassword(params.password, user.password);
 
-  const cryptPassword = result[ 1 ];
+  const cryptPassword = await encryptPassword(params.new_password);
 
   const refreshed = {
     new_email: params.new_email,

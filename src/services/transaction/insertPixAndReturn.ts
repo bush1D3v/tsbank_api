@@ -28,11 +28,15 @@ export default async function insertPixAndReturn(req: Request, params: PixParams
 
   validateOutput(user.balance, params.value);
 
+  await validatePassword(params.password, user.password);
+
   const pixParams = {
     cpf: params.cpf,
     value: params.value,
     user_id: userId
   };
+
+  await createNewPix(pixParams);
 
   let transactionParams = {
     type: "output",
@@ -40,21 +44,15 @@ export default async function insertPixAndReturn(req: Request, params: PixParams
     value: params.value
   };
 
-  const result = await Promise.all([
-    validatePassword(params.password, user.password),
-    createNewPix(pixParams),
-    createNewTransaction(transactionParams, userId),
+  const responseTransaction = await createNewTransaction(transactionParams, userId);
 
-    transactionParams = {
-      type: "input",
-      description: "pix",
-      value: params.value
-    },
+  transactionParams = {
+    type: "input",
+    description: "pix",
+    value: params.value
+  };
 
-    createNewTransaction(transactionParams, cpfUser.id)
-  ]);
-
-  const responseTransaction = result[ 2 ];
+  await createNewTransaction(transactionParams, cpfUser.id);
 
   return responseTransaction;
 };
