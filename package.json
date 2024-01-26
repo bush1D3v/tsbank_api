@@ -6,12 +6,13 @@
   "scripts": {
     "start": "nodemon",
     "jest": "npx jest --detectOpenHandles",
-    "docker": "docker run --name tsbank_api -p 3001:3001 tsbank_api",
-    "test": "docker run --rm --name tsbank_api_tests -it tsbank_api npm run jest",
-    "build": "docker build -t tsbank_api ."
+    "build": "docker build -t tsbank_api .",
+    "docker": "docker run --name tsbank_api -p 3001:3001 tsbank_api || docker start tsbank_api",
+    "stop": "docker stop tsbank_api",
+    "test": "docker run --rm --name tsbank_api_tests -it tsbank_api yarn jest"
   },
   "keywords": [
-    "pnpm",
+    "yarn",
     "jwt",
     "bcrypt",
     "express",
@@ -30,7 +31,11 @@
     "dotenv",
     "eslint",
     "ts-node",
-    "dayjs"
+    "dayjs",
+    "docker",
+    "swagger",
+    "swagger-ui-express",
+    "swagger-jsdoc"
   ],
   "author": "Victor José Lopes Navarro",
   "license": "MIT",
