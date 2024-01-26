@@ -4,8 +4,9 @@
   "description": "API RESTful de simulações bancárias.",
   "main": "server.ts",
   "scripts": {
-    "dev": "nodemon",
-    "test": "npx jest --detectOpenHandles"
+    "start": "nodemon",
+    "test": "npx jest --detectOpenHandles",
+    "docker": "docker build -t tsbank_api . && docker run --name tsbank_api -p 3001:3001 tsbank_api"
   },
   "keywords": [
     "pnpm",
