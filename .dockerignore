@@ -1,3 +1,4 @@
+node_modules
 .dockerignore
 .editorconfig
 .env.example
