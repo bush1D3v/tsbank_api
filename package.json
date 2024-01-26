@@ -5,8 +5,10 @@
   "main": "server.ts",
   "scripts": {
     "start": "nodemon",
-    "test": "npx jest --detectOpenHandles",
-    "docker": "docker build -t tsbank_api . && docker run --name tsbank_api -p 3001:3001 tsbank_api"
+    "jest": "npx jest --detectOpenHandles",
+    "docker": "docker run --name tsbank_api -p 3001:3001 tsbank_api",
+    "test": "docker run --rm --name tsbank_api_tests -it tsbank_api npm run jest",
+    "build": "docker build -t tsbank_api ."
   },
   "keywords": [
     "pnpm",
