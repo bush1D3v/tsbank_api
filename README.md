@@ -44,6 +44,14 @@ https://tsbank-api.onrender.com/
 
 > obs: Pode ocorrer atraso no carregamento, pois se o UptimeRobot falhar, e, posteriormente, o deploy não for acessado por um certo período, uma requisição subsequente solicitará ao Render que a aplicação saia do "Modo Sleep".
 
+## 🐳 Docker
+
+Com a adição do Docker, você agora pode utilizar dos scripts fornecidos em `package.json` para poder construir a imagem docker e rodar os containers da aplicação e dos testes.
+
+Para isso, segue a lista de funções de cada script:
+
+> `build`: Constrói a imagem docker do projeto <br> `docker`: Sobe e roda/só roda o container tsbank_api <br> `stop`: Para o container tsbank_api <br> `test`: Sobe um container alternativo chamado tsbank_api_tests, roda os testes e exclui o container após a execução dos mesmos
+
 # 🖋️ Contribuindo para a TSBank API
 
 Agradecemos pelo seu interesse em contribuir para a **TSBank API**. Sua ajuda é **valiosa** para melhorar e **expandir** nossa aplicação. Abaixo estão as **diretrizes** e os **passos** para contribuir com nosso projeto.
@@ -117,7 +125,7 @@ pnpm test
 
 ### 📝 Documentando
 
-Mantenha a documentação atualizada. Se você adicionou novos recursos, verifique se eles estão devidamente documentados no README.
+Mantenha a documentação atualizada. Se você adicionou novos recursos, verifique se eles estão devidamente documentados no Swagger.
 
 ### 📊 Compromissos e Push
 
