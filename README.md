@@ -50,7 +50,7 @@ Com a adição do Docker, você agora pode utilizar dos scripts fornecidos em `p
 
 Para isso, segue a lista de funções de cada script:
 
-> `build`: Constrói a imagem docker do projeto <br> `docker`: Sobe e roda/só roda o container tsbank_api <br> `stop`: Para o container tsbank_api <br> `test`: Sobe um container alternativo chamado tsbank_api_tests, roda os testes e exclui o container após a execução dos mesmos
+> `docker-build`: Constrói a imagem docker do projeto <br> `docker-start`: Sobe e roda/só roda o container tsbank_api <br> `docker-stop`: Para o container tsbank_api <br> `docker-test`: Sobe um container alternativo chamado tsbank_api_tests, roda os testes e exclui o container após a execução dos mesmos
 
 # 🖋️ Contribuindo para a TSBank API
 
