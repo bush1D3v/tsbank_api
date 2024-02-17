@@ -7,12 +7,12 @@
     "dev": "nodemon",
     "jest": "npx jest --detectOpenHandles",
     "docker-build": "docker build -t tsbank_api .",
-    "docker-start": "docker run -d --name tsbank_api -p 3001:3001 tsbank_api || docker start tsbank_api",
+    "docker-start": "docker run --name tsbank_api -p 3001:3001 tsbank_api || docker start tsbank_api",
     "docker-stop": "docker stop tsbank_api",
-    "docker-test": "docker run --rm --name tsbank_api_tests -it tsbank_api yarn jest"
+    "docker-test": "docker run --rm --name tsbank_api_tests -it tsbank_api bun run jest"
   },
   "keywords": [
-    "yarn",
+    "bun",
     "jwt",
     "bcrypt",
     "express",
