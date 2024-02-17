@@ -9,10 +9,11 @@
     "docker-build": "docker build -t tsbank_api .",
     "docker-start": "docker run --name tsbank_api -p 3001:3001 tsbank_api || docker start tsbank_api",
     "docker-stop": "docker stop tsbank_api",
-    "docker-test": "docker run --rm --name tsbank_api_tests -it tsbank_api bun run jest"
+    "docker-test": "docker run --rm --name tsbank_api_tests -it tsbank_api yarn jest"
   },
   "keywords": [
     "bun",
+    "yarn",
     "jwt",
     "bcrypt",
     "express",
