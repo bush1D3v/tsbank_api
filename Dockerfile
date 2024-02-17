@@ -1,17 +1,11 @@
-FROM oven/bun:1 as builder
+FROM node:21-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json ./
-COPY bun.lockb ./
-COPY swagger.json ./
-COPY nodemon.json ./
-COPY jest.config.js ./
-COPY .env ./
-COPY .env.test ./
+COPY package.json yarn.lock ./
 COPY . .
 
-RUN bun install
+RUN yarn install
 
 FROM builder AS final
 
@@ -19,4 +13,4 @@ COPY --from=builder /app /app
 
 EXPOSE 3001
 
-CMD ["bun", "dev"]
+CMD ["yarn", "dev"]
