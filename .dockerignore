@@ -5,5 +5,6 @@ node_modules
 .env.test.example
 .eslintrc.json
 .gitignore
+bun.lockb
 LICENSE
 README.md
